@@ -21,9 +21,10 @@ body {
 h1,h2,h3,h4 {
 	color: White;
 	padding-left:10px;
-	outline: 3px solid #2b646e;
+	outline: 5px solid #2b646e;
 <!--	text-align:center; -->
 }
+
  em {
 	 color: yellow;
  }
@@ -31,7 +32,7 @@ h1,h2,h3,h4 {
  img {
 	max-width:100%;
 	vertical-align: middle;
-	padding-right 10px
+	text-align: center;
  }
 
 a {
@@ -42,20 +43,53 @@ a {
 	 display: flex;
 	 align-items: center;
 	 justify-content: center;
+	 margin-left: 5px;
+	 margin-right: 5px;
+ }
+
+.container2 {
+	display: block;
+	align-items: center;
+	justify-content: center;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding-bottom: 10px;
  }
 
  .image{
-
+	border: 5px solid #2b646e;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
  }
 
  .text{
-	 font-size: 14px;
+	font-size: 14px;
+	text-align: justify;
  }
 
  .profile{
 	border: 5px solid #2b646e;
 	display: block;
 	margin-left: auto;
-	margin-right: auto;
-	width: 85%
+	margin-right: 20px;
+	width: 75%
+ }
+
+ .label{
+	border: 5px solid #2b646e;
+	text-align: justify;
+	display: block;
+	padding-left:5px;
+	padding-right:5px;
+ }
+
+ .u_label{
+	border: 5px solid #2b646e;
+	text-align: justify;
+	display: block;
+	padding-left:5px;
+	padding-right:5px;
+	width:440px;
+
  }
