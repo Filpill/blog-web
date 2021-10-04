@@ -2,7 +2,6 @@ html {
 	background: linear-gradient(DarkSlateGrey, orange) fixed;
 }
 
-
 body {
 	color: White;
 	max-width: 800px;
@@ -16,13 +15,18 @@ body {
 	border-color: #2b646e;
 	padding-left:30px;
 	padding-right:30px;
+	font-size: 12px;
+	font-family: "Verdana";
 }
 
 h1,h2,h3,h4 {
 	color: White;
 	padding-left:10px;
-	outline: 5px solid #2b646e;
-<!--	text-align:center; -->
+	border-radius: 10px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #708c9c;
+	background: #2b646e;
 }
 
  em {
@@ -40,56 +44,81 @@ a {
 }
 
  .container {
-	 display: flex;
+	 display: block;
 	 align-items: center;
 	 justify-content: center;
 	 margin-left: 5px;
 	 margin-right: 5px;
+         margin-bottom: 5px;
+         margin-top: 15px;
  }
 
-.container2 {
-	display: block;
-	align-items: center;
-	justify-content: center;
-	margin-left: 5px;
-	margin-right: 5px;
-	padding-bottom: 10px;
- }
+.grid-container{
+	display:grid;
+	grid-auto-flow: column;
+	grid-auto-columns: repeat(4, 1fr);
+	grid-template-areas: "A B B B";
+	margin: 0 auto;
+}
+
+.grid-profile{
+	display:grid;
+	grid-auto-flow: column;
+	grid-auto-columns: repeat(4, 1fr);
+	grid-template-areas: "A A B B";
+	margin: 0 auto;
+}
+
+.A{
+
+	height:100%;
+	width:100%;
+	grid-area: A;
+	padding-right:10px;
+	}
+
+.B{
+	grid-area: B;
+	padding-left:10px;
+}
 
  .image{
-	border: 5px solid #2b646e;
+	border: 5px solid #708c9c;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+
  }
 
  .text{
-	font-size: 14px;
 	text-align: justify;
  }
 
- .profile{
-	border: 5px solid #2b646e;
-	display: block;
-	margin-left: auto;
-	margin-right: 20px;
-	width: 75%
- }
 
  .label{
-	border: 5px solid #2b646e;
+	border: 5px solid #708c9c;
+	background: #2b646e;
 	text-align: justify;
 	display: block;
 	padding-left:5px;
 	padding-right:5px;
  }
 
- .u_label{
-	border: 5px solid #2b646e;
-	text-align: justify;
-	display: block;
-	padding-left:5px;
-	padding-right:5px;
-	width:440px;
+.ftest{
+	border: 5px solid #708c9c;
+	height:350px;
+	width:auto
+	}
 
- }
+ .fill{
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('web_pics/UAV/flight-test.gif')
+}
+
+.center {
+	position: relative;
+	top: 50%;
+	transform: translate(0, -50%);
+}
