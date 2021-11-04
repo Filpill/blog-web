@@ -7,7 +7,8 @@ body {
 	max-width: 800px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 30px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	background: #033;
 	border-radius: 20px;
 	border-style: solid;
@@ -24,19 +25,24 @@ h1,h2,h3,h4 {
 	padding-left:10px;
 	border-radius: 10px;
 	border-style: solid;
-	border-width: 3px;
+	border-width: 4px;
 	border-color: #708c9c;
 	background: #2b646e;
 }
 
+li {
+	padding: 3px 10px;
+}
+
  em {
-	 color: yellow;
+
  }
 
  img {
 	max-width:100%;
 	vertical-align: middle;
 	text-align: center;
+	border-radius: 5px;
  }
 
 a {
@@ -50,7 +56,7 @@ a {
 	 margin-left: 5px;
 	 margin-right: 5px;
          margin-bottom: 5px;
-         margin-top: 15px;
+         margin-top: 20px;
  }
 
 .grid-container{
@@ -70,7 +76,6 @@ a {
 }
 
 .A{
-
 	height:100%;
 	width:100%;
 	grid-area: A;
@@ -84,6 +89,7 @@ a {
 
  .image{
 	border: 5px solid #708c9c;
+	border-radius: 10px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -92,33 +98,58 @@ a {
 
  .text{
 	text-align: justify;
+	border: 5px solid #708c9c;
+	border-radius: 10px;
+	background: #2b646e;
+	display: block;
+	padding-left:5px;
+	padding-right:5px;
  }
-
 
  .label{
 	border: 5px solid #708c9c;
+	border-radius: 10px;
 	background: #2b646e;
-	text-align: justify;
+	text-align: center;
 	display: block;
+	margin-top:5px;
 	padding-left:5px;
 	padding-right:5px;
  }
 
 .ftest{
 	border: 5px solid #708c9c;
-	height:350px;
+	border-radius: 10px;
+	height:450px;
 	width:auto
-	}
+}
 
  .fill{
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-image: url('web_pics/UAV/flight-test.gif')
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: none;
+
+	overflow: hidden;
+	background-size: cover;
+	background-position: center;
+	background-image: url('web_pics/UAV/flight-test.gif')
 }
 
 .center {
 	position: relative;
 	top: 50%;
 	transform: translate(0, -50%);
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }

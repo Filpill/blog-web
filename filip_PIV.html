@@ -11,23 +11,45 @@
 
 	<h1>An Experimental Study of Flow Sepration on a Forward Facing Step Using PIV</h1>
 
+	<h2>Overview</h2>
 
 	<div class="container">
+		<div class ="text">
+
+			<p>My 3rd year project in University was to design a Forward Facing Step and perform wind tunnel experiments to analyse flow characteristics on that geometry using PIV.</p>
+
+			<p>Particle Image Velocimetry is a practical tool for Aerodynamics analyse flow fields without intrusions in the wind tunnel environment such as sensors or pitot probes. </p>
+
+			<p>In this experiment the height of the boundary layer is similarly proportioned to the height of the step. In results shown below you will notice two distinct separation regions on the aerofoil. One at the bottom of the step due to the sudden adverse pressure gradient. And another at the top of the step as the flow is unable to sharply turn the corner.</p>
+
+			<strong> <p>Here are some highlights from the PIV project:</p> </strong>
+
+
 		<div class ="label">
+			<strong>	<p>Link to dissertation: <a href="https://drive.google.com/file/d/1jDI40Nh-rvW2NaWesEU0GMw8Fhbb6ypA/view"</a>Particle Image Velocimetry Report</a> </p> </strong>
+		</div>
 
-			<p>My elected project for my 3rd year in University was to design a Forward Facing Step and perform wind tunnel experiments to analyse flow characteristics on that type of geometry using PIV.</p>
-
-			<p>Particle Image Velocimetry is a practical tool for Aerodynamics analyse flow fields without intrusions in the wind tunnel environment. The method of extracting the data involved illuminating a plane of airflow with a laser and caputuring the images with a high speed camera. The images are then post processed with a program to obtain the velocity field.</p>
-
-			<p>Here are some highlights from the PIV project:</p>
-
-
-			<p>Link to project here: <a href="https://drive.google.com/file/d/1jDI40Nh-rvW2NaWesEU0GMw8Fhbb6ypA/view"</a>Particle Image Velocimetry Report</a> </p>
+		<br>
 
 		</div>
 	</div>
 
-	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html"</a>Back to Home Page</a> </p>
+
+
+
+	<h2>Experimental Procedure</h2>
+
+	<div class="container">
+		<div class ="text">
+
+			<p>The experimental procedure involves diffusing small oil droplets into the freestream flow and having a sheet of laser light illuminating a cross-section of the airflow. Hundreds of images are caputured in the process a high speed camera.</p>
+
+			<p>Images need some further preparation to enable reliable PIV results. Usually this involves enhancing contrast of the images to make the particles visible. Additionally any background noise picked up by the camera needs to be subtracted from the image as we want to isolate the airflow as much as possible. </p>
+
+			<p>Particle displacements on the images can be determined by performing a cross-corrleation on the series of image pairs. In my case, I used openPIV software written in Python to extract all the velocity fields at all the times steps recorded.  Additionally, I've written some post-processing scripts for the velocity data text files in Python to animate experimental results.</p>
+                                                                                                                                                                                                                                                                        	             </div>
+	</div>
+
 
 	<h2>Experimental Arrangement</h2>
 
@@ -50,7 +72,7 @@
 			</div>
 
 			<div class ="label">
-				<p>Diagram illustrating scale of boundary layer and step in additon to expected flow separation bubbles</p>
+				<p>Diagram illustrating scale of boundary layer and step in addition to expected flow separation regions.</p>
 			</div>
 
 
@@ -63,7 +85,7 @@
 			</div>
 
 			<div class ="label">
-				<p>Raw wind tunnel image capturing illuminated particles moving over step - Contrast in picture enhanced using imageJ and additionally subtracted the background noise in the image.</p>
+				<p>Raw wind tunnel image capturing illuminated particles moving over step - Contrast in picture enhanced using imageJ and background noise subtracted from the image.</p>
 			</div>
 
 
