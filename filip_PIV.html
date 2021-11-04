@@ -16,6 +16,8 @@
 	<div class="container">
 		<div class ="text">
 
+			<p><strong>Project Scope:</strong></p>
+
 			<p>My 3rd year project in University was to design a Forward Facing Step and perform wind tunnel experiments to analyse flow characteristics on that geometry using PIV.</p>
 
 			<p>Particle Image Velocimetry is a practical tool for Aerodynamics analyse flow fields without intrusions in the wind tunnel environment such as sensors or pitot probes. </p>
@@ -42,11 +44,14 @@
 	<div class="container">
 		<div class ="text">
 
-			<p>The experimental procedure involves diffusing small oil droplets into the freestream flow and having a sheet of laser light illuminating a cross-section of the airflow. Hundreds of images are caputured in the process a high speed camera.</p>
+			<p><strong>Wind Tunnel Experiment</strong></p>
+			<p>The experimental procedure involves diffusing small oil droplets into the freestream flow and having a sheet of laser light illuminating a cross-section of the airflow. Hundreds of images are caputured in the process a high speed camera. Due to the limited field of vision, the results from the top and bottom of the step were recorded seperately.</p>
 
+			<p><strong>Image Post-Processing</strong></p>
 			<p>Images need some further preparation to enable reliable PIV results. Usually this involves enhancing contrast of the images to make the particles visible. Additionally any background noise picked up by the camera needs to be subtracted from the image as we want to isolate the airflow as much as possible. </p>
 
-			<p>Particle displacements on the images can be determined by performing a cross-corrleation on the series of image pairs. In my case, I used openPIV software written in Python to extract all the velocity fields at all the times steps recorded.  Additionally, I've written some post-processing scripts for the velocity data text files in Python to animate experimental results.</p>
+			<p><strong>OpenPIV and Python Post-Process Scripts</strong></p>
+			<p>Particle displacements on the images can be determined by performing a cross-corrleation on the series of image pairs. In my case, I used OpenPIV software written in Python to extract all the velocity fields at all the times steps recorded.  Additionally, I've written some post-processing scripts for the velocity data text files in Python to animate experimental results. <em>(I used MATLAB equivalents for my dissertation at the time of the project).</em></p>
                                                                                                                                                                                                                                                                         	             </div>
 	</div>
 
@@ -59,7 +64,7 @@
 			</div>
 
 			<div class ="label">
-				<p>Diagram illustrating basic experimental set-up to capture wind tunnel data.</p>
+				<p><strong>Experimental set-up -</strong> Illustration of camera and laser positioning to capture wind tunnel data.</p>
 			</div>
 
 
@@ -72,7 +77,7 @@
 			</div>
 
 			<div class ="label">
-				<p>Diagram illustrating scale of boundary layer and step in addition to expected flow separation regions.</p>
+				<p><strong> Diagram of wind tunnel cross-section -</strong> Illustrating scale of boundary layer in relation to step and expected flow behaviour.</p>
 			</div>
 
 
@@ -85,7 +90,7 @@
 			</div>
 
 			<div class ="label">
-				<p>Raw wind tunnel image capturing illuminated particles moving over step - Contrast in picture enhanced using imageJ and background noise subtracted from the image.</p>
+				<p><strong>Raw wind tunnel image with imageJ enhancements -</strong> Capturing illuminated particles moving over step within laser plane.</p>
 			</div>
 
 
@@ -95,31 +100,56 @@
 
 	<h2>Particle Image Velocimetry Results</h2>
 
-	<div class="container">
-			<div class ="image">
-				<img src="web_pics/PIV/piv-front-results.gif" alt="PIV Results Animation" title="PIV Results Animation" width=100%>
-			</div>
+	<div class="label">
+	<h3>Time Averaged Velocity Contours</h3>
 
+			<div class="row">
+				<div class="column">
+					<h3><strong>Bottom of Step</strong></h3>
+					<div class ="image">
+						<img src="web_pics/PIV/piv-front-vel-results.gif" alt="PIV Results Animation" title="PIV Results Animation" width=100%>
+					</div>
+				</div>
+			<div class="row">
+				<div class="column">
+					<h3><strong>Top of Step</strong></h3>
+					<div class ="image">
+						<img src="web_pics/PIV/piv-rear-vel-results.gif" alt="PIV Results Animation" title="PIV Results Animation" width=100%>
+					</div>
+
+				</div>
+			</div>
+			</div><br>
 			<div class ="label">
-				<p>PIV Results Showing Mean Velocity Contours and Turbulence Intensity in the front of the step.</p>
+				<p><strong>PIV Results Showing Mean Velocity Contours -</strong> u and v velocity components shown on front and rear of step respectively to highlight the overall aerodynamic flow structure.</p>
+			</div><br>
+			</div><br>
+
+	<div class="label">
+	<h3>Time Averaged Velocity Contours</h3>
+
+			<div class="row">
+				<div class="column">
+					<h3><strong>Bottom of Step</strong></h3>
+					<div class ="image">
+						<img src="web_pics/PIV/piv-front-turb-results.gif" alt="PIV Results Animation" title="PIV Results Animation" width=100%>
+					</div>
+				</div>
+			<div class="row">
+				<div class="column">
+					<h3><strong>Top of Step</strong></h3>
+					<div class ="image">
+						<img src="web_pics/PIV/piv-rear-turb-results.gif" alt="PIV Results Animation" title="PIV Results Animation" width=100%>
+					</div>
+
+				</div>
 			</div>
-
-
-		</div>
-	</div>
-
-	<div class="container">
-			<div class ="image">
-				<img src="web_pics/PIV/piv-rear-results.gif" alt="PIV Results Animation" title="PIV Results Animation" width=100%>
-			</div>
-
+			</div><br>
 			<div class ="label">
-				<p>PIV Results Showing Mean Velocity Contours and Turbulence Intensity in the rear of the step.</p>
+				<p><strong>PIV Results Showing RMS Contours -</strong> components of u and v turbulence intensity computed to indicate regions of turbulent activity.</p>
+			</div><br>
 			</div>
 
-
-		</div>
-	</div>
 
 	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html"</a>Back to Home Page</a> </p>
 
