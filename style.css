@@ -149,6 +149,7 @@ a {
 
 /* Clear floats after the columns */
 .row:after {
+  grid-column-gap: 40px;
   content: "";
   display: table;
   clear: both;
