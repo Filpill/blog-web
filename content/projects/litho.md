@@ -3,10 +3,11 @@ title: "Lithophane Lamp"
 date: 2021-11-13
 draft: true
 ShowToC: true
+img_path: litho/litho.gif
 
 cover:
-  image : img/litho/litho.gif
-  alt: 'Lithophane Animation'
+  image : img/litho/sw-litho.jpg
+  alt: 'Lithophane SW Model'
 
 tags: ["lithophane","3d-printing","design","engineering","photoshop"]
 categories: ["engineering","design"]
@@ -25,7 +26,9 @@ categories: ["engineering","design"]
 - I have two slightly different designs to accomadate either an E14 lamp socket or an E27 lamp socket.
 - This was due to supply issues of light sockets at the time of design which prompted a redesign due to time constraints.
 
+
 ### Printing and Design
+
 - Images are preprocessed to correct specs and lithophane stl's are generated using: https://itslitho.com"
 - Lithophane thickness paramaters:
 	- smallest wall thickness 0.9mm
@@ -35,10 +38,11 @@ categories: ["engineering","design"]
 	- 0.4mm nozzle
 	- Total print time is 26 hours (my printer set-up)
 
-### Solidworks Model
+### Animation
 
 - The version shown below in the pictures is the E14 litho lamp:
 	- Max Width = 185mm
 	- Height = 130mm
 
-  ![Solidworks Model](/img/litho/sw-litho.jpg)
+
+{{< img720 src = "/img/litho/litho.gif" >}}

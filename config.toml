@@ -5,8 +5,8 @@ theme = "hugo-PaperMod"
 
 [params.homeInfoParams]
 enabled = true
-title = "Project Website" # optional default will be site title
-Content = "Welcome to my website: Documenting various engineering and data science projects I've built."
+title = "Filip's Project Website" # optional default will be site title
+Content = "**Welcome:** Documenting various engineering and data science projects I've built."
 subtitle = "Contact"
 imageUrl = "img/profile/filip.jpg" # optional
 imageTitle = "<Filip Livancic>" # optional

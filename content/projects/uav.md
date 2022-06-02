@@ -1,22 +1,23 @@
 ---
 title: "UAV Aircraft Design"
-date: 2022-05-31T00:59:13+01:00
+date: 2018-06-17
 draft: true
 ShowToC: true
 
 cover:
-  image: img/uav/balance.gif
+  image: img/uav/windtunnel.jpg
   alt: 'Wind Tunnel Test'
 
-tags: ["design","engineering","uav","aircraft","payload","aerodynamics","rc","electronics","propulsion","solidworks","MATLAB"]
+tags: ["design","engineering","uav","aircraft","aerodynamics","flight-dynamics","electronics","propulsion","solidworks","MATLAB"]
 categories: ["engineering","design"]
 ---
 
-### Summary
+## Summary
 
 - My elected project for my 4th year in University was to design and build a UAV aircraft. The design requirements were driven out from the 2017 BMFA competition (Payload Challenge).
 - The design had to be capable of flying some circuits with varying volumes of water weighing up to 3.5kg.
 - As project engineer, I was responsible for coordinating the technical requirements and outputs between our sub-teams.
+[Link to Project Report](https://drive.google.com/file/d/12L3sA-PAy6hqoBoNMJYf0l1sCFE1jM97/view)
 
 
 ## Aircraft Design Process
@@ -35,42 +36,72 @@ categories: ["engineering","design"]
 - Areas of the aircaft which experience high loading (e.g. landing gear, wing root etc.) have been reinforced with plywood and less stressed areas are built with the less dense materials such as balsa to maintain a low overall empty weight.
 
 
-### Design Overview
+ Conceptual Design Phase                |  &nbsp;  &nbsp;  |  Detailed Design Phase
+| :--------                             | :--------------:   | -----------------:               |
+| Aircraft Market Analysis              | /---------------/  | Aircraft CAD Concept Design      |
+| Derive Flight Equations               | /---------------/ | Preliminary CAD Design           |
+| Select Appropriate Design Point       | /---------------/  | Solidworks Final CAD             |
+| Estimate MTOW and OWE                 | /---------------/  | Early Prototyping and Testing    |
+| Decide on Aircraft Configuration      | /---------------/  | Design Revisions and Improvement |
+| Aircraft Centre of Gravity Estimation | /---------------/  | Final Manufacturing Output       |
+| Aerofoil Comparision and Selection    | /---------------/  | Electronic Systems Integration   |
+| Flight Dynamics Analysis              | /---------------/  | Systems Validation and Testing   |
+| Material Selection                    | /---------------/  | Wind Tunnel Testing              |
+| Preliminary Structural Analysis       | /---------------/  | Flight Test                      |
 
-The conceptual and detailed design phases have been summerised here:
+
+## Solidworks Design
 
 
-#### Conceptual Design Phase:
-- Data Collection and Market Analysis
-- Derive Flight Equations and Select Appropriate Design Point
-- Estimate Maximum Take-off Weight and Empty Weight
-- Decide on Aircraft Configuration
-- Aircraft Centre of Gravity Estimation
-- Aerofoil Comparision and Selection
-- Flight Dynamics Analysis
-- Material Selection
-- Preliminary Structural Analysis
+### Exploded View
 
-#### Detailed Design Phase:
-- Solidworks Preliminary Design Phase
-- Solidworks Final Design Phase
-- Early Prototyping and Testing
-- Design Revisions and Improvement
-- Final Manufacturing Output
-- Electronic Systems Integration
-- Systems Validation and Testing
-- Wind Tunnel Testing
-- Flight Test
+- Standard water bottle storing main payload in fuselage.
+- Supplemented with custom polypropylene wing tanks.
 
-### Solidworks Design
+![Exploded View](/img/uav/explode.jpg)
 
-### Manufacturing
 
-### Testing and Systems Validation
-:-------------------------:|:-----------------------------------------:
-![Aileron Testing](/img/ua/e-test.gif) |
+### Drawing of UAV Assembly (Final Iteration)
+
+- Conventional aircraft structure with carbon fiber boom connecting tailplane to the fuselage.
+
+![Assembly Drawing](/img/uav/assy.jpg)
+
+## Manufacturing
+
+### Early Construction of Aircraft
+
+- Constructed with sheets of lasercut balsa and plywood jigsawed together into an assembly.
+
+![Early Construction](/img/uav/early-build.jpg)
+
+### Finalised Construction of Aircraft
+
+- This is the final assembly of the aircraft after gluing/ironing on the skin.
+
+![Late Construction](/img/uav/late-build.jpg)
+
+## Testing
+
+###  Structural Validation Test - Wing Loading
+
+- Emulated elliptical wind loading distribution on test spar element
+- Spar failure at 8kg of wing loading.
 
 ![Load Testing](/img/uav/ld-test.gif)
+| :--------: |
+Simulating Maximum Wing Loading on Spar
 
 
-{{< img src="img/uav/f-test.gif" alt="f-test">}}
+###  Flight Control Testing
+
+- Installing servos for ailerons and flaps; testing the control mechanisms.
+- Flight test to validate aircraft design and measure flight performance.
+
+![Aileron Testing](/img/uav/e-test.gif#center) | {{< img500 src = "/img/uav/f-test.gif" >}}
+| :--------: | :----------: |
+Flaps and Ailerons | Flight Test
+
+{{< img720 src = "/img/uav/balance.gif" >}}
+| :--------: |
+Pitch Control

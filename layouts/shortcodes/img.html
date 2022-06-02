@@ -1,4 +1,0 @@
-{{ $image := resources.GetMatch (.Get "src") }}
-{{ with $image }}
-  <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
-{{ end }}
