@@ -1,4 +1,4 @@
-baseURL = 'filpill.github.io'
+baseURL = 'https://filpill.github.io/'
 languageCode = 'en-us'
 title = 'Filip Livancic'
 theme = "hugo-PaperMod"
@@ -8,9 +8,8 @@ enabled = true
 title = "Filip's Project Website" # optional default will be site title
 Content = "**Welcome:** Documenting various engineering and data science projects I've built."
 subtitle = "Contact"
-imageUrl = "img/profile/filip.jpg" # optional
 imageTitle = "<Filip Livancic>" # optional
-imageWidth = 180 # custom size
+jmageWidth = 180 # custom size
 imageHeight = 240 # custom size
 
 [params.cover]
