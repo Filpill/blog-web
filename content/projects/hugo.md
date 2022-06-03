@@ -32,8 +32,8 @@ I will provide some general guidance as to how this website was developed:
 ## Github Repositories
 
 - To build and deploy the website, we require two seperate repositories:
-	- A production repo (blog-web): containing the markup documents
-	- A deployment repo (Filpill.github.io): containing the file compiled into static HTML
+	- A production repo [blog-web](https://github.com/Filpill/blog-web): containing the markup documents
+	- A deployment repo [Filpill.github.io](https://github.com/Filpill/Filpill.github.io): containing the file compiled into static HTML
 
 - After the producing the file in the production repo, the static files sitting in the public folder are pushed inot the deployment repo.
 - The deployment repo exists so we can allow github to easily search the html files and display them.
@@ -86,9 +86,28 @@ hugo new page_folder/page_name.md
 - You will have a new mark down file with the default markdown template for you page.
 - Using markdown, you can populate the file with your webpage content.
 
-### Images and Assets
+### Images
+
+Images are stored in one of two directories. Either static folder or the assets folder:
+
+- The static folder exists if you wish to directly use your image in their stored state via the markdown language.
+- Although its not always convinient to have everything in the static folder if for example the image is a large file size.
+- You may wish to optimise the image by scaling down the resolution or compressing the image, and this will only be the case if you call the image in the assets folder.
+- You can make some HTML shortcodes to standardise what kind of optimisation you want to apply to the image.
+- In the case of gifs its hard to optimise them (whilst retaining a quality animation).
+- Technically .gif files are not optimal inclusions into minimal websites due to the large file size.
+- But I include gifs to as they still serve as interesting visual illustrations in the case of engineering.
 
 ### Compiling on Local Server
+
+Observing the compiled version of the website is simple, type the following command:
+
+```[zsh]
+hugo server -D
+```
+- I believe adding the -D argument at the end also compiles the documents with the draft label.
+- Failing to add the -D at the end when you have draft documents set at true means that they will not render.
+- The local website host can be found at [http://localhost:1313/](http://localhost:1313/)
 
 ### Compiling Static Files into Public Folder
 
