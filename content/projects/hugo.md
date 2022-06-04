@@ -8,7 +8,7 @@ cover:
   image: img/hugo/hugologo.png
   alt: "Hugo Logo"
 
-tags: ["html","css","markdown","go","website","javascript"]
+tags: ["html","css","markdown","go","website","javascript","shell","vim","scripting"]
 categories: ["design"]
 
 ---
@@ -27,7 +27,7 @@ The compiled HTML files are hosted on my github pages.
 
 # Process
 
-I will provide some general guidance as to how this website was developed:
+I will provide some general guidance as to how this website was developed, although this guidance should be adapted accordingly according to the OS being used.
 
 ## Github Repositories
 
@@ -100,15 +100,55 @@ Images are stored in one of two directories. Either static folder or the assets 
 
 ### Compiling on Local Server
 
-Observing the compiled version of the website is simple, type the following command:
+Observing the compiled version of the (draft) website is simple, type the following command:
 
 ```[zsh]
 hugo server -D
 ```
-- I believe adding the -D argument at the end also compiles the documents with the draft label.
-- Failing to add the -D at the end when you have draft documents set at true means that they will not render.
-- The local website host can be found at [http://localhost:1313/](http://localhost:1313/)
+- Adding the -D argument at the end also compiles the documents with the draft label.
+- Failing to add the -D at the end of the command will not render documents in draft state.
+- The local website host is at this address: [http://localhost:1313/](http://localhost:1313/)
+
+### Adding a Submodule
+
+A git submodule is a record within that points to a specific commit in another directory.
+
+- This is a key component of this workflow as we want to send the contents of our public folder and point it to an external repo where we are hosting.
+
+- In our case want our deployment repo [Filpill.github.io](https://github.com/Filpill/Filpill.github.io) to be a submodule of the projects repo.
+
+- Therefore we want to cd into the root folder of our projects website ([blog-web](https://github.com/Filpill/blog-web)) and type:
+
+```[zsh]
+git submodule add -b main git@github.com:Filpill/Filpill.github.io.git public
+```
+
+And this enables us build from [blog-web](https://github.com/Filpill/blog-web) and to push code from the public folder straight to [Filpill.github.io](https://github.com/Filpill/Filpill.github.io)
+
+
 
 ### Compiling Static Files into Public Folder
 
+In order to compile the files nessesary for the deployment repository on git. Type the following command in the root directory of website:
+
+```[zsh]
+hugo -t hugo-PaperMod -D
+```
+- The argument after "-t" is theme which is being used to compile the website together. In my case I'm using hugo-PaperMod
+- The resulting files will compile straight into the public folder.
+- Again similarly to the local host, adding a "-D" will transform draft pages as well as the finalised pages.
+- You can choose to omit the "-D" when you are finalising the website. But you must change the draft state in the markdown pages.
+
 ### Deploying pages onto your Github
+
+Since all the static files are compiled in public and we have that folder pointing towards the deployment repo. We can just wrwrite our git commands to push the changes into deployment.
+
+```[zsh]
+git add .
+git commit -m "deploying compiled html"
+git push origin main
+```
+
+At this stage we have website up and running and hosted on github. Adding new content to the website is easily achieved with new markdown files. And changes are pushed with the previous 2 steps.
+
+The process can also be slimmed down if we decide to introduce some shell scripting into the mix. I likely will introduce this aswell in order to reduce the volume of typing required at the terminal.
