@@ -12,12 +12,10 @@ categories: ["data"]
 
 # Summary
 
-- This project was prompted by the fact that I cannot share any data from my personal work.
 - I decided to showcase some data transformations on I game that usually play and see if I could get some cool visualisations/insights.
-- As such I searched out for an API to replicate my data visualisation experience. Although this is only a fraction the the analysis I would typically do.
-- In my work I normally query out of a SQL database for my data ingestion. In this case however, this was my first time using an API to extract JSON data, but on interacting with the API, it is very easy to extract the data.
-- The remaining python data processing workflow is still run-of-the-mill by my standards.
-- I only spent time to make a few visualisations here:
+- I'm using an API to replicate a sample of data visualisations I would typically make.
+- In my work I normally query out of a SQL database for my data ingestion but trying something new here as an experiment.
+- This was my first time using an API to extract JSON data, but its very easy to manipulate on Python to transform into a dict/dataframe.
 
 [AoE2 Data Project: Repository Link on my Github](https://github.com/Filpill/AoE2Data)
 

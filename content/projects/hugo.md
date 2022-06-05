@@ -15,33 +15,32 @@ categories: ["design"]
 
 # Summary
 
-Building this projects website was driven by a need to have an easy way showcase my projects without devoting a large amount of time to formatting and maintaining HTML code.
-
-The first iteration of my website was manually written in HTML/CSS. However I decided to port over to a website using Hugo's framework which is fast and versitile.
-
-As such there exists static site generators available which are able to solve such a problem.
+I wanted to showcase my projects without devoting a large amount of time to maintaining HTML code and needed a framework to make it easy to share my projects.
 
 Hugo is a static site generator written in Go and compiles your documents written in markdown into cleanly formatted HTML and CSS files.
 
-The compiled HTML files are hosted on my github pages.
+The first iteration of my website was manually written in HTML/CSS. It was a little bit ugly compared to the second iteration which is using hugo framework. Additionally, using someone else's theme takes alot of the legwork out of the page design.
+
+The compiled HTML files are hosted on my github pages for reference.
 
 # Process
 
-I will provide some general guidance as to how this website was developed, although this guidance should be adapted accordingly according to the OS being used.
+Here is some general guidance as to how this website was developed from a Linux OS perspective. The guidance should be adapted according to the OS being used:
 
 ## Github Repositories
 
 - To build and deploy the website, we require two seperate repositories:
-	- A production repo [blog-web](https://github.com/Filpill/blog-web): containing the markup documents
-	- A deployment repo [Filpill.github.io](https://github.com/Filpill/Filpill.github.io): containing the file compiled into static HTML
+	- A production repo [blog-web](https://github.com/Filpill/blog-web): with markup documents and web config.
+	- A deployment repo [Filpill.github.io](https://github.com/Filpill/Filpill.github.io): with compiled static HTML files.
 
-- After the producing the file in the production repo, the static files sitting in the public folder are pushed inot the deployment repo.
-- The deployment repo exists so we can allow github to easily search the html files and display them.
+- Content is added to the markdown documents in the production repo. This is later compiled into static HTML.
+- The static files reside in the public folder. They are eventually pushed into the deployment repo.
+- The deployment repository exists so we can allow github to display the HTML files.
 
 ## Installing Hugo
 
-- I'm working from an arch based linux OS at the time of development.
-- Installing the hugo on arch can be simply done with the following pacman command:
+- I'm working from an Arch based Linux OS at the time of development.
+- Installing the hugo on arch can be done with the following pacman command:
 
 ```[zsh]
 sudo pacman -S hugo
@@ -59,10 +58,10 @@ hugo new site name_of_your_website
 
 ### Website Theme
 
-- There are a couple of approaches to this, either you can write your own theme or you can choose one that is being share on git.
-- I chose to use a repository called PaperMod which is a minimalistic theme which is fast and fits my requirements.
-- If you cd into your themes directory I just cloned the PaperMod at that location.
-- I'm choosing to use the SSH address to clone into it (as that how I normally interact with git). however you can also use HTTPS:
+- There are a couple of approaches to this, you can either design your own theme or you can choose one that is publicly shared.
+- I chose to use a repository containing a theme called PaperMod which is a minimalistic theme which fits my requirements.
+- cd into your themes directory and clone the repository at that location.
+- I'm choosing to use the SSH method to clone into it, however you can also use HTTPS method if you prefer:
 
 ```[zsh]
 git clone git@github.com:adityatelange/hugo-PaperMod.git
@@ -70,33 +69,30 @@ git clone git@github.com:adityatelange/hugo-PaperMod.git
 ### Configuration File
 
 - The configuration document is in the root directory and is called config.toml
-- This file can be used to configure various aspects of your website
+- This file configures various aspects of your website.
 
 ### How to make a webpage
 
-Hugo's webpages sit into a the content folder of your website.
+Hugo's webpages reside in the content folder of your website.
 
 - cd to the root of your website
-- To make a new page type (replace the page_folder and page_name with names of your choice:
+- To make a new page type: (replace the page_folder and page_name with names of your choice)
 
 ```[zsh]
 hugo new page_folder/page_name.md
 ```
-- The name of the page and directory will form the links for your website
-- You will have a new mark down file with the default markdown template for you page.
+- The name of the page and directory automatically form links for your website
+- A new markdown file with a default template will appear for your page.
 - Using markdown, you can populate the file with your webpage content.
 
 ### Images
 
-Images are stored in one of two directories. Either static folder or the assets folder:
+Images are stored in one of two directories. Either the static or assets folder:
 
-- The static folder exists if you wish to directly use your image in their stored state via the markdown language.
-- Although its not always convinient to have everything in the static folder if for example the image is a large file size.
+- The static folder exists if you wish to directly use your image in their original state via markdown.
 - You may wish to optimise the image by scaling down the resolution or compressing the image, and this will only be the case if you call the image in the assets folder.
-- You can make some HTML shortcodes to standardise what kind of optimisation you want to apply to the image.
-- In the case of gifs its hard to optimise them (whilst retaining a quality animation).
-- Technically .gif files are not optimal inclusions into minimal websites due to the large file size.
-- But I include gifs to as they still serve as interesting visual illustrations in the case of engineering.
+- You can make some HTML shortcodes to standardise the optimisation you want to apply to the image.
+- Technically .gif files are not optimal inclusions into minimal websites due to the large file size. Although I like the visual presentation they provide.
 
 ### Compiling on Local Server
 
@@ -105,8 +101,8 @@ Observing the compiled version of the (draft) website is simple, type the follow
 ```[zsh]
 hugo server -D
 ```
-- Adding the -D argument at the end also compiles the documents with the draft label.
-- Failing to add the -D at the end of the command will not render documents in draft state.
+- Adding the -D argument at the end also compiles the documents with the draft status set to true.
+- Omitting the -D at the end of the command will not render documents in draft state.
 - The local website host is at this address: [http://localhost:1313/](http://localhost:1313/)
 
 ### Adding a Submodule
@@ -123,7 +119,7 @@ A git submodule is a record within that points to a specific commit in another d
 git submodule add -b main git@github.com:Filpill/Filpill.github.io.git public
 ```
 
-And this enables us build from [blog-web](https://github.com/Filpill/blog-web) and to push code from the public folder straight to [Filpill.github.io](https://github.com/Filpill/Filpill.github.io)
+And this enables us build from [blog-web](https://github.com/Filpill/blog-web) and to push code from the public folder of blog-web straight to [Filpill.github.io](https://github.com/Filpill/Filpill.github.io)
 
 
 
@@ -134,21 +130,20 @@ In order to compile the files nessesary for the deployment repository on git. Ty
 ```[zsh]
 hugo -t hugo-PaperMod -D
 ```
-- The argument after "-t" is theme which is being used to compile the website together. In my case I'm using hugo-PaperMod
+- The argument after "-t" is theme which is being used to compile the website together. In my case I'm using hugo-PaperMod.
 - The resulting files will compile straight into the public folder.
 - Again similarly to the local host, adding a "-D" will transform draft pages as well as the finalised pages.
 - You can choose to omit the "-D" when you are finalising the website. But you must change the draft state in the markdown pages.
 
 ### Deploying pages onto your Github
 
-Since all the static files are compiled in public and we have that folder pointing towards the deployment repo. We can just wrwrite our git commands to push the changes into deployment.
+Since all the static files are compiled in public and we have that folder pointing towards the deployment repo. We can just write our git commands to push the changes into deployment.
 
 ```[zsh]
+cd public/
 git add .
 git commit -m "deploying compiled html"
 git push origin main
 ```
 
-At this stage we have website up and running and hosted on github. Adding new content to the website is easily achieved with new markdown files. And changes are pushed with the previous 2 steps.
-
-The process can also be slimmed down if we decide to introduce some shell scripting into the mix. I likely will introduce this aswell in order to reduce the volume of typing required at the terminal.
+At this stage we have website up and running and hosted on github. Adding new content to the website is easily achieved with new markdown files. And changes are pushed with the previous 2 steps. Or we could script this out completely with a shell script.
