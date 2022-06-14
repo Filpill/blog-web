@@ -3,7 +3,7 @@ title: "Profile"
 date: 2022-05-31T18:15:04+01:00
 draft: true
 cover:
-  image : img/profile/filip.jpg
+  image : img/profile/filip_crop.jpg
   alt: 'Filip Livancic Profile'
 tags: ["html","css","hugo","web"]
 ---
