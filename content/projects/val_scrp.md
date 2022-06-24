@@ -27,11 +27,11 @@ Still it was worth learning about the web-scraping process and adding to the too
 
 I decided to use a module called "scrapy" as my web-scrapping tool and the website being interrogated was [https://dak.gg/valorant/en/profile/FilPill-EUW](https://dak.gg/valorant/en/profile/FilPill-EUW)
 
-Figured I didn't need to emulate any "human-like" browser activity. Initally when I started, I tried to parse out the HTML classes within the div's however it did not work. Despite the data being kept inside the HTML tags,I could not access them with my scraper.
+Initially, I tried to parse out the HTML classes within the div's however it did not work. Despite the data being kept inside the HTML tags,I could not access them with my scraper.
 
 When I simulated the webscraper opening the website, it did not return any data at all. Just an empty HTML template of a website. Soonafter, I realised that javascript is being employed to load the data into the front-end dynamically.
 
-I changed my approach eventually. After inspecting the web elements in the network tab (more specifically XHR/Fetch) of my browser, I found an https request which returns JSON data.
+I changed my approach after this realisation. After inspecting the web elements in the XHR/Fetch within the network tab of my browsers inspect element, I found an https request which returns JSON data.
 
 This is the final iteration of the spider I developed to scrape my match data:
 
