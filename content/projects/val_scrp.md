@@ -15,27 +15,53 @@ categories: ['data']
 
 # Summary
 
-I was originally looking for a Valorant API to analyse some of my own match data, however Riot games do not hand out personal API keys for this game.
+I was searching for a Valorant API to collect and analyse some of my own match data. However the developers are not providing personal API keys for this particular game.
 
-I figured I could scrape some of my own match data which is publically available on the web client side.
+There are some websites which are publishing the Valorant data into the public domain. I decided to scrape my own match data which is being hosted on their web clients.
 
-Though the data is fairly limited due to built in limitations of the Riot Valorant API. The website only pulls 30 matches worth of data.
+Though the volume of data highlighted on the website is limited compared to the actual volume of games I've played. I was only able to pull 30 matches worth of data.
 
-Still it was worth learning about the web-scraping process and adding to the toolkit.
+However, it was worth learning about the overall web-scraping process and adding more capabilities to my toolkit.
 
-# Web Scraper
+# Scrapy - Web Scraper
 
-I decided to use a module called "scrapy" as my web-scrapping tool and the website being interrogated was [https://dak.gg/valorant/en/profile/FilPill-EUW](https://dak.gg/valorant/en/profile/FilPill-EUW)
+I used a python library called **scrapy** as my web-crawling tool and the website being interrogated was [https://dak.gg/valorant/en/profile/FilPill-EUW](https://dak.gg/valorant/en/profile/FilPill-EUW)
 
-Initially, I tried to parse out the HTML classes within the div's however it did not work. Despite the data being kept inside the HTML tags,I could not access them with my scraper.
+### Initialising Scrapy Project
 
-When I simulated the webscraper opening the website, it did not return any data at all. Just an empty HTML template of a website. Soonafter, I realised that javascript is being employed to load the data into the front-end dynamically.
+The command below creates all the starting files for building the web-crawler:
 
-I changed my approach after this realisation. After inspecting the web elements in the XHR/Fetch within the network tab of my browsers inspect element, I found an https request which returns JSON data.
+```[bash]
+scrapy startproject val_scraper
+```
 
-This is the final iteration of the spider I developed to scrape my match data:
+### Checking for 200 Response on Target Website
 
-```[zsh]
+I initialised a scrapy shell with the command:
+
+```[bash]
+scrapy shell
+```
+
+Inside the shell, I make a request to the website to check that my scraper has permissions to scrape the website.
+
+```[bash]
+fetch ('https://dak.gg/valorant/en/profile/FilPill-EUW](https://dak.gg/valorant/en/profile/FilPill-EUW)a')
+```
+
+A successful connection will return a 200 response, otherwise any 4xx reponse code will inidicate an error or a lack of permissions to perform this specific operation.
+
+### Identifying Target For Scraping
+
+My initial approach involved attempting to parse out the HTML classes within the div's however it did not work successfully. Despite the data being kept inside the HTML tags,I could not access them with my scraper.
+
+When I simulated the webscraper opening the website, it did not return any data at all. Just an empty HTML page with no data. Soonafter, I realised that javascript is being employed to dynamically load the data into the front-end.
+
+Realising this occurrence, I changed my approach. On the inspect elements page, I naviagted to the XHR/Fetch network tab to view what kind of requests were being made to the website, I found an https request which returns my match data in JSON format.
+
+The spider script shown below is what is being ustilised to scrape the match data from the page:
+
+```[python]
 import scrapy
 import json
 
@@ -61,13 +87,27 @@ class PlayerState(scrapy.Spider):
                'matches':data['matches']
         }
 ```
-The spider script is suprisingly short, however it returns all my match data from the page.
+
+### Running the spider
+
+To run the spider you run the following command:
+
+```[bash]
+scrapy crawl playerState -O playerState.json
+```
+
+The **playerState** argument in the command is referring to the class defined in my spider.
+
+The results are saved in a json file of my choosing.
+
 
 # Data Analysis
 
-Since we are only pulling out 30 matches, we are fairly limited in visualising our data. In the future I may attempt to scrape out bigger pools of data of the player base to perform some big data analysis. Will have to figure out an elegant way to do it.
+Since we are only pulling out 30 matches, we are fairly limited in generating valuable data visualisations.
 
-For now I made some basic analysis with my jupyter notebook, some of which is derivative of the scraped data:
+However the goal was mainly to gain an understanding of the overall webscraping process.
+
+These are some of the visualisations made using python:
 
 {{< img720 src = "/img/val/kill_death.png" >}}
 {{< img720 src = "/img/val/map_wins.png" >}}

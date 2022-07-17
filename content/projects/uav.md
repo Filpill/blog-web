@@ -38,16 +38,16 @@ categories: ["engineering","design"]
 
  Conceptual Design Phase                |  &nbsp;  &nbsp;  |  Detailed Design Phase
 | :--------                             | :--------------:   | -----------------:               |
-| Aircraft Market Analysis              | /---------------/  | Aircraft CAD Concept Design      |
-| Derive Flight Equations               | /---------------/ | Preliminary CAD Design           |
-| Select Appropriate Design Point       | /---------------/  | Solidworks Final CAD             |
-| Estimate MTOW and OWE                 | /---------------/  | Early Prototyping and Testing    |
-| Decide on Aircraft Configuration      | /---------------/  | Design Revisions and Improvement |
-| Aircraft Centre of Gravity Estimation | /---------------/  | Final Manufacturing Output       |
-| Aerofoil Comparision and Selection    | /---------------/  | Electronic Systems Integration   |
-| Flight Dynamics Analysis              | /---------------/  | Systems Validation and Testing   |
-| Material Selection                    | /---------------/  | Wind Tunnel Testing              |
-| Preliminary Structural Analysis       | /---------------/  | Flight Test                      |
+| Aircraft Market Analysis              |   | Aircraft CAD Concept Design      |
+| Derive Flight Equations               |  | Preliminary CAD Design           |
+| Select Appropriate Design Point       |   | Solidworks Final CAD             |
+| Estimate MTOW and OWE                 |   | Early Prototyping and Testing    |
+| Decide on Aircraft Configuration      |   | Design Revisions and Improvement |
+| Aircraft Centre of Gravity Estimation |   | Final Manufacturing Output       |
+| Aerofoil Comparision and Selection    |   | Electronic Systems Integration   |
+| Flight Dynamics Analysis              |   | Systems Validation and Testing   |
+| Material Selection                    |   | Wind Tunnel Testing              |
+| Preliminary Structural Analysis       |   | Flight Test                      |
 
 
 ## Solidworks Design
@@ -98,7 +98,7 @@ Simulating Maximum Wing Loading on Spar
 - Installing servos for ailerons and flaps; testing the control mechanisms.
 - Flight test to validate aircraft design and measure flight performance.
 
-![Aileron Testing](/img/uav/e-test.gif#center) | {{< img500 src = "/img/uav/f-test.gif" >}}
+![Aileron Testing](/img/uav/e-test.gif) | {{< img500 src = "/img/uav/f-test.gif" >}}
 | :--------: | :----------: |
 Flaps and Ailerons | Flight Test
 
