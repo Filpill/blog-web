@@ -11,26 +11,14 @@ tags: [python,sql,programming,coding,data-structures,algorithms]
 categories: [programming]
 
 ---
-## Codewars Badge
+## Codewars Profile
 
-<div id="header" align="left">
-  <img src="https://www.codewars.com/users/Filpill/badges/large" width="350"/>
-</div>
-
-Predominantly solving Python and SQL problems
-
-## Codewars profile:
+![Link to my Codewars Badge](https://www.codewars.com/users/Filpill/badges/large)
 [Filpill - Codewars Profile](https://www.codewars.com/users/Filpill/)
 
 
 ## What is Codewars?
 A website that provides challenges for you to solve in a variety of programming languages. The higher the rank of the problem, the harder it is to solve.
-
-## Rank System
-Ranks are used to indicate the proficiency of users and the difficulty of Kata. There are two classes of ranks, Kyu and Dan, which are divided in 8 levels each. By increasing order of proficiency/difficulty:
-
-
-![Rank System](/img/codewars/rank-system.png)
 
 ## Motivation
 
@@ -40,7 +28,7 @@ The majority of my learning process so far has been based on my independant proj
 
 I think its useful to solve some coding problems which drive you to implement solutions using data structures and algorithms you do not typically encounter on a daily basis.
 
-I'm slowly realising the benefit of nested data structures which is something that I would've avoided in the past. For example I would not typically use a structure like a list of tuples. However, in some cases its much easier to generate a solution when you are nesting the data as opposed to a ustilising completely flat data structures (depending on the question of course).
+I'm slowly realising the benefit of nested data structures which is something that I would've avoided in the past. For example I would not typically use a structure like a list of tuples. However, in some cases its much easier to generate a solution when you are nesting the data as opposed to a utilising completely flat data structures (depending on the question of course).
 
 Additionally, the practice helps me learn the standard Python libraries to a much deeper level. In the long run, I think it will be more useful to lean on the standard library as opposed to importing modules for a one-off use-case.
 
