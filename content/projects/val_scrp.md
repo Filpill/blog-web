@@ -1,7 +1,7 @@
 ---
 title: "Web Scraper - Valorant Data Analysis"
 date: 2022-06-13
-draft: true
+draft: false
 ShowToC: true
 
 cover:

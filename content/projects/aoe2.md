@@ -1,7 +1,7 @@
 ---
 title: "Age of Empire 2 API - Data Visualisation"
 date: 2022-05-31T00:59:13+01:00
-draft: true
+draft: false
 cover:
   image : img/aoe2/aoe2.jpg
   alt: 'AoE2 Cover'

@@ -1,7 +1,7 @@
 ---
 title: "2D Heat Transfer Simulation"
 date: 2021-07-10
-draft: true
+draft: false
 
 cover:
   image : img/ht/bc.png

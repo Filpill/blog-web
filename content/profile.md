@@ -1,7 +1,7 @@
 ---
 title: "Profile"
 date: 2022-05-31T18:15:04+01:00
-draft: true
+draft: false
 cover:
   image : img/profile/filip_crop.jpg
   alt: 'Filip Livancic Profile'

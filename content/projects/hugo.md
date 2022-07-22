@@ -1,7 +1,7 @@
 ---
 title: "Front-end Design - Static Site Generator"
 date: 2022-06-03T12:29:15+01:00
-draft: true
+draft: false
 ShowToC: true
 
 cover:

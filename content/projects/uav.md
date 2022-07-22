@@ -1,7 +1,7 @@
 ---
 title: "UAV Aircraft Design"
 date: 2018-06-17
-draft: true
+draft: false
 ShowToC: true
 
 cover:

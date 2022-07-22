@@ -1,7 +1,7 @@
 ---
 title: "Codewars - Solving Coding Problems"
 date: 2022-06-24
-draft: true
+draft: false
 
 cover:
   image: img/codewars/codewars-logo.png

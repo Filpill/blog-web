@@ -1,7 +1,7 @@
 ---
 title: "Lithophane Lamp"
 date: 2021-11-13
-draft: true
+draft: false
 ShowToC: true
 img_path: litho/litho.gif
 
