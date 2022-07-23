@@ -5,7 +5,7 @@ draft: false
 ShowToC: true
 
 cover:
-  image: img/github/github-logo.png
+  image: img/github/github_terminal.png
   alt: 'Github Logo'
 
 tags: [cli, shell, programming]
