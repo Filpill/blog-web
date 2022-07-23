@@ -1,9 +1,9 @@
 :root {
-    --theme: #CFE5CF ;
-    --entry: #CFE5CF ;
+    --theme: #f5f5f5 ;
+    --entry: #d1e0d1;
     --primary: rgba(38, 72, 37, 0.88);
     --secondary: rgba(38, 72, 37, 0.78);
-    --tertiary: rgba(207, 229, 207, 0.56);
+    --tertiary: #d1e0d1;
     --content: rgba(38, 72, 37, 0.88);
     --hljs-bg: #232D23 ;
     --code-bg: #f5f5f5;

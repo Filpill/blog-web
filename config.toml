@@ -6,14 +6,14 @@ theme = "hugo-PaperMod"
 [params.homeInfoParams]
 enabled = true
 title = "Filip's Project Website" # optional default will be site title
-Content = "**Welcome:** Documenting various engineering and data science projects I've built."
+Content = "**Welcome:** This website is dedicated to sharing knowledge gained from completing personal engineering and data analytics projects. \n\n&nbsp;\n\n**About Me:** Please refer to my profile which summarises my experience in additon to providing links\n\n&nbsp;\n\n**Projects:** Sorted by chronological order; projects can also be listed using the Search function.\n\n&nbsp;\n\n**Social Media Links:** Click icons below or inside my profile"
 subtitle = "Contact"
 imageTitle = "<Filip Livancic>" # optional
 jmageWidth = 180 # custom size
 imageHeight = 240 # custom size
 
 [params.cover]
-linkFullImages = true
+linkFullImages = false
 
 [params.ShowBreadCrumbs]
 enabled = true
@@ -44,6 +44,12 @@ identifier = "tags"
 name = "Tags"
 url = "/tags/"
 weight = 40
+
+[[menu.main]]
+identifier = "search"
+name = "Search"
+url = "/search/"
+weight = 50
 
 [[params.socialIcons]]
 name = "github"
