@@ -26,15 +26,15 @@ This simply allows you to direct all of your attention on creating better qualit
 
 {{<mermaid>}}
 graph TD;
-    A(Go to Github and create a new repository)-->B[Go to the working directory of your machine and initialise the local repo by typing: git init]
-    B-->C(Connect local repo to remote repo by typing: git remote set-url origin your_repo_ssh_address)
+    A(Go to Github and<br> create a new repository)-->B[Go to the working directory of your machine <br>and initialise the local repo by typing: git init]
+    B-->C(Connect local repo to remote repo by typing: <br>git remote set-url origin your_repo_ssh_address>)
 {{< /mermaid >}}
 
 ### Cloning a Github Repo
 
 {{<mermaid>}}
 graph TD;
-    A(Go to Github and copy ssh address of repository)-->B(Go to the directory where you want to save repo and type: git clone repo_ssh_address)
+    A(Go to Github and copy ssh address of repository)-->B(Go to the directory where you want to save repo and <br>type: git clone repo_ssh_address)
 {{< /mermaid >}}
 
 ### Creating SSH Keys for Authentication Protocol
@@ -42,9 +42,9 @@ graph TD;
 
 {{<mermaid>}}
 graph TD;
-    A(Go to your dot ssh directory which is storing ssh-keys)-->B["Type this command to generate an SSH Keypair: ssh-keygen -t rsa -b 4096 -C youremail@yourdomain.com"]
+    A(Go to your dot ssh directory which is storing ssh-keys)-->B["Type this command to generate an SSH Keypair:<br> ssh-keygen -t rsa -b 4096 -C youremail@yourdomain.com"]
     B-->C["Name your SSH keys, and skip password prompts"]
-    C-->D("Copy the public key of the two that were generated and paste
+    C-->D("Copy the public key of the two that were generated and paste<br>
 into the Github settings where you are saving your public keys")
 {{< /mermaid >}}
 </div>
@@ -54,15 +54,15 @@ into the Github settings where you are saving your public keys")
 
 {{<mermaid>}}
 graph TD;
-    A("To start ssh-agent type: eval `ssh-agent`")-->B("To add the private key to the ssh agent type: ssh-add (path to your private ssh key)")
+    A("To start ssh-agent type: eval `ssh-agent`")-->B("To add the private key to the ssh agent type:<br> ssh-add (path to your private ssh key)")
 {{< /mermaid >}}
 
 ### Commit Changes to Github Repository
 
 {{<mermaid>}}
 graph TD;
-    A(Pull the most recent version from the repo by typing: git pull origin main)-->B["Make ammendments to your work and save it locally"]
+    A(Pull the most recent version from the repo by typing:<br> git pull origin main)-->B["Make ammendments to your work and save it locally"]
     B-->C["To queue up ALL changes to upload, type: git add ."]
-    C-->D["To commit the changes, type: git commit -m ”add some comments here”"]
-    D-->E("To push the committed changes onto the main branch; type: ”git push origin main”")
+    C-->D["To commit the changes, type:<br> git commit -m ”add some comments here”"]
+    D-->E("To push the committed changes onto the main branch; type:<br> ”git push origin main”")
 {{< /mermaid >}}
