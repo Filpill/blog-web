@@ -31,22 +31,44 @@ These are the ideal goals we are trying to achieve:
 Here is a very high level view of a system of data pipelines I've built in the past:
 {{<mermaid>}}
 graph TD;
-    subgraph <br><br><br>&nbsp; Data Processing <br>and Manipulation
-    A[Shell Scripts]-- terminal/<br>cli tools -->B(Core Driver:<br> Python Scripts)
-    C[(SQL Server)]-- pyodbc -->B
+    subgraph Process Initiation
+    0A[Data Analyst Initiates Process]-->A
+    0A-->B
     end
-    subgraph Data Products
-    B-- xlsxwriter -->D(Excel Dashboards)
-    B-- python-pptx -->E(Powerpoint Presentations)
-    B-- smtplib -->F(Emails via SMTP)
+
+    subgraph Extract, Transform, and Analyse Data
+    A[Shell Scripts]-- exec. via <br>cli tools -->C((Core Driver:<br> Python Scripts))
+    B[Task Scheduler]-- auto exec. -->C((Core Driver:<br> Python Scripts))
+
+    D[(SQL Server)]-- data retrieval -->C-- pyodbc -->D
+    C--> E(Matplotlib charts)
+    C--> F(Pandas tables)
+
+    E-- saved as .png --> G(Saved In Network Drive)
+    F-- saved as .csv -->G
+
+
+    subgraph Create Data Product
+    G-- xlsxwriter -->H(Excel<br>Dashboards)
+    G-- python-pptx -->I(Powerpoint<br>Presentations)
+    end
+    end
+
+    subgraph Process Termination
+    H-->J(Emails sent via SMTP)
+    I-->J
+
+    J-- smtplib -->K[End User Recieves Data Product]
     end
 {{< /mermaid >}}
 
-This is by no means a definative method and sometimes we can't get away from 100% of tedious tasks. However, this is just the result of incremental upgrades made across the board to optimise my processes in the past. I've had a lot of success inter-weaving these tools together purely through experimentation of various python libraries available.
+***Note**: There would be intermediate python scripts at different levels to connect the processes together and handle different tasks*
 
-As long as the tools are well written, you can bridge them across to new processes easily and maintain them with little to no effort. Not to mention the hunderds to thousands of hours being saved as you execute these processes..
+This is just the result of incremental upgrades made across the board to optimise my processes in the past. I've had a lot of success inter-weaving these tools together purely through experimentation of various python libraries available.
 
-The idea is not to replicate this system one-to-one, but to inspire a systems level appreciation for connecting automation tools togther in a well thought out manner.
+As long as the tools are well written, you can bridge them across to new processes easily and maintain them with little to no effort. Not to mention the hunderds to thousands of hours being saved as you execute these processes.
+
+The idea is not to replicate this system one-to-one, but to inspire a systems level appreciation for connecting automation tools togther in a well thought out manner that serves both the analyst and the end-user.
 
 
 
@@ -109,3 +131,11 @@ For those routine emails that you send on a recurring basis you able to automate
 We can borrow the SMTP protocol to send our emails and we don't necessarily need to be tied to our GUI standard email environment. We can use python as the interface and send emails without gmail or outlook.
 
 The script that is being generated can have a message template built inside itself. Additonally can make a list of tuples containing the addresses and attachments you want to send to the respective parties.
+
+# Conclusion
+
+Considering the tasks we do daily,weekly and monthly; we can tie our procedures together with an elaborate series of Python tools to save hundreds, if not thousands of hours.
+
+For most organisations, the cost benefit ratio is extremely favourable if automation systems  are applied correctly.
+
+The value of your time will increase exponentially as you are able to prioritise resources towards increasing the quality of your work and actually being able to produce high impact results without tedious tasks weakening your focus on quality.
