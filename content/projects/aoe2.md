@@ -21,7 +21,8 @@ categories: ["data"]
 
 # Data Visualisations
 
-{{< img720 src = "/img/aoe2/top15Players_leadboard.png" >}}
-{{< img720 src = "/img/aoe2/AllMatches_civWinrate.png" >}}
-{{< img720 src = "/img/aoe2/topPlayer_MatchHistory.png" >}}
-{{< img720 src = "/img/aoe2/topPlayer_civWinrate.png" >}}
+![Leaderboard](/img/aoe2/top15Leaders_hugo.png#center)
+![Top Player Civ Win Rate](/img/aoe2/topPlayer_civWinrate_hugo.png#center)
+![Top Player History](/img/aoe2/topPlayerHistory_hugo.png#center)
+![All Civ Pick Rate](/img/aoe2/civPickrate_hugo.png#center)
+![All Civ Win Rate](/img/aoe2/civWinrate_hugo.png#center)
