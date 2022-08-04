@@ -14,21 +14,20 @@ categories: [data,programming]
 ---
 
 # Summary
-I'm always suprised by organisations which are not investing resources into automating their processes.
 
-Yes, large organisations are complex and sprawling in nature. However, I am always spotting oppertunities to streamline processes and alleviate the burden from our day to day work.
+I am always spotting oppertunities to streamline processes and alleviate the burden from our day to day work.
 
 This article serves as an example for the wide ranging applications I've been using Python to automate both simple and complex tasks with high efficiency.
 
-# An Idealistic Data Processing System
+# Data Transformation & Processing System
 
-These are the ideal goals we are trying to achieve:
+These are some of the goals we are trying to achieve:
 
-- To build complete end-to-end solutions from source to user.
-- We want to minimise manual intervention during the data processing.
-- Build tools which are adaptable according to buisness needs.
+- To build complete end-to-end data solutions from source to user.
+- We want to minimise manual task inputs during the data processing.
+- Build tools which are adaptable according to business needs.
 
-Here is a very high level view of a system of data pipelines I've built in the past:
+This is a high level view of a data analytics pipeline I've built in the past:
 {{<mermaid>}}
 graph TD;
     subgraph Process Initiation
@@ -62,13 +61,13 @@ graph TD;
     end
 {{< /mermaid >}}
 
-***Note**: There would be intermediate python scripts at different levels to connect the processes together and handle different tasks*
+***Note**: Python scripts are chained at different levels to connect the processes together and handle various tasks along the pipeline*
 
-This is just the result of incremental upgrades made across the board to optimise my processes in the past. I've had a lot of success inter-weaving these tools together purely through experimentation of various python libraries available.
+This is the result of incremental upgrades made gradually over time to optimise my processes in the past. I've had a lot of success inter-weaving these tools together through experimentation of the various python libraries available.
 
-As long as the tools are well written, you can bridge them across to new processes easily and maintain them with little to no effort. Not to mention the hunderds to thousands of hours being saved as you execute these processes.
+As long as the tools are well written, you can bridge them across to new processes easily and maintain them with little to no effort. Not to mention the hundreds to thousands of hours being saved as you execute these processes.
 
-The idea is not to replicate this system one-to-one, but to inspire a systems level appreciation for connecting automation tools togther in a well thought out manner that serves both the analyst and the end-user.
+The idea is not to replicate this system one-to-one, but methods for connecting automation tools togther in a well thought out manner that serves both the analyst and the end-user.
 
 
 
@@ -78,64 +77,76 @@ The idea is not to replicate this system one-to-one, but to inspire a systems le
 
 The most important setup of the automation process is the data ingestion into Python.
 
-Fortunately for myself, our organisation hosts several Microsoft SQL Servers which form our data source.
+Fortunately for myself, our organisation hosts several Microsoft SQL Servers which form part of our data warehouse.
 
-PyODBC is a python module which enables the capability to authenticate and connect directly to your desired SQL server. The great thing is that you can copy an entire query written in SQL and paste it into a triple quote string of a python script. The module will be able to interpret the string as a SQL query.
+PyODBC is a python module which enables the capability to authenticate and connect directly to your desired SQL server. The great thing is that you can wrap an entire query written in SQL with a triple quote string of a python script. The module will be able to interpret the string as a SQL query.
 
-Much of the pyodbc set-up can be universalised because realistically you only need two inputs: the server name and the sql query. Therefore I have developed a sql utility written in an independant python file which can be imported into any script.
+Much of the pyodbc set-up can be generalised because you only need two inputs: the server name and the sql query. Therefore I have developed a sql utility written in an independant python file which can be imported into any data processing script.
 
 ## XlsxWriter - Excel Report Generator For Python
 
 ![Excel](/img/logo/excel.jpg#center)
 
 
-There is a reason why Excel reigns as a supreme data communication tool. It's proliferation as a standard piece of software. There is no office computer in the world that is not supplied with Excel.
+The proliferation of Excel as a standard piece of software has enabled much easier sharing and communication of data. There is no office computer in the world that is not supplied with Excel.
 
-Sure, we could be using BI tools to communicate and share data. However, this completely depends on the company budget and how much the organisation can stretch the licensing to individuals.
+We could potentially use BI tools to communicate and share data. However, this completely depends on how much the organisation can stretch the budget to license the majority of individuals.
 
-Ok, so we deciding to work inside the Excel ecosystem as it will not incur any extra overhead.
+Deciding to work inside the Excel ecosystem can save on the extra overhead. However, **we don't want to be doing any analysis in Excel.**
 
-However, we don't want to be doing our analysis in Excel...Why? Because it's extremely computationally expensive to handle medium to large data sets. And its next useless when stringing together lots of complex formulas with the large data size.
+Why?...
 
-So how can we solve this issue? Simple. XlsxWriter.
+Because it's extremely computationally expensive to handle medium to large data sets. And its next to useless when stringing together a series of complex formulas for large datasets.
 
-XlsxWriter is a python module which allows you to create fresh Excel reports from scratch with analysis performed on Python. Essentially you can turn all your pandas tables Excel table objects. All your matplotlib charts can be inserted into the workbook for the visualisation. Furthermore, with a bit more effort, you can easily turn it into a dashboard.
+So how can we solve this issue? Simple - with Xlsxwriter.
 
-Now it can be easily share amongst the stakeholders. I've been using this tool many a time to get excel boards out quickly with python.
+Xlsxwriter is a python module which allows you to create fresh Excel reports from scratch with analysis performed on Python. Essentially you can turn all your pandas dataframs into Excel table objects. Additionally all your matplotlib charts can be inserted into the workbook for the visualisation component. With a bit of effort, you can easily turn it into a dashboard that mimics the appearance of an Excel spreadsheet.
 
-***Note:** XlsxWriter as the name suggests "writes Excel Workbooks". To be clear, this is not an API that can directly interact with objects in existing workbooks. Everytime you run a script with xlsxwriter tools involved, a completely new file will be producing and overwrite the previous one.*
+You can easily share the resulting excel file amongst the stakeholders. I frequently use this tool to get excel dashboards into production quickly with python.
+
+***Note:** XlsxWriter as the name suggests "writes Excel Workbooks". To be clear, this is not an API that can directly interact with objects of existing workbooks. Everytime you run a script with xlsxwriter tools involved, a completely new file will be producing and overwrite the previous one.*
 
 ## Python-Pptx - PowerPoint Presentation Generator For Python
 
 ![Powerpoint](/img/logo/pptx.png#center)
 
-How many hundreds of hours do you waste making powerpoints? Probably too many. Though this is a big target for automation if the slide content is very standardised across different periods of time.
+How many hundreds of hours do you waste making powerpoints? Probably too many. They are normally boring, tedious and mind-numbing tasks (for somebody who makes tens of presentations per month).
 
-I've tried automating them with markdown tools. However, I run into a lot of issues where I do not have full control over the position of the objects. Stakeholders tend to ask for extra features or to move shapes around the slide. Thats where python-pptx comes in.
+This is a big automation target if the slide content is fairly standard across time periods.
+
+I've tried automating them with markdown tools. However, I run into a lot of issues where I do not have full control over the position of the objects.
+
+Stakeholders tend to ask for extra features or to move shapes around the slide. However, this is happens to be the power of python-pptx library.
 
 Instead of letting markdown dictate all the default positions of your powerpoint shapes. I've been automating all my presentations with Python-pptx.
 
-Since the control of the objects is very granular its important to set up some functions to standardise some layouts or shapes you want to insert. This speeds up the scripting process as usually slides tend to have a lot of the same code and all we need to do is change some parameters.
+The control of the objects is very granular its important to set up functions to standardise some layouts or shapes you want to readily insert. This speeds up the scripting process as usually slides tend to borrow a lot of the same code.
 
-The powerpoint functions I write are imported from a seperate .py file. The reason we ideally want a global function file is that we can share these python function to any script where we are automating presentations.
+The powerpoint functions I write are imported from a seperate .py file. Ideally we want a global function file such that we can share the functions to any python script involving presentation automation.
 
-***Note:** Python-pptx works in similar fashion to xlsxwriter. Everytime the script in run, a brand new presentation file will be build from sratch. We are not interacting with existing pptx objects on existing presentations.*
+***Note:** Python-pptx works in similar fashion to xlsxwriter. Everytime the script is run, a brand new presentation file will be built from sratch.*
 
 
 ## Smtplib - Email Automation with Python
 
 ![Outlook](/img/logo/outlook.png#center)
 
-For those routine emails that you send on a recurring basis you able to automate the process using the python library smtplib.
+For those routine emails sent on a recurring basis you will able to automate the process using the python library smtplib.
 
-We can borrow the SMTP protocol to send our emails and we don't necessarily need to be tied to our GUI standard email environment. We can use python as the interface and send emails without gmail or outlook.
+We can borrow the SMTP protocol to send our emails and we can avoid our GUI email environment entirely. Python acts as the interface and send emails without gmail or outlook platforms.
 
-The script that is being generated can have a message template built inside itself. Additonally can make a list of tuples containing the addresses and attachments you want to send to the respective parties.
+The script can have a message template built inside itself. Additonally, we can make a list of tuples containing the addresses and attachments you want to send to the respective parties.
+
+Looping over these templates and lists, we can entirely bypass the requirement of building each component of each email.
+
+We can fire off tens of emails out in a matter of seconds.
 
 # Conclusion
 
 Considering the tasks we do daily,weekly and monthly; we can tie our procedures together with an elaborate series of Python tools to save hundreds, if not thousands of hours.
 
-For most organisations, the cost benefit ratio is extremely favourable if automation systems  are applied correctly.
+For most organisations, the cost benefit ratio is extremely favourable if automation systems are applied (and maintained) correctly.
 
-The value of your time will increase exponentially as you are able to prioritise resources towards increasing the quality of your work and actually being able to produce high impact results without tedious tasks weakening your focus on quality.
+The value of your time will increase exponentially as you are able to prioritise resources towards increasing the quality of your work.
+
+You will have a higher capacity to produce more impactlful results without tedious tasks weakening your focus on quality.
