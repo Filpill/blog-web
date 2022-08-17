@@ -18,12 +18,17 @@ tags: ["html","css","hugo","web"]
 - Hobbyist Glider Pilot
 - Hobbyist 3D Print Designer
 
+
 ### Work Experience
 - Link to my [CV on github](https://github.com/Filpill/LaTeX/blob/main/cv/filip-livancic-cv.pdf)
 
 ### Projects
 - Refer to the [projects tab](/projects) for short discussions and displays of my resulting work.
 - Refer to my [respective github repo's](https://github.com/Filpill?tab=repositories) for the project files.
+
+### [Filpill - Codewars Profile](https://www.codewars.com/users/Filpill/)
+Solving data structures and algorithmic problems in Python.
+![Link to my Codewars Badge](https://www.codewars.com/users/Filpill/badges/large)
 
 ### Github
 - [Github profile - Filpill Livancic](https://github.com/Filpill)

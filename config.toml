@@ -6,7 +6,7 @@ theme = "hugo-PaperMod"
 [params.homeInfoParams]
 enabled = true
 title = "Filip's Project Website" # optional default will be site title
-Content = "**Welcome:** This website is dedicated to sharing knowledge gained from completing personal engineering and data analytics projects. \n\n&nbsp;\n\n**About Me:** Please refer to my profile which summarises my experience in additon to providing links\n\n&nbsp;\n\n**Projects:** Sorted by chronological order; projects can also be listed using the Search function.\n\n&nbsp;\n\n**Social Media Links:** Click icons below or inside my profile"
+Content = "**Welcome:** This website is dedicated to sharing knowledge in  engineering and data analytics projects. \n\n&nbsp;\n\n**About Me:** Please refer to my profile which summarises my experience in additon to providing links.\n\n&nbsp;\n\n**Projects:** Sorted by chronological order; projects can also be listed using the Search function.\n\n&nbsp;\n\n**Social Media Links:** Click icons below or inside my profile."
 subtitle = "Contact"
 imageTitle = "<Filip Livancic>" # optional
 jmageWidth = 180 # custom size

@@ -14,21 +14,21 @@ categories: [programming]
 
 # Summary
 
-The purpose of this page is to document the most common ways I interact with git and in maintaining my programs. These actions are performed via the command line as per how the tool was originally designed.
+Documenting the most common ways I interact with git and in maintaining my programs. For reference these actions are performed via the command line.
 
-In my opinion the main benefit is the added efficiency of the scripting out the majority of the CLI commands via a series of shell scripts.
+In my opinion the main benefit of using a CLI is the added efficiency of the scripting out the majority of the process via usage of shell scripts.
 
-This simply allows you to direct all of your attention on creating better quality work without getting lost in a GUI most of the time.
+This allows you to direct all of your attention on effortless creating work without getting lost in a GUI just to push a new commit.
 
 ### Connections and Authentication
 
 There are 2 main ways to connect to a git repository. We can either use the HTTPS or SSH protocols respectively.
 
-SSH has the advantage of passwordless interactions with git which I strongly recommended when pushing code. Not hard to set-up an SSH key-pair; it saves time and is very secure.
+SSH has the advantage of having passwordless interactions with git which I strongly recommended when pushing code. Its very easy to set-up an SSH key-pair; it saves time and its very secure. (Assuming you take the right precautions to protect your ssh-keys!)
 
-I would only use HTTPS if I am cloning someonelses public repo but not for maintaining my personal repos'.
+I would only use HTTPS if I am cloning someone-elses public repository but not for maintaining my personal repos'.
 
-I won't discuss the methods of generating access tokens which can be used to authenticate an https connection. In my experience this is the inferior way to authenticate your connection unless you specific reasons to use one outside of personal use.
+I won't discuss the methods of generating access tokens which can be used to authenticate an https connection. In my experience this is the inferior way to authenticate your connection unless you have some sort of specific reasons to use https with an access token.
 
 ### Create Local Repo and Connect to Remote Repository
 - Go to Github and create a new repository
@@ -67,7 +67,7 @@ ssh-keygen -t rsa -b 4096 -C youremail@yourdomain.com
 
 This only lasts as long as your terminal instance is open. If you close the terminal, you need to re-type the commands to restart the ssh-agent for the next terminal you spawn.
 
-*Note: The ssh agent process only linked to the terminal you typed it in. So you will need to type it in for every terminal instance you spawn (if you working on multiple terminals).*
+*Note: The ssh agent process only linked to the terminal you typed it in. So you will need to initialise the ssh-agent for every terminal instance you spawn (if you working on multiple terminals).*
 
 I've already saved this as an shell script to save the effort of writing these commands all the time.
 
