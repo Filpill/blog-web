@@ -22,7 +22,10 @@ categories: ["engineering","design"]
 	- The project requires some simplification for the desired goal of having a robust car design.
 - I will share the existing highlights of this projects for the time being.
 
-[Link to Project](https://drive.google.com/file/d/1EldK84WdVEGBc5a2cYDj4144Esv3kpME/view)
+
+ [Link to Project Document Discussing Changes From V1 to V2 on Google Drive](https://drive.google.com/file/d/1EldK84WdVEGBc5a2cYDj4144Esv3kpME/view)
+
+ [Link to programming of control loop for 3D Printed Car](https://github.com/Filpill/BTCarController)
 
 # Solidworks Design
 

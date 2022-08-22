@@ -1,5 +1,5 @@
 ---
-title: "Web Scraper - Valorant Data Analysis"
+title: "Valorant API - Web Scraping Project"
 date: 2022-06-13
 draft: false
 ShowToC: true
@@ -22,6 +22,8 @@ There are some websites which are publishing the Valorant data into the public d
 Though the volume of data highlighted on the website is limited compared to the actual volume of games I've played. I was only able to pull 30 matches worth of data.
 
 However, it was worth learning about the overall web-scraping process and adding more capabilities to my toolkit.
+
+Link to the project here: [Valorant Web Scrapping Project](https://github.com/Filpill/val_scraper)
 
 # Scrapy - Web Scraper
 

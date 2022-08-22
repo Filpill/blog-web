@@ -19,4 +19,6 @@ categories: ["engineering"]
 - LHS boundaries on the mesh and the application of the heat input on the leftmost nodes.
 - Heat Input lasts 2 seconds in resulting simulation before being turned off.
 
+[Link to Heat Transfer Project](https://github.com/Filpill/2D_HeatTranfer)
+
 {{< img720 src = "/img/ht/2d-ht.gif" >}}

@@ -17,7 +17,7 @@ categories: ["data"]
 - In my work I normally query out of a SQL database for my data ingestion but trying something new here as an experiment.
 - This was my first time using an API to extract JSON data, but its very easy to manipulate on Python to transform into a dict/dataframe.
 
-[AoE2 Data Project: Repository Link on my Github](https://github.com/Filpill/AoE2Data)
+[Link to Age of Empires 2 Data Project](https://github.com/Filpill/AoE2Data)
 
 # Data Visualisations
 

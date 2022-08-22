@@ -1,5 +1,5 @@
 ---
-title: "Front-end Design - Static Site Generator"
+title: "Website Design with Hugo Framework"
 date: 2022-06-03T12:29:15+01:00
 draft: false
 ShowToC: true
@@ -22,6 +22,10 @@ Hugo is a static site generator written in Go and compiles your documents writte
 The first iteration of my website was manually written in HTML/CSS. It was a little bit ugly compared to the second iteration which is using hugo framework. Additionally, using someone else's theme takes alot of the legwork out of the page design.
 
 The compiled HTML files are hosted on my github pages for reference.
+
+- [Link to the Hugo Markdown Files](https://github.com/Filpill/blog-web)
+
+- [Link to Static HTML Hotsted on Github Pages](https://github.com/Filpill/blog-web)
 
 # Process
 
