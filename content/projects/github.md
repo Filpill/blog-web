@@ -44,7 +44,7 @@ git remote set-url origin repo_ssh_address
 
 ### Cloning a Github Repo
 
-- Go to Github and copy ssh address of repository (assuming we are cloning
+- Go to Github and copy ssh address of repository
 - Go to the directory where you want to clone the repository into and type:
 ```[bash]
 git clone repo_ssh_address

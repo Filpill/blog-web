@@ -19,7 +19,7 @@ There are endless oppertunities to streamline processes and automate our data pr
 
 This article serves as an example for the wide ranging applications I've been using Python to automate both simple and complex tasks with high efficiency.
 
-# Data Transformation System
+# Data Modelling
 
 These are some of the goals we are trying to achieve:
 
@@ -113,9 +113,11 @@ With a bit of effort, you can easily turn the analysis into a dashboard that mim
 
 ![Powerpoint](/img/logo/pptx.png#center)
 
-How many hundreds of hours do you waste making powerpoints? Probably too many. They are normally quite tedious tasks as somebody who makes tens of presentations per month to cater to multiple stakeholders.
+How many hours do you waste making powerpoints? I've spent countless hours adjusting trivial features such as formatting or chart positioning.
 
-This is a good automation target if the slide content is fairly standard across the board.
+*But what if the presentation content and design can be prepared automatically?*
+
+I generate tens of presentations per month to cater to multiple stakeholders. Given that I have fairly standardised slide content, this makes presentations a high value automation target for myself.
 
 I've experimented with markdown presentation tools. However, I run into a lot of issues where I do not have full positional control of the objects.
 
