@@ -31,13 +31,13 @@ This is a high level view of a data analytics pipeline I've built in the past:
 {{<mermaid>}}
 graph TD;
     subgraph Process Initiation
-    0A[Data Analyst Initiates Process]-->A
+    0A([Data Analyst Initiates Process])-->A
     0A-->B
     end
 
     subgraph Extract, Transform, and Analyse Data
-    A[Shell Scripts]-- exec. via <br>cli tools -->C((Core Driver:<br> Python Scripts))
-    B[Task Scheduler]-- auto exec. -->C((Core Driver:<br> Python Scripts))
+    A[Shell Scripts]-- exec. via <br>cli tools -->C((Python Scripts))
+    B[Task Scheduler]-- auto exec. -->C((Python Scripts))
 
     D[(SQL Server)]-- data retrieval -->C-- pyodbc -->D
     C--> E(Matplotlib charts)
@@ -57,7 +57,7 @@ graph TD;
     H-->J(Emails sent via SMTP)
     I-->J
 
-    J-- smtplib -->K[End User Recieves Data Product]
+    J-- smtplib -->K([End User Recieves Data Product])
     end
 {{< /mermaid >}}
 

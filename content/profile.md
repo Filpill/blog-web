@@ -20,7 +20,7 @@ tags: ["html","css","hugo","web"]
 
 
 ### Work Experience
-- Link to my [CV on github](https://github.com/Filpill/LaTeX/blob/main/cv/filip-livancic-cv.pdf)
+- Link to my [CV on github](https://github.com/Filpill/LaTeX-CV/blob/main/cv/filip-livancic-cv.pdf)
 
 ### Projects
 - Refer to the [projects tab](/projects) for short discussions and displays of my resulting work.
