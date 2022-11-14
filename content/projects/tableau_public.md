@@ -1,10 +1,10 @@
 ---
-title: "Tableau Public Profile"
+title: "Tableau Public Profile - Filip Livancic"
 date: 2022-11-09T20:14:13Z
 draft: true
 
 cover:
-  image:
+  image: img/tableau/tableau-public.png
   alt:
 
 tags: []

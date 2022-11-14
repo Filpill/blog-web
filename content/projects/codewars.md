@@ -5,8 +5,8 @@ draft: true
 ShowToC: true
 
 cover:
-  image:
-  alt:
+  image: img/codewars/codewars-stats.png
+  alt: "Codewars Stats Image"
 
 tags: [python,sql]
 categories: [programming]
