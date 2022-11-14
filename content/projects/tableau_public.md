@@ -15,4 +15,6 @@ categories: []
 
 # Summary
 
+I've made a Tableau Public profile to showcase any public datasets I've analysed in Tableau:
+
 Link to Tableau Public: https://public.tableau.com/app/profile/filip.livancic
