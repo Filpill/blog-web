@@ -28,10 +28,16 @@ url = "/profile/"
 weight = 10
 
 [[menu.main]]
-identifier = "projects"
-name = "Projects"
-url = "/projects/"
+identifier = "data_projects"
+name = "Data Projects"
+url = "/data_projects/"
 weight = 20
+
+[[menu.main]]
+identifier = "eng_projects"
+name = "Engineering Projects"
+url = "/eng_projects/"
+weight = 25
 
 [[menu.main]]
 identifier = "categories"
