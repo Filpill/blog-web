@@ -25,3 +25,7 @@ tags: ["html","css","hugo","web"]
 |            |              |              |
 | :--------: | :----------: | :----------: |
    ![Codewars](https://img.shields.io/badge/Codewars-B1361E?style=for-the-badge&logo=codewars&logoColor=grey) | ![Link to my Codewars Badge](https://www.codewars.com/users/Filpill/badges/large) | [Codewars Profile](https://www.codewars.com/users/Filpill/)
+
+### Resume
+
+{{ < embed-pdf url="./pdf/filip-livancic-cv.pdf" > }}

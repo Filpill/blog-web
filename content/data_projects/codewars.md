@@ -69,8 +69,7 @@ graph TD;
 
 ## Data Visualisations
 
-
-![Monthly Completions](/img/codewars/monthly_complete.png)
-![Ranks](/img/codewars/rank_distribution.png)
-![Categories](/img/codewars/top_tags.png)
-![Languages](/img/codewars/language_pie.png)
+<img src="https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/monthly_complete_barh.png" alt="Monthly Kata Completetions" width="650">
+<img src="https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/rank_distribution.png" alt="Rank Distribution" width="650">
+<img src="https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/top_tags.png" alt="Kata Categories" width="650">
+<img src="https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/language_pie.png" alt="Pie Chart" width="650">
