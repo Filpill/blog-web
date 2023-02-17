@@ -41,7 +41,7 @@ Here is some general guidance as to how this website was developed from a Linux 
 - The static files reside in the public folder. They are eventually pushed into the deployment repo.
 - The deployment repository exists so we can allow github to display the HTML files.
 
-## Installing Hugo
+## Installing Hugo on Arch Linux
 
 - I'm working from an Arch based Linux OS at the time of development.
 - Installing the hugo on arch can be done with the following pacman command:
@@ -49,6 +49,44 @@ Here is some general guidance as to how this website was developed from a Linux 
 ```[zsh]
 sudo pacman -S hugo
 ```
+
+## Installing Hugo on Windows
+
+*Update 17/02/23: I've added instructions for a Windows Installation for convinience. (I spend too much time switching between operating systems for certain tasks.)*
+
+There are two pre-requisites for setting up hugo - you must install:
+- [Git Bash](https://git-scm.com/downloads)
+- [GoLang](https://go.dev/dl/)
+
+We must make a set of directories in which we can install hugo:
+
+```[zsh]
+cd ~/
+mkdir go
+cd go
+mkdir bin
+mkdir pkg
+mkdir src
+cd src
+mkdir github.com
+cd github.com
+mkdir gohugoio
+```
+
+At this point we are able to clone the hugo repository and perform the install:
+
+```[zsh]
+cd gohugoio
+git clone https://github.com/gohugoio/hugo.git
+cd hugo
+go install
+```
+
+You can confirm hugo's been installed by checking this path:
+```[zsh]
+$GOPATH/bin/hugo
+```
+
 ## Creating New Website
 
 ### Initialise Website Folders
