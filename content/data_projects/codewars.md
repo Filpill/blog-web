@@ -21,7 +21,7 @@ I figured it would be a good idea to visualise my codewars progression.
 
 I'm utilising the codewars public API to pull out my information. The user data is processed in Python with the output being consolidated into a Excel dashboard using Xlsxwriter.
 
-Link to project: https://github.com/Filpill/codewars-stats
+Link to github project: https://github.com/Filpill/codewars-stats
 
 ## Analytics Process Flow
 
@@ -57,6 +57,8 @@ graph TD;
     K-->O[Graphing Lang.]
     end
 
+    C-->P
+
     subgraph XlsxDashboard
     L-->P[Insert and Format Tabular Data]
     M-->P
@@ -69,7 +71,8 @@ graph TD;
 
 ## Data Visualisations
 
-<img src="https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/monthly_complete_barh.png" alt="Monthly Kata Completetions" width="650">
-<img src="https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/rank_distribution.png" alt="Rank Distribution" width="650">
-<img src="https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/top_tags.png" alt="Kata Categories" width="650">
-<img src="https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/language_pie.png" alt="Pie Chart" width="650">
+ {{< img500 src = "/img/codewars/rank_distribution.png" >}}  | {{< img300 src = "/img/codewars/language_pie.png" >}}
+| :--------: | :----------: |
+
+ {{< img500 src = "/img/codewars/top_tags.png" >}} | {{< img300 src = "/img/codewars/monthly_complete_barh.png" >}}
+| :--------: | :----------: |
