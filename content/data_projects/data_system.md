@@ -19,7 +19,7 @@ There are endless oppertunities to streamline processes and automate our data pr
 
 This article serves as an example for the wide ranging applications I've been using Python to automate both simple and complex tasks with high efficiency.
 
-# Data Modelling
+# Data Pipelines
 
 These are some of the goals we are trying to achieve:
 
