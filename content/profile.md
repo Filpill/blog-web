@@ -34,4 +34,7 @@ tags: ["html","css","hugo","web"]
 
 ### Resume
 
-{{ < embed-pdf url="./pdf/filip-livancic-cv.pdf" > }}
+{{< embed-pdf url="./cv.pdf" renderPageNum="1" hideLoader="false" >}}
+[Filip Livancic CV - Hyperlink](/files/cv.pdf)
+
+
