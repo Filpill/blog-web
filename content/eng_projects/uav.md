@@ -18,7 +18,8 @@ categories: ["engineering","design"]
 - The design had to be capable of flying some circuits with varying volumes of water weighing up to 3.5kg.
 - As project engineer, I was responsible for coordinating the technical requirements and outputs between our sub-teams.
 
-[Link to Project Report For UAV Design Process](https://drive.google.com/file/d/12L3sA-PAy6hqoBoNMJYf0l1sCFE1jM97/view)
+
+{{< embed-pdf url="/files/filip_uav.pdf" renderPageNum="1" hideLoader="false" >}}
 
 
 ## Aircraft Design Process

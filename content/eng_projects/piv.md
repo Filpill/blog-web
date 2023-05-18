@@ -20,7 +20,7 @@ categories: ["engineering","design"]
 
 - In this experiment the height of the boundary layer is similarly proportioned to the height of the step. In results shown below you will notice two distinct separation regions on the aerofoil. One at the bottom of the step due to the sudden adverse pressure gradient. And another at the top of the step as the flow is unable to sharply turn the corner.
 
-[Link to dissertation](https://drive.google.com/file/d/1jDI40Nh-rvW2NaWesEU0GMw8Fhbb6ypA/view)
+{{< embed-pdf url="/files/filip_piv.pdf" renderPageNum="1" hideLoader="false" >}}
 
 [Link to PIV Python Code For Results Post Processing](https://github.com/Filpill/ffs_pivAero)
 
