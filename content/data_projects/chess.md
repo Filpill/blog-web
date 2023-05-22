@@ -68,7 +68,7 @@ graph TD;
 
 ## Data Visualisations
 
-The following images are served from directly my github repository:
+The following images are served directly from my github repository:
 
 ![Rating](https://raw.githubusercontent.com/Filpill/chess_analysis/main/charts/raw_rating_line.png)
 ![Moving Average Rating](https://raw.githubusercontent.com/Filpill/chess_analysis/main/charts/avg_rating_line.png)
