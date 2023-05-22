@@ -71,8 +71,10 @@ graph TD;
 
 ## Data Visualisations
 
- {{< img500 src = "/img/codewars/rank_distribution.png" >}}  | {{< img300 src = "/img/codewars/language_pie.png" >}}
+These images are served directly from my github repository:
+
+![test](https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/rank_distribution.png) | ![test](https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/language_pie.png)
 | :--------: | :----------: |
 
- {{< img500 src = "/img/codewars/top_tags.png" >}} | {{< img300 src = "/img/codewars/monthly_complete_barh.png" >}}
+ ![test](https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/top_tags.png) |  ![test](https://raw.githubusercontent.com/Filpill/codewars-stats/main/charts/monthly_complete_barh.png)
 | :--------: | :----------: |

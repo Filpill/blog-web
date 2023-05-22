@@ -66,60 +66,14 @@ graph TD;
     end
 {{< /mermaid >}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Data Visualisations
 
-![Rating](/img/chess/raw_rating_line.png#center)
-![Moving Average Rating](/img/chess/avg_rating_line.png#center)
-![Top Openings](/img/chess/top_openings.png#center)
-![Time of Day](/img/chess/time_of_day.png#center)
-![Day of Week](/img/chess/day_of_week.png#center)
-![Chess Summary](/img/chess/chess_summary_pie.png#center)
-![Monthly Games](/img/chess/monthly_games.png#center)
+The following images are served from directly my github repository:
+
+![Rating](https://raw.githubusercontent.com/Filpill/chess_analysis/main/charts/raw_rating_line.png)
+![Moving Average Rating](https://raw.githubusercontent.com/Filpill/chess_analysis/main/charts/avg_rating_line.png)
+![Top Openings](https://raw.githubusercontent.com/Filpill/chess_analysis/main/charts/top_openings.png)
+![Time of Day](https://raw.githubusercontent.com/Filpill/chess_analysis/main/charts/time_of_day.png)
+![Day of Week](https://raw.githubusercontent.com/Filpill/chess_analysis/main/charts/day_of_week.png)
+![Chess Summary](https://raw.githubusercontent.com/Filpill/chess_analysis/main/charts/chess_summary_pie.png)
+![Monthly Games](https://raw.githubusercontent.com/Filpill/chess_analysis/main/charts/monthly_games.png)
