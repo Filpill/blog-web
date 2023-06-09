@@ -1,25 +1,24 @@
 ---
-title: "How to Set Up RC Electronic System"
+title: "How to Set Up Your Radio Controlled System"
 date: 2023-06-07
 draft: True
-ShowToC: false
+ShowToC: True
 
 cover:
-  image : img/folder/image.png
+  image : img/rcSetUp/rc_system.jpg
   alt: 'Image of RC Electronics'
 
 tags: ["engineering","electronics"]
 categories: ["engineering"]
 ---
 
-# Summary
+## Summary
 
-This article will briefly outline the basic arrangement that can be used as guidance for your DIY RC electronics.
+This article will briefly outline the basic arrangement that can be used as guidance for your DIY RC electronics. Should be relatively plug and play.
+
+## Parts List
 
 Any of these specific parts that are mentioned here can be interchanged for your specific needs. The list of parts outlined is the minumum number of components to have a functioning motor and servo.
-
-
-# Parts List
 
 <div align="center">
 
@@ -37,18 +36,24 @@ Component      | Part No.
 
 </div>
 
-# Type of Electrical Connectors
-Component | Connector
+## Type of Electrical Connectors
+
+These are the electrical connectors used in these components. 
+
+Component | Connector(s)
 | :---        |    :----
-ESC | Traxxas, Deans/T-Plug, Motor Pin
-Battery | Traxxas, Deans/T-Plug
+ESC | Traxxas, Deans, Motor Pin, Futaba
+Battery | Traxxas, Deans
 Motor | Motor Pin 
-Servo | Futaba Connector
+Servo | Futaba
 Voltage Alarm | JST XH
 Balance Charger | JST XH
 
+Typically the battery connectors can come in a number of varieties which can make the matter confusing. However, you always have the option of hooking up and adapter. 
 
-# Block Connection Diagram
+In my case, I had to use as Deans (male) to Traxxas (female) adapter to complete the circuit.
+
+## Block Diagram - Connections
 
 Here is the component block diagram:
 
@@ -66,20 +71,49 @@ mindmap
 
 The ESC as the hub of the system in which everything connects to. The ESC on my system also happens peform the functionalilty of the BEC and can be considered as one unit.
 
+## Radio
+
+The bought the radio Rx/Tx system as a package, so they came "bound" together already. The system was plug and play for me. As long as I could supply a current to the reciever, it automatically connect to the transmitter. 
+
+If you do not have binding (or need to use a new reciever), there are usually specific procedures to follow for your given controller to bind them together (in the manual for the controller).
+
+There are no complicated procedures outside of this, you just need to follow the block diagram and make sure the components are rated for the supplied voltage/current.
+
+The radio controller I used was a 6 channel. 
+
+For reference my servo was plugged into Channel 1 (CH1), my ESC/Motor was plugged into Channel 2 (CH2).
+
+There are still 4 empty channels open, therefore, other electronics such as additional servos can supplement your RC controls.
 
 
+## LiPo Battery Maintenance
+Safety Precautions should be taken when using LiPo batteries, they can be very dangerous if mishandled. 
 
-# LiPo Battery Maintenance
-Safety Precautions should be taken when using LiPo batteries, they can be very dangerous if mishandled. If you are not using the LiPo's when they are in a "charged" state, then you should consider discharging them to a "storage voltage". A safe storage voltage per cell is somewhere between 3.6V and 3.8V.
+### Storage
+If you are not using the LiPo's when they are in a "charged" state, then you should consider discharging them to a "storage voltage". A safe storage voltage per cell is somewhere between 3.6V and 3.8V.
 
-The maximum allowable voltage of a LiPo cell is 4.2V per cell. Do not overcharge the battery as you may cause damage to the battery and reduce the lifespan; it may also become a fire hazard if consitently overcharged. You may see ballooning occur in the battery. This will be a sign to discontinue use of the battery.
+
+### Charging
+The maximum allowable voltage of a LiPo cell is 4.2V per cell. Do not overcharge the battery as you may cause damage to the battery and reduce the lifespan; it may also become a fire hazard if consitently overcharged. 
 
 In terms of charging rates, I am charging my batteries at a rate of 1C. For a 2200mAH battery this equates to 2.2A.
 
+### Discharging
 The inverse is true about discharging the battery too much. Do not let the LiPo voltage fall below 3.2V per cell as this will also cause internal damage to the battery which is irreversible. To mitigate this risk, you can use a voltage alarm on your circuit to warn you when the voltage is falling below a desired threshold.
 
+### Signs to Discontinue Battery Usage
+A well maintenaed LiPo battery should be able to safely achieve at least 300 full charge/discharge cycles if obeying the precautions above.
 
-# Photos
+There are a list of signals decide whether or not to discontinue use of any given LiPo:
+- If you see ballooning occur in the battery. 
+- Battery not holding a charge and voltage drop-off.
+- Battery getting warm when charging at a rate of 1C.
+- Physical dents or damage to the battery increasing the internal resistance.
 
-![Image1](/img/folder/imageName.jpg)
+## Gifs
+
+Following the block diagram, you should be able to achieve these results.
+
+![Servo](/img/rcSetUp/servo-rc.gif)
+![Motor](/img/rcSetUp/motor-rc.gif)
 
