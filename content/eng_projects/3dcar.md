@@ -23,8 +23,6 @@ categories: ["engineering","design"]
 - I will share the existing highlights of this projects for the time being.
 
 
- [Link to Project Document Discussing Changes From V1 to V2 on Google Drive](https://drive.google.com/file/d/1EldK84WdVEGBc5a2cYDj4144Esv3kpME/view)
-
  [Link to programming of control loop for 3D Printed Car](https://github.com/Filpill/BTCarController)
 
 # Solidworks Design
