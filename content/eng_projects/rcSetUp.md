@@ -28,8 +28,8 @@ Component      | Part No.
 | Radio Reciever | FS-BS6 
 | Electronic Speed Controller (ESC) | KYRC X60 - Brush
 | Battery Eliminary Curcuit (BEC) | KYRC X60 - Brush
-| Lipo Voltage Indicator | Youmile Battery Tester
-| Brushed/Brushless Motor | 550/35T *"CrazyPony"* Brushed 
+| Lipo Voltage Indicator | BX100
+| Brushed/Brushless Motor | 550/35T Brushed Motor
 | Servo | MG-996R 
 | LiPo Battery | 11.1V 3S HRB Power 
 | Battery Balence Charger/Discharger | HTRC T150 

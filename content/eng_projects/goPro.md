@@ -20,7 +20,9 @@ The camera mount point is not ideal as the wheels are caught in the field of vie
 
 I'm planning to get rid of the clamping device for the camera and use the proprietary universal goPro connector to fix the camera. It will be easier to slide the camera off in the future.
 
-I'm also considering integrating a drive-train into the design to make it self-propelling rather than having to manually push the car all the time. For the time being, this device is just a proof of concept and may evolve in the future.
+I'm also considering scaling this idea up to a full RC car to make it self-propelling rather than having to manually push the car all the time.
+
+For the time being, this device is just a proof of concept and may evolve in the future.
 
 # Manufacturing Photos
 
