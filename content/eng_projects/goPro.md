@@ -12,7 +12,7 @@ tags: ["design","engineering","mechanical","3d-printing"]
 categories: ["engineering","design"]
 ---
 
-# Summary
+## Summary
 
 Designed a skateboard for my GoPro, experimenting with different camera perspectives; in particular with low rolling shots.
 
@@ -24,7 +24,7 @@ I'm also considering scaling this idea up to a full RC car to make it self-prope
 
 For the time being, this device is just a proof of concept and may evolve in the future.
 
-# Manufacturing Photos
+## Photos
 
 ![Image1](/img/goPro/im1.jpg)
 ![Image2](/img/goPro/im2.jpg)

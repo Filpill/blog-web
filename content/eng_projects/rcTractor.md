@@ -24,9 +24,9 @@ I wanted to make my design as simple as reasonably possible. In my previous proj
 
 I did end up using the lessons from my previous failed car designs to incorporate into this one. I had a 2 year hiatus from designing anything mechanical, so I suprised even myself when I managed to build out a working 3D printed gearbox.
 
-It's not perfect by any stretch of the imagination; after the assembly I still had to take a dremel to various parts to shave off some millimetres in order to free up mechanisms and part fits. Even after checking for collisions in Solidworks, the clearances and fits may not be what you expect in real life.
+It's not perfect by any stretch of the imagination; after the assembly I still had to take a dremel to various parts to shave off some millimeters in order to free up mechanisms and part fits. Even after checking for collisions in Solidworks, the clearances and fits may not be what you expect in real life.
 
-If I design more cars in the future, I will try make more thoughtful abdelegant designs with improved tolerances. Even after 4 years of 3D printing, its not straightforward to nail down the tolerancing. To be honest, I think it is extremely reliant on trial an error to nail down correctly, but at least its at the point of acceptability for this design.
+If I design more cars in the future, I will try make more thoughtful and elegant designs with improved tolerancing. Even after 4 years of 3D printing, its not straightforward to nail down the tolerancing. To be honest, I think it is extremely reliant on trial an error to nail down correctly, but at least its at the point of acceptability for this design.
 
 
 ## General Car Stats
