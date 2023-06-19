@@ -14,7 +14,7 @@ categories: ["engineering"]
 
 ## Summary
 
-This article will briefly outline the basic arrangement that can be used as guidance for your DIY RC electronics. Should be relatively plug and play.
+This article will briefly outline the basic arrangement that can be used as guidance for your DIY RC electronics. 
 
 ## Parts List
 
@@ -73,17 +73,17 @@ The ESC as the hub of the system in which everything connects to. The ESC on my 
 
 ## Radio
 
-The bought the radio Rx/Tx system as a package, so they came "bound" together already. The system was plug and play for me. As long as I could supply a current to the reciever, it automatically connect to the transmitter. 
+My radio Rx/Tx system came as a package, and were already "bound" together already. As long as I could supply a current to the reciever, it automatically connect to the transmitter. 
 
 If you do not have binding (or need to use a new reciever), there are usually specific procedures to follow for your given controller to bind them together (in the manual for the controller).
 
 There are no complicated procedures outside of this, you just need to follow the block diagram and make sure the components are rated for the supplied voltage/current.
 
-The radio controller I used was a 6 channel. 
+The radio transmitter I used has 6 channels. 
 
 For reference my servo was plugged into Channel 1 (CH1), my ESC/Motor was plugged into Channel 2 (CH2).
 
-There are still 4 empty channels open, therefore, other electronics such as additional servos can supplement your RC controls.
+There are still 4 empty channels open for other electronics such as additional servos can supplement your RC controls.
 
 
 ## LiPo Battery Maintenance
