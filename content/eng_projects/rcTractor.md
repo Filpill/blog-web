@@ -12,7 +12,7 @@ tags: ["design","engineering","mechanical","3d-printing"]
 categories: ["engineering","design"]
 ---
 
-# Summary
+## Summary
 
 Finshed designing and building a functional 3D Printed RC car which accidently ended up assembling a tractor by chance. Thats the consequence of a lack of planning and design contraints...
 
@@ -38,7 +38,7 @@ If I design more cars in the future, I will try make more thoughtful and elegant
 - Servo: MG995-R
 - Plastic Used: PLA
 
-# Design Photos
+## Design Photos
 
 Here are some renders made in Solidworks:
 
@@ -59,7 +59,7 @@ Here are some renders made in Solidworks:
 ![Image7](/img/tractor/rc_tractor_steeringR.png)
 
 
-# Gifs
+## Gifs
 
 {{< img720 src = "/img/tractor/steering_range.gif" >}}
 {{< img720 src = "/img/tractor/rc_turn.gif" >}}
