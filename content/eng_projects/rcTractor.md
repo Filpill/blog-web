@@ -14,7 +14,7 @@ categories: ["engineering","design"]
 
 # Summary
 
-Finshed designing and building a functional 3D Printed RC car which accidently ended up esembling a tractor by chance. Thats the consequence of a lack of planning and design contraints...
+Finshed designing and building a functional 3D Printed RC car which accidently ended up assembling a tractor by chance. Thats the consequence of a lack of planning and design contraints...
 
 The reason for the large wheels in the back is because of how I started my design process. The design was built around the gearbox. Since the gearbox ended up being very tall, I figured I would just mount some very large wheels to clear the ground. Therefore I didn't need to think about mounting points for the rear wheel, nor a CV jointed drive shaft. It was simply direct drive and it was all 3D printed (except the steering mechanism).
 
@@ -58,3 +58,8 @@ Here are some renders made in Solidworks:
 ![Image6](/img/tractor/rc_tractor_steeringL.png)
 ![Image7](/img/tractor/rc_tractor_steeringR.png)
 
+
+# Gifs
+
+{{< img720 src = "/img/tractor/steering_range.gif" >}}
+{{< img720 src = "/img/tractor/rc_turn.gif" >}}
