@@ -46,7 +46,7 @@ There are 2 main ways to connect to a git repository. We can either use the HTTP
 
 SSH has the advantage of having passwordless interactions with git which I strongly recommended when pushing code. Its trivial to set-up an SSH key-pair; it saves time and its very secure. (Assuming you take the right precautions to protect your ssh-keys!)
 
-My **deep personal recommendation is to use the SSH Method** and avoid using the access tokens and avoid using the access tokens.
+My **deep personal recommendation is to use the SSH Method** and avoid using the access tokens for authentications.
 
 Something worth noting is that Git will search the path for the ssh-key file **~/.ssh/id_rsa** by default. Make you name your file **id_rsa** otherwise it will not work.
 
