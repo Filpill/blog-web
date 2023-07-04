@@ -14,88 +14,176 @@ categories: [programming]
 
 # Summary
 
-Documenting the most common ways I interact with git and in maintaining my programs. For reference these actions are performed via the command line.
+This article documents the most common ways I interact with git and in maintaining my programs. 
 
-In my opinion the main benefit of using a CLI is the added efficiency of the scripting out the majority of the process via usage of shell scripts.
+{{<mermaid>}}
+graph LR;
+    subgraph High-Level Process
+    direction LR
+    0[Installation]-->1[SSH]
+    1 --> 2[Git Configuration]
+    2 --> 3[New Repository]
+    3 --> 4[Commit Changes]
+    end
+{{< /mermaid >}}
 
-This allows you to direct all of your attention on effortless creating work without getting lost in a GUI just to push a new commit.
+## Why should I use Git with the Command Line?
 
-### Connections and Authentication
+Git was designed as a command-line tool, therefore it's considered the de-facto way to interact with Git's tools.
+
+Any other versions of Git are just wrappers for what Git does on the command-line. GUI type Software built "around Git" has tendencies to introduce bugs which are difficult to resolve.
+
+You are abstracted away from what Git is actually doing, so it's not possible to tell if the error was with action performed in Git or if the software was somehow glitched.
+
+Other tools may also rebrand some git commands to other names which can present communication issues if people are using different flavours of Git.
+
+But its worth building some knowledge around the concept of how to use the Shell. *Bash* (shell) scripting is worth its weight it gold if leveraged correctly. It's great for task automation and shell is a transferable skill to other command-line type programs, e.g. bq command-line tool for GCP.
+
+
+# Connections and Authentication
 
 There are 2 main ways to connect to a git repository. We can either use the HTTPS or SSH protocols respectively.
 
-SSH has the advantage of having passwordless interactions with git which I strongly recommended when pushing code. Its very easy to set-up an SSH key-pair; it saves time and its very secure. (Assuming you take the right precautions to protect your ssh-keys!)
+SSH has the advantage of having passwordless interactions with git which I strongly recommended when pushing code. Its trivial to set-up an SSH key-pair; it saves time and its very secure. (Assuming you take the right precautions to protect your ssh-keys!)
 
-I would only use HTTPS if I am cloning someone-elses public repository but not for maintaining my personal repos'.
+My **deep personal recommendation is to use the SSH Method** and avoid using the access tokens and avoid using the access tokens.
 
-I won't discuss the methods of generating access tokens which can be used to authenticate an https connection. In my experience this is the inferior way to authenticate your connection unless you have some sort of specific reasons to use https with an access token.
+Something worth noting is that Git will search the path for the ssh-key file **~/.ssh/id_rsa** by default. Make you name your file **id_rsa** otherwise it will not work.
 
-### Create Local Repo and Connect to Remote Repository
-- Go to Github and create a new repository
-- Go to the working directory of your machine and initialise the local repo by typing:
+## Creating SSH Keys Using ssh-keygen
+- Go to your **~/.ssh** directory which is storing ssh-keys
+- Type this command to generate an SSH Keypair:
+```[bash]
+ssh-keygen -t rsa -b 4096 -C emailnae@domain.com
+```
+- Name your SSH keys (**preferably "id_rsa"** for the default filename), and skip password prompts
+- **"Cat"** out the **public key (suffixed .pub)** that was generated and paste into the Github settings for SSH Keys
+- For security purposes, permissions need to be changed for the keys, you can change them using the below command prevent external read/write access:
+```bash
+chmod 600 ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa.pub
+```
+
+## Handling Multiple SSH Keys Using Keychain
+
+If you happen to decide to put your keys outside the default path **(~/.ssh/id_rsa)**, git won't search for them.
+
+I'm using a program called **Keychain** which can help manage your SSH Keys more easily. Its driving the underlying ssh-add and ssh-agent commands.
+
+I've added this line (shown below) to my **.bashrc** in order to add the relevant SSH key to the keychain.
+
+When I spawn a terminal, it will activate this command automatically and start a new process.
+
+```bash
+eval $(keychain --eval ~/.ssh_id_rsa/arch_vm) #2>/dev/null
+```
+
+In order to do the same process manually, these are the following commands:
 
 ```[bash]
+eval `ssh-agent`
+ssh-add path/to/your/private/ssh/key
+```
+# Git Basic Setup
+
+## Setting Up Git Config
+Inside your home directory you should have a file called .gitconfig which should be empty on a fresh install.
+
+You can define the username and email of your github account in here with the following commands:
+
+```bash
+git config --global user.name "github_user_name"
+git config --global user.email "emailname@domain.com"
+```
+
+## Create Git Repository 
+
+This is the overall process of creating a repo on the CLI:
+{{<mermaid>}}
+graph LR;
+    subgraph Creating Git Repository
+    0[Create README with Repo Name]-->2[Initialise Git]
+    2 --> 3[Stage Changes]
+    3 --> 4[Link Local Repo to Remote Repo]
+    4 --> 5[Commit Changes]
+    end
+{{< /mermaid >}}
+
+- Create a README and initialise git with these commands:
+```[bash]
+echo "# repository_name" >> README.md
 git init
 ```
-- Connect local repo to remote repo by typing:
+
+By default the branch is called "master", however this can be renamed to anything you desire.
+
+Lets rename "master" to "main" for example using this command:
+
 ```[bash]
-git remote set-url origin repo_ssh_address
+git branch -m main
+```
+Staging is the process of preparing the changed files for the next commit.
+
+You can stage the files with add; the full stop will include all files that have changed. Or you can explictly write which files you want to add to the commit.
+
+The **commit** command will create the commit, (the -m flag allows you to add a commit message inline):
+
+```bash
+git add.
+git commit -m "first commit msg"
+```
+To connect the remote repository to the the github server, you can write this command:
+
+```bash
+git remote add origin git@github.com:github.com:github_username/repo_name.git
 ```
 
-### Cloning a Github Repo
+To push your first commit into github, write this command (the -u flag sets a tracking reference upstream for the git pull command):
+
+```bash
+git push -u origin main
+```
+
+## Cloning a Github Repo
 
 - Go to Github and copy ssh address of repository
 - Go to the directory where you want to clone the repository into and type:
+
 ```[bash]
-git clone repo_ssh_address
-```
-- Or if you don't have an ssh key-pair set-up ,you can just switch the address with the HTTPS version which works just the same:
-```[bash]
-git clone repo_https_address
+git clone git@github.com:github_username/repository_to_be_cloned.git
 ```
 
-### Creating SSH Keys for Authentication Protocol
-- Go to your dot ssh directory which is storing ssh-keys
-- Type this command to generate an SSH Keypair:
-```[bash]
-ssh-keygen -t rsa -b 4096 -C youremail@yourdomain.com
-```
-- Name your SSH keys, and skip password prompts
-- Copy the public key of the two that were generated and paste into the Github settings where you are saving your public keys
+## Commit Changes to Github Repository
 
-### Initialise SSH-Agent and Add Private SSH Key To Key Chain
+After using Git for much time on personal projects it's become very ritualistic for me to fall into this pattern:
 
-This only lasts as long as your terminal instance is open. If you close the terminal, you need to re-type the commands to restart the ssh-agent for the next terminal you spawn.
+{{<mermaid>}}
+graph LR;
+    subgraph Basic Workflow
+    direction LR
+    0[Pull]-->1[Add]
+    1 --> 2[Commit]
+    2 --> 3[Push]
+    end
+{{< /mermaid >}}
 
-*Note: The ssh agent process only linked to the terminal you typed it in. So you will need to initialise the ssh-agent for every terminal instance you spawn (if you working on multiple terminals).*
-
-I've already saved this as an shell script to save the effort of writing these commands all the time.
-
-- To start ssh-agent type:
-```[bash]
-eval `ssh-agent`
-```
-- To add the private key to the ssh agent type:
-```[bash]
-ssh-add path/to/your/private/ssh/key
-```
-
-### Commit Changes to Github Repository
-
-- Pull the most recent version from the repo by typing:
 ```[bash]
 git pull origin main
-```
-- Make ammendments to your work and save it locally
-- To queue up ALL changes to upload, type:
-```[bash]
 git add .
-```
-- To commit the changes type:
-```[bash]
 git commit -m ”add some comments here”
-```
-"To push the committed changes onto the main branch type:
-```[bash]
 git push origin main
 ```
+
+- Pull the most recent changes from repo 
+- Make ammendments to your work and save it locally
+- Queue up changes to upload
+- Commit the changes
+- Push the changes onto the checked out branch
+
+If you are working with other development branches you will need to use the **git checkout** command to change the branch you are working on and modify the routine accordingly.
+
+# Conclusion
+
+This guide is designed to get you up and running with git on the CLI and understand the fundamentals of interacting with git.
+
+With respect to the git's numerous other features, it's recommended to read the documentation to understand how they function and how to use those tools.

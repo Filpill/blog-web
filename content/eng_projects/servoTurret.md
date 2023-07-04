@@ -22,9 +22,9 @@ I've segmented this project into two parts/versions:
 
 ## Arduino 
 
-The arduino project is very simple, there is a program written in Processing which takes the mouse inputs send strings (enclosed in <>) to the Arduino via serial comminications. 
+The arduino project is very simple, there is a program written in Processing which takes the mouse inputs send strings (enclosed in <>) to the Arduino via serial communications. 
 
-A small delay of 100ms is maintained to limit the rate of data coming to the Arduino board. The Arduino has a small serial buffer, so we need to limit the rate of data to prevent a serail buffer overflow. If this issue occurs, then the servo will not be able to effectively read the data stream.
+A small delay of 100ms is maintained to limit the rate of data coming to the Arduino board. The Arduino has a small serial buffer, it can only read 8 bytes at a time. Therefore we need to limit the rate of data to prevent a serial buffer overflow. If this issue occurs, then the servo will not be able to effectively read the data stream.
 
 The Arduino has a sketch uploaded to the board that will do a number opperations. 
 - It will ingest the string data character by character from '<' and terminate at '>'.

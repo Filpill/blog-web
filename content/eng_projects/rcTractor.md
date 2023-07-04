@@ -1,5 +1,5 @@
 ---
-title: "3D Printed RC Tractor"
+title: "3D Printed RC Road Vehicle"
 date: 2023-06-12
 draft: True
 ShowToC: false
@@ -14,7 +14,7 @@ categories: ["engineering","design"]
 
 ## Summary
 
-Finshed designing and building a functional 3D Printed RC car which accidently ended up assembling a tractor by chance. Thats the consequence of a lack of planning and design contraints...
+Finshed designing and building a functional 3D Printed RC car which accidently ended up resembling a tractor by chance. Thats the consequence of a lack of planning and design contraints...
 
 The reason for the large wheels in the back is because of how I started my design process. The design was built around the gearbox. Since the gearbox ended up being very tall, I figured I would just mount some very large wheels to clear the ground. Therefore I didn't need to think about mounting points for the rear wheel, nor a CV jointed drive shaft. It was simply direct drive and it was all 3D printed (except the steering mechanism).
 
