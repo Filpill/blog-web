@@ -31,7 +31,7 @@ hostname -I
 
 # or
 
-ping rasberrypi.local
+ping raspberrypi.local
 
 # or
 
