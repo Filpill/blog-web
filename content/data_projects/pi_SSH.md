@@ -47,7 +47,7 @@ For the SSH Remote Acess, I will be connecting to my Raspberry Pi via my Arch Li
 - Obtain Raspberry Pi's IP Address
 - Create hostname for IP in the /etc/hosts file
 
-#### Setting Up Networking
+### Setting Up Networking
 Assuming you are running a minimal distribution such as Raspberry Pi Lite OS, you will need a way to get access to the internet.
 
 Get the SD from the Pi which has the image installed onto it, and read it from your main PC.
@@ -96,20 +96,20 @@ If you didn't configure your pi user crentials, for reference these are the defa
 So the SSH command may look like this for example:
 
 ```[bash]
-ssh pi@192.168.1.134
+ssh pi@192.---.-.---
 ```
 You would then be prompted with a password for which you will have to enter in order to gain access.
 
-If you have made your own username and password, then substitute with your own credentials.
+But for security purposes I recommend you make your own username and password, then substitute with your own credentials.
 
 The userame on the Raspberry Pi is **filpill**, so it would be modified like this:
 
 ```[bash]
-ssh filpill@192.168.1.134
+ssh filpill@192.---.-.---
 ```
 ![SSH IP](/img/piSSH/ssh_ip.jpg#center)
 
-### Replacing IP Address with Hostname SSH Protocol
+### Replacing IP Address with Hostname 
 
 Now obviously its not that easy to remember an IP address everytime you want to SSH into the Pi. So we could store an alias for the IP in the **/etc/hosts** directory.
 
@@ -120,7 +120,7 @@ sudo vim /etc/hosts
 You'll want to add a line in this file with the IP Address and hostname of the Raspberry Pi. The line you will add will look similar to this:
 
 ```[bash]
-192.168.1.134   raspberrypi
+192.---.-.---   raspberrypi
 ```
 
 So the next time you want to SSH into the Pi, instead of writing the full IP address, you can just write this:
@@ -136,6 +136,24 @@ ssh filpill@raspberrypi
 
 The command functions all the same in additon to being much easier to remember into the future.
 
+### SSH Keys - Passwordless Access
+
+In order to increase the security of the SSH protocol, its recommended to create a set of SSH keys.
+
+You can simply create a key-pair in your shell with this command:
+
+```[bash]
+ssh-keygen
+```
+
+Then you will want to get the public key onto the raspberry pi to enable the key pair interaction. And it's similar to SSH'ing into your device.
+
+```[bash]
+ssh-copy-id filpill@raspberrypi
+```
+
+This will copy the public key into your pi, so the next time you try to SSH into the Pi, it will automatically unlock using the private key on your computer.
+
 ## Remote Desktop Access via Windows
 
 For demonstation purposes I will be using the **Windows 10 Remote Desktop Connection** application to provide my access. The same concepts can be applied to alternative software.
@@ -149,7 +167,7 @@ There are a few of pre-requisite tasks to complete before attempting remote acce
 - Add a secondary user to the Raspberry Pi with Sudo privillages
 - Enable Remote Desktop Access in the raspi-config
 
-#### Install xrdp
+### Install xrdp
 
 To install xrdp, type this command into the Raspberry Pi terminal:
 
@@ -163,7 +181,7 @@ Then you need to start the xrdp service like this:
 sudo systemctl start xrdp
 ```
 
-#### New/Secondary User
+### New/Secondary User
 
 To add a new user, type this command:
 
@@ -179,7 +197,7 @@ Then to give the user sudo privileges i.e. adding them to the sudo group:
 sudo adduser <INSERT USERNAME> sudo
 ```
 
-#### Enable Remote Desktop Access
+### Enable Remote Desktop Access
 
 To enable this access, you need to enter the command:
 
