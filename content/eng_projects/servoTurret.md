@@ -14,11 +14,13 @@ categories: ["engineering","design"]
 
 ## Summary
 
-This project has been made to practise the use of sending instructions to various electronics via serial communications.
+This project has been made to practise the use of sending instructions to various electronics for both the Arduino and the Raspberry Pi.
 
 I've segmented this project into two parts/versions:
-- Arduino - Manual Control with Mouse via Serial Comms Port
-- Raspberry Pi - AI Face Tracking with Python and Camera Module
+- Arduino - Mouse Control via Serial Communications Port
+- Raspberry Pi - Mouse Control via Python Tkinter Program
+
+![Link to Project for Mouse Controlled Servo](https://github.com/Filpill/mouseServo)
 
 ## Arduino 
 
@@ -33,6 +35,8 @@ The Arduino has a sketch uploaded to the board that will do a number opperations
 - The inputs will be converted to integers to map the angle for the Servos.
 - Actuate the Servos
 
+
+{{< img720 src = "img/servo/mouse.gif" >}}
 
 {{<mermaid>}}
 graph TD;
@@ -59,15 +63,37 @@ graph TD;
 
 ## Raspberry Pi 
 
-*To be completed*
 
-The Raspberry Pi project is using a Python script to drive the inputs. At the moment there is a face-detection algorithm to create the inputs.
+The Raspberry Pi project is using a Python script to drive the inputs. I've created a Tkinter program which maps the mouse position on the GUI to a pair of servo angles for the turret to move.
 
-I'm using the Haar cascade model in the OpenCV library to provide my facial detection.
+The mouse movements are passed into an event handler to locate mouse position on the window x,y coordinates. We use positional data on the mouse to calculate a servo angle based on the coordinate on the drawn window.
 
-I will report back when the inputs have been implemented using the Raspberry Pi.
+In order to acuate the servos, the angle inputs must be mapped to the corresponding duty cycle. The duty cycle can take any range of values between 2 and 12 for this particular servo. It handles angles in the range between 0 and 180 degrees.
 
-## Gifs
+The duty cycle can be calulcated like with this calculation:
 
+```
+1/18 * angle + 2
+```
 
-{{< img720 src = "img/servoTurret/mouse.gif" >}}
+Then we send the pair of updated duty cycle values to the respective GPIO pins in order to drive the servo positions.
+
+{{< img720 src = "img/servo/tkinter_pi_ui_animation.gif" >}}
+
+{{< img720 src = "img/servo/servo_pi_control.gif" >}}
+
+{{<mermaid>}}
+graph TD;
+    subgraph Python Program
+    P0([Run Python])--> P1([Start Tkinter GUI])
+    P0 --Initialise--> G0[GPIO Pins]
+    P1 --> P2[Mouse Movements Passed to Event Handler]
+    P2 --> P3[Convert X,Y Coordinates to Servo Angles]
+    P3 --> P4[Map Servo Angles to Duty Cycle Values]
+    P4 --> P5[Send Duty Cycle Values Through GPIO Pins]
+    P5 --> G0
+    G0 --> S1([Actuate Yaw Servo])
+    G0 --> S2([Actuate Pitch Servo])
+    end
+
+{{< /mermaid >}}

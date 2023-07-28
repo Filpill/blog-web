@@ -44,7 +44,7 @@ categories: ["engineering","design"]
 
 ## Processing3 Controller Program - Bluetooth Interface
 
-```{C}
+```C
 import processing.serial.*;
 import controlP5.*;
 Serial myPort;
@@ -117,7 +117,7 @@ else if(mousePressed&& mouseX>300 && mouseX<400 && mouseY>275 && mouseY<375){
 
 ## Arduino Control Loop
 
-```{C}
+```C
 #include <Servo.h>
 
 //for reading characters in
