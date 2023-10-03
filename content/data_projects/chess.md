@@ -64,7 +64,7 @@ graph TD;
     R-->S[Insert Matplotlib Charts]
     S-->T([Close Xlsxwriter Workbook Object])
     end
-{{< /mermaid >}}
+{{</mermaid>}}
 
 ## Data Visualisations
 
