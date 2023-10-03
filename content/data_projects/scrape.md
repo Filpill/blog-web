@@ -74,4 +74,3 @@ The following images are served directly from my github repository:
 
 ![Product Types](https://raw.githubusercontent.com/Filpill/web_scraper/main/pimoroni/charts/product_type.png)
 ![Vendors](https://raw.githubusercontent.com/Filpill/web_scraper/main/pimoroni/charts/vendor.png)
-![Vendors](https://raw.githubusercontent.com/Filpill/web_scraper/main/charts/vendor.png)
