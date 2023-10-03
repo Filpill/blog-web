@@ -1,7 +1,7 @@
 ---
 title: "Arch Linux Installation Guide"
 date: 2023-05-18
-draft: true
+draft: false
 ShowToC: true
 
 cover:

@@ -1,7 +1,7 @@
 ---
 title: "Cyber Deck Assembly - Raspberry Pi"
 date: 2023-07-10
-draft: True
+draft: False
 ShowToC: false
 
 cover:

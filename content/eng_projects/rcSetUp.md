@@ -1,7 +1,7 @@
 ---
 title: "How to Set Up Your Radio Controlled System"
 date: 2023-06-07
-draft: True
+draft: False
 ShowToC: True
 
 cover:

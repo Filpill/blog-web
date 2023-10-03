@@ -1,7 +1,7 @@
 ---
 title: "Python Web Scraping"
 date: 2023-10-03
-draft: true
+draft: false
 
 cover:
   image: /img/scrape/scrape_thumbnail.png

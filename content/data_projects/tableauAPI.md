@@ -1,7 +1,7 @@
 ---
 title: "Tableau Client Server API: Extracting Dashboard Images"
 date: 2022-09-16
-draft: true
+draft: False
 showTOC: true
 
 cover:

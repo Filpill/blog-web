@@ -1,7 +1,7 @@
 ---
 title: "Chess.com API - Data Visualisation"
 date: 2023-04-10
-draft: true
+draft: false
 
 cover:
   image: /img/chess/chess_gimp.png

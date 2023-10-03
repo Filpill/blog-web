@@ -1,7 +1,7 @@
 ---
 title: "Building Data Pipelines With Python: Systems Perspective"
 date: 2022-07-23T21:12:42+01:00
-draft: true
+draft: False
 ShowToC: true
 
 cover:
