@@ -48,10 +48,5 @@ url = "https://github.com/filpill"
 name = "linkedin"
 url = "https://www.linkedin.com/in/filip-livancic"
 
-[[params.socialIcons]]
-name = "email"
-url = "filiplivancic@gmail.com"
-
-
 [outputs]
 home = [ "HTML", "RSS", "JSON" ]

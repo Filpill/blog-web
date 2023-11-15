@@ -20,10 +20,3 @@ tags: ["html","css","hugo","web"]
 ### Resume
 {{< embed-pdf url="/files/filip_cv.pdf" renderPageNum="1" hideLoader="false" >}}
 
-### Links
-
-|            |             |
-| :--------: | ----------: |
-![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)  |  [LinkedIn Profile](https://www.linkedin.com/in/filip-livancic/) 
-{{< logo_size src = "/img/profile/tableau_logo.png" >}} | [Tableau Public Profile](https://public.tableau.com/app/profile/filip.livancic)
-

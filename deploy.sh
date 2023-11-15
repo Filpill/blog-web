@@ -3,7 +3,7 @@
 echo "Deploying Website Updates to Github Pages"
 
 # Build project
-hugo -t hugo-PaperMod -D
+hugo -t PaperMod -D
 
 # Commit and Push Changes
 cd public
