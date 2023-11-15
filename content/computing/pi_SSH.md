@@ -1,6 +1,9 @@
 ---
 title: "Raspberry Pi Remote Access Guide"
 date: 2023-07-06
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
 draft: false
 ShowToC: true
 
@@ -8,8 +11,7 @@ cover:
   image: img/piSSH/pi_ssh_rdp.png
   alt: 'Github Logo'
 
-tags: [cli, shell,raspberry pi, linux,ssh]
-categories: [programming]
+categories: [computing]
 ---
 
 # Summary

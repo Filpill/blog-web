@@ -1,6 +1,9 @@
 ---
 title: "Website Design with Hugo Framework"
 date: 2022-06-03T12:29:15+01:00
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
 draft: false
 ShowToC: true
 
@@ -8,8 +11,7 @@ cover:
   image: img/hugo/hugologo.png
   alt: "Hugo Logo"
 
-tags: ["html","css","markdown","go","website","javascript","shell","vim","scripting"]
-categories: ["design"]
+categories: [computing]
 
 ---
 

@@ -29,34 +29,16 @@ url = "/profile/"
 weight = 10
 
 [[menu.main]]
-identifier = "data_projects"
-name = "Data Projects"
-url = "/data_projects/"
-weight = 20
-
-[[menu.main]]
-identifier = "eng_projects"
-name = "Engineering Projects"
-url = "/eng_projects/"
-weight = 25
+identifier = "projects"
+name = "Projects"
+url = "/projects/"
+weight = 15
 
 [[menu.main]]
 identifier = "categories"
 name = "Categories"
 url = "/categories/"
 weight = 30
-
-[[menu.main]]
-identifier = "tags"
-name = "Tags"
-url = "/tags/"
-weight = 40
-
-[[menu.main]]
-identifier = "search"
-name = "Search"
-url = "/search/"
-weight = 50
 
 [[params.socialIcons]]
 name = "github"
@@ -69,6 +51,7 @@ url = "https://www.linkedin.com/in/filip-livancic"
 [[params.socialIcons]]
 name = "email"
 url = "filiplivancic@gmail.com"
+
 
 [outputs]
 home = [ "HTML", "RSS", "JSON" ]

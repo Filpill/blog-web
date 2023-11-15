@@ -1,6 +1,9 @@
 ---
 title: "Github - Command Line Interface Procedures"
 date: 2022-07-17
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
 draft: false
 ShowToC: true
 
@@ -8,8 +11,7 @@ cover:
   image: img/github/github_terminal.png
   alt: 'Github Logo'
 
-tags: [cli, shell, programming]
-categories: [programming]
+categories: [computing]
 ---
 
 # Summary

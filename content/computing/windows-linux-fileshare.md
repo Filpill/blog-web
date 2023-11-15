@@ -3,13 +3,17 @@
 title: "Windows to Linux VM Fileshare"
 date: 2023-11-13
 draft: false
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
+draft: false
+ShowToC: true
 
 cover:
   image: /img/arch/fileshare/fileshare_cover.png
   alt: File Share Image Cover
 
-tags: [linux]
-categories: [linux]
+categories: [computing]
 
 ---
 
