@@ -1,5 +1,6 @@
 ---
 title: "UAV Aircraft Design"
+description: "BMFA 2018: Building competitive aircraft with water ballast and flying various missions"
 date: 2018-06-17
 hideSummary: true
 ShowWordCount: true

@@ -1,5 +1,6 @@
 ---
 title: "Arch Linux Installation Guide"
+description: "Step-by-step guide for installing Arch Linux from scratch on a VM"
 date: 2023-05-18
 hideSummary: true
 ShowWordCount: true

@@ -1,5 +1,6 @@
 ---
 title: "How to Set Up Your Radio Controlled System"
+description: "Instructional guide for setting up a radio control system with your motor and servo"
 date: 2023-06-07
 hideSummary: true
 ShowWordCount: true

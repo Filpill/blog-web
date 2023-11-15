@@ -1,5 +1,6 @@
 ---
 title: "Servo Turret Control"
+description: "Writing Arduino and Python software to control servo turret using mouse inputs"
 date: 2023-07-03
 hideSummary: true
 ShowWordCount: true

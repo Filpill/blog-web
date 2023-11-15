@@ -1,5 +1,6 @@
 ---
 title: "Raspberry Pi Remote Access Guide"
+description: "Guide for remotely accessing a Raspberry Pi via SSH and RDP respectively"
 date: 2023-07-06
 hideSummary: true
 ShowWordCount: true

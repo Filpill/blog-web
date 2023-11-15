@@ -1,5 +1,6 @@
 ---
 title: "Lithophane Lamp"
+description: "3D printed build and techniques in making a lithophane lamp"
 date: 2021-11-13
 hideSummary: true
 ShowWordCount: true

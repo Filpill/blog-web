@@ -1,5 +1,6 @@
 ---
 title: "Github - Command Line Interface Procedures"
+description: "Guide book for how to execute basic git commands on the terminal"
 date: 2022-07-17
 hideSummary: true
 ShowWordCount: true

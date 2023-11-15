@@ -1,5 +1,6 @@
 ---
 title: "Website Design with Hugo Framework"
+description: "Starter guide for building a static website using Hugo utilities"
 date: 2022-06-03T12:29:15+01:00
 hideSummary: true
 ShowWordCount: true

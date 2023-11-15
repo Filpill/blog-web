@@ -1,5 +1,6 @@
 ---
 title: "Building Data Pipelines With Python: Systems Perspective"
+description: "Python integration methods and automation practices for SQL and MS Office products"
 date: 2022-07-23T21:12:42+01:00
 hideSummary: true
 ShowWordCount: true

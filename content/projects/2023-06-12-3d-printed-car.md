@@ -1,5 +1,6 @@
 ---
 title: "3D Printed RC Road Vehicle"
+description: "Showcasing design and build of the latest iteration of my 3D printed car"
 date: 2023-06-12
 hideSummary: true
 ShowWordCount: true

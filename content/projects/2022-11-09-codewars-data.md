@@ -1,5 +1,6 @@
 ---
 title: "Codewars API - User Statistics"
+description: "Extracting codewars userdata and analysing metrics on Python"
 date: 2022-11-09
 hideSummary: true
 ShowWordCount: true

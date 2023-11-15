@@ -1,6 +1,7 @@
 ---
 
 title: "Windows to Linux VM Fileshare"
+description: "How-to guide for setting up shared folder on Windows with your Hyper-V Linux VM"
 date: 2023-11-13
 draft: false
 hideSummary: true

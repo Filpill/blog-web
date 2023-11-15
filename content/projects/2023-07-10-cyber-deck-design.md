@@ -1,5 +1,6 @@
 ---
 title: "Cyber Deck Assembly - Raspberry Pi"
+description: "3D Printed frame for Raspberry Pi featuring integrated camera and display"
 date: 2023-07-10
 hideSummary: true
 ShowWordCount: true

@@ -1,5 +1,6 @@
 ---
 title: "Tableau Client Server API: Extracting Dashboard Images"
+description: "Connecting to TCS API and collecting workbook object metadata with Python"
 date: 2022-09-16
 hideSummary: true
 ShowWordCount: true

@@ -1,5 +1,6 @@
 ---
 title: "Python Web Scraping"
+description: "Showcasing webscraping and data analysis of a product website on Python"
 date: 2023-10-03
 hideSummary: true
 ShowWordCount: true

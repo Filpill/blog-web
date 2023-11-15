@@ -1,5 +1,6 @@
 ---
 title: "Chess.com API - Data Visualisation"
+description: "Chess player data extraction via API and analysing performance data on Python"
 date: 2023-04-10
 hideSummary: true
 ShowWordCount: true

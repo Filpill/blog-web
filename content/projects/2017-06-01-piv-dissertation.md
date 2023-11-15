@@ -1,5 +1,6 @@
 ---
 title: "Forward Facing Step - Particle Image Velocimetry"
+description: "Dissertation Project: Investigating flow field characteristics of a stepped geometry"
 date: 2017-06-01
 hideSummary: true
 ShowWordCount: true
