@@ -64,4 +64,5 @@ Here are some renders made in Solidworks:
 ## Gifs
 
 {{< img720 src = "/img/tractor/steering_range.gif" >}}
+
 {{< img720 src = "/img/tractor/rc_turn.gif" >}}
