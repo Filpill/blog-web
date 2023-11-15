@@ -8,7 +8,7 @@ draft: false
 ShowToC: true
 
 cover:
-  image: img/uav/windtunnel.jpg
+  image: /img/uav/windtunnel.jpg
   alt: 'Wind Tunnel Test'
 
 categories: [Engineering]

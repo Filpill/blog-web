@@ -1,7 +1,7 @@
 ---
 
 title: "Graphical Setup For Linux Desktop"
-description: "test"
+description: "Instructional guide for setting up a GUI Window Manager in Linux"
 date: 2023-11-14
 hideSummary: true
 ShowWordCount: true

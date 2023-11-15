@@ -8,7 +8,7 @@ draft: false
 ShowToC: true
 
 cover:
-  image : img/piv/ffs-bl-diagram.png
+  image : /img/piv/ffs-bl-diagram.png
   alt: 'PIV BL Diagram'
 
 categories: [Engineering]

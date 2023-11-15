@@ -8,7 +8,7 @@ draft: false
 ShowToC: true
 
 cover:
-  image : img/litho/sw-litho.jpg
+  image : /img/litho/sw-litho.jpg
   alt: 'Lithophane SW Model'
 
 categories: [Engineering]
