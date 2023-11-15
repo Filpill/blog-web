@@ -1,6 +1,8 @@
 ---
-title: "Project Folder"
+title: "List of Articles"
 ---
-# [Computing Projects](/computing)
-# [Engineering Projects](/engineering)
-# [Data Projects](/data)
+
+Contains documentation on a series of projects involving:
+- Mechanical/Aeronautical Engineering
+- Data Analytics and Engineering
+- Linux and Computing Guides
