@@ -3,6 +3,7 @@
 title: "Graphical Setup For Linux Desktop"
 date: 2023-11-14
 draft: false
+ShowToC: true
 
 cover:
   image: /img/arch/gui/linux_gui.png
@@ -212,6 +213,42 @@ sudo pacman -S ranger
 ```
 
 To open ranger, simply type: **ranger** into your terminal window.
+
+# zsh - Changing default Shell
+
+I prefer to use zsh as the default shell as opposed to bash. There are some extra features which can enhance the experience e.g.:
+
+- Better Autocomplete
+- Ability to Tab through 
+- Change directories without typing 'cd'
+
+This is by no means an exhaustive list. You can configure your shell to have as many or as little features as you want.
+
+You can install zsh using the pacman command:
+
+```bash
+sudo pacman -S zsh
+```
+
+The first time you run zsh (by typing **zsh** into the terminal), you will be greeted with CLI configuration menu to perform a first time set up. Once thats complete, the setup menu will not appear again, it will just launch zsh.
+
+However, if you want to change your default shell from bash to zsh when you login, you will need to run some extra commands.
+
+First you will need to list all the available shells installed on the machine:
+
+```bash
+chsh -l
+```
+
+After finding the one you wish to use by default, you can type the command:
+
+```bash
+chsh -s /bin/zsh
+```
+
+You will be prompted for your password and after this stage the default shell is now zsh. The next time you login, it will spawn a zsh shell within Alacritty.
+
+Don't forget to migrate all the configuration you have down in ~/.bash_profile to ~/.zprofile as bash and zsh don't share the same config files.
 
 # Conclusion
 
