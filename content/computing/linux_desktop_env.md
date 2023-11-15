@@ -1,6 +1,7 @@
 ---
 
 title: "Graphical Setup For Linux Desktop"
+description: "test"
 date: 2023-11-14
 hideSummary: true
 ShowWordCount: true
