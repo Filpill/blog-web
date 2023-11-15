@@ -1,15 +1,17 @@
 ---
 title: "Building Data Pipelines With Python: Systems Perspective"
 date: 2022-07-23T21:12:42+01:00
-draft: False
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
+draft: false
 ShowToC: true
 
 cover:
   image: /img/auto/python_all_auto.png
   alt: Python Automating Everything
 
-tags: [python,sql,powerpoint,outlook,excel,automation,programming]
-categories: [data,programming]
+categories: [data]
 
 ---
 
@@ -28,18 +30,21 @@ These are some of the goals we are trying to achieve:
 - To build tools which are adaptable to the needs of the business.
 
 This is a high level view of a data analytics pipeline I've built in the past:
+
 {{<mermaid>}}
+
 graph TD;
     subgraph Process Initiation
     0A([Data Analyst Initiates Process])-->A
     0A-->B
     end
 
-    subgraph Extract, Transform, and Analyse Data
+    subgraph Data Pipelines
     A[Shell Scripts]-- exec. via <br>cli tools -->C((Python Scripts))
     B[Task Scheduler]-- auto exec. -->C((Python Scripts))
 
-    D[(SQL Server)]-- data retrieval -->C-- pyodbc -->D
+    D[(SQL Server)]-- data retrieval -->C
+    C-- pyodbc -->D
     C--> E(Matplotlib charts)
     C--> F(Pandas tables)
 
@@ -59,6 +64,7 @@ graph TD;
 
     J-- smtplib -->K([End User Recieves Data Product])
     end
+
 {{< /mermaid >}}
 
 ***Note**: Python scripts are chained together to connect the processes together and handle various tasks along the pipeline*

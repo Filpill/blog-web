@@ -1,15 +1,17 @@
 ---
 title: "Cyber Deck Assembly - Raspberry Pi"
 date: 2023-07-10
-draft: False
-ShowToC: false
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
+draft: false
+ShowToC: true
 
 cover:
   image : img/cyberDeck/frontNeofetch.jpg
   alt: 'CyberDeck Assembly'
 
-tags: ["design","engineering","mechanical","3d-printing","raspberry pi"]
-categories: ["engineering","design"]
+categories: [engineering]
 ---
 
 ## Summary

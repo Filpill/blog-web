@@ -1,6 +1,9 @@
 ---
 title: "Codewars API - User Statistics"
-date: 2022-11-09T20:13:56Z
+date: 2022-11-09
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
 draft: false
 ShowToC: true
 
@@ -8,8 +11,7 @@ cover:
   image: img/codewars/codewars-stats.png
   alt: "Codewars Stats Image"
 
-tags: [python,sql]
-categories: [programming]
+categories: [data]
 
 ---
 

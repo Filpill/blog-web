@@ -1,15 +1,17 @@
 ---
 title: "How to Set Up Your Radio Controlled System"
 date: 2023-06-07
-draft: False
-ShowToC: True
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
+draft: false
+ShowToC: true
 
 cover:
   image : img/rcSetUp/rc_system.jpg
   alt: 'Image of RC Electronics'
 
-tags: ["engineering","electronics"]
-categories: ["engineering"]
+categories: [engineering]
 ---
 
 ## Summary

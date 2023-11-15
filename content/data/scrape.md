@@ -1,13 +1,16 @@
 ---
 title: "Python Web Scraping"
 date: 2023-10-03
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
 draft: false
+ShowToC: true
 
 cover:
   image: /img/scrape/scrape_thumbnail.png
   alt: Scraping thumbnail
 
-tags: [python,data,programming,webscraping]
 categories: [data]
 
 ---

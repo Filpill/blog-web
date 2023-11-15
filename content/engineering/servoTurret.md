@@ -1,15 +1,17 @@
 ---
 title: "Servo Turret Control"
 date: 2023-07-03
-draft: False
-ShowToC: false
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
+draft: false
+ShowToC: true
 
 cover:
   image : img/servoTurret/mouse_setup.jpg
   alt: 'Solidworks Render of Tractor'
 
-tags: ["design","engineering","mechanical","3d-printing","arduino","raspberry pi"]
-categories: ["engineering","design"]
+categories: [engineering]
 ---
 
 ## Summary

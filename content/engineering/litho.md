@@ -1,16 +1,17 @@
 ---
 title: "Lithophane Lamp"
 date: 2021-11-13
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
 draft: false
 ShowToC: true
-img_path: litho/litho.gif
 
 cover:
   image : img/litho/sw-litho.jpg
   alt: 'Lithophane SW Model'
 
-tags: ["lithophane","3d-printing","design","engineering","photoshop"]
-categories: ["engineering","design"]
+categories: [engineering]
 ---
 
 ### Summary

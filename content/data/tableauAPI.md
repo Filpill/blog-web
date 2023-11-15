@@ -1,15 +1,17 @@
 ---
 title: "Tableau Client Server API: Extracting Dashboard Images"
 date: 2022-09-16
-draft: False
-showTOC: true
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
+draft: false
+ShowToC: true
 
 cover:
   image: /img/tableau/tableau_py.png
   alt: Tableau Client Server API with Python
 
-tags: [python,tableau,automation,programming]
-categories: [data,programming]
+categories: [data]
 
 ---
 

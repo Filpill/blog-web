@@ -1,15 +1,17 @@
 ---
 title: "3D Printed RC Road Vehicle"
 date: 2023-06-12
-draft: False
-ShowToC: false
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
+draft: false
+ShowToC: true
 
 cover:
   image : img/tractor/rc_car_full.png
   alt: 'Solidworks Render of Tractor'
 
-tags: ["design","engineering","mechanical","3d-printing"]
-categories: ["engineering","design"]
+categories: ["engineering"]
 ---
 
 ## Summary

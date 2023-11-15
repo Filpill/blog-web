@@ -1,6 +1,9 @@
 ---
 title: "Forward Facing Step - Particle Image Velocimetry"
 date: 2017-06-01
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
 draft: false
 ShowToC: true
 
@@ -8,8 +11,7 @@ cover:
   image : img/piv/ffs-bl-diagram.png
   alt: 'PIV BL Diagram'
 
-tags: ["design","engineering","laser","camera","imageJ","matlab","python","wind tunnel","aerodynamics"]
-categories: ["engineering","design"]
+categories: [engineering]
 ---
 
 # Summary

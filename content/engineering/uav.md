@@ -1,6 +1,9 @@
 ---
 title: "UAV Aircraft Design"
 date: 2018-06-17
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
 draft: false
 ShowToC: true
 
@@ -8,8 +11,7 @@ cover:
   image: img/uav/windtunnel.jpg
   alt: 'Wind Tunnel Test'
 
-tags: ["design","engineering","uav","aircraft","aerodynamics","flight-dynamics","electronics","propulsion","solidworks","MATLAB"]
-categories: ["engineering","design"]
+categories: [engineering]
 ---
 
 ## Summary
