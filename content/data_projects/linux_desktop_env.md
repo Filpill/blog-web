@@ -1,3 +1,18 @@
+---
+
+title: "Graphical Setup For Linux Desktop"
+date: 2023-11-14
+draft: false
+
+cover:
+  image: /img/arch/gui/linux_gui.png
+  alt: File Share Image Cover
+
+tags: [linux]
+categories: [linux]
+
+---
+
 # Introduction
 
 After installing a fresh copy of Arch Linux, you are probably wanting to get around to setting up some type of graphical environment. 

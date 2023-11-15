@@ -1,4 +1,19 @@
-# Why Share Files Directly Between Windows and Linux?
+---
+
+title: "Windows to Linux VM Fileshare"
+date: 2023-11-13
+draft: false
+
+cover:
+  image: /img/arch/fileshare/fileshare_cover.png
+  alt: File Share Image Cover
+
+tags: [linux]
+categories: [linux]
+
+---
+
+## Why Share Files Directly Between Windows and Linux?
 Why share files between these two different operating systems? A redundant system, no?
 
 ***I think not.***
@@ -21,17 +36,23 @@ Before I go on a complete tangent, I will show you how to create a shared folder
 In the instance of this article I am running the following setup, but will likely work with other distros:
 - Arch Linux - Hyper-V VM
 
-# Create Windows Shared Folder
+## Create Windows Shared Folder
 On windows, you need to decide where you will keep that shared folder, you can make it any given directory. For illustrative purposes, I've called mine "vm_share".
 
 You can right click and going into the properties of "vm_share" folder. Click on the **Sharing Tab** and click the **Share button**. You will need to share with your own Windows User.
 
+![Share](/img/arch/fileshare/share.JPG#center)
+
 Then on **Advanced Sharing**, you will need to check "Share this folder" checkbox and set the permission of the folder. I've current set mine to *Read* and *Change*.
+
+![Advanced Share](/img/arch/fileshare/share_advanced.JPG#center)
 
 Before you completely exit out of the properties, take note of the network path. For me it looked like this:
 - \\\\DESKTOP-R1B3P7P\vm_share_folder
 
-# Find Default Switch IP Host PC/VM
+![Share Properties](/img/arch/fileshare/share_properties.JPG#center)
+
+## Find Default Switch IP Host PC/VM
 Now you need to find he IP address of the Windows host in order for the Linux VM to connect (mount filesystems).
 
 You will need to find the name of your PC -- mine is : DESKTOP-R1B3P7P
@@ -45,7 +66,7 @@ nmblookup DESKTOP-R1B3P7P | head -n 1 | cut -d ' ' -f 1
 ```
 Here of course you can just substitute for your own PC name.
 
-# Create Mount Point
+## Create Mount Point
 I haven't tested extensively, but I'm assuming you can mount the shared folder onto any directory you wish.
 
 At the time of writing, I decided to create mine in /mnt/Hyper-V like so:
@@ -53,13 +74,13 @@ At the time of writing, I decided to create mine in /mnt/Hyper-V like so:
 mkdir /mnt/Hyper-V
 ```
 
-# CIF - Common Internet File - Install Program: *cifs-utils*
+## CIF - Common Internet File - Install Program: *cifs-utils*
 Microsoft developed their own system called CIFS (Common Internet Filesystem) and it is the client for their file management. Therefore, you will need to download cifs-utils for Linux to work with that system. You can download like so on Arch:
 ```bash
 sudo pacman -S cifs-utils
 ```
 
-# Edit FS Tab
+## Edit FS Tab
 In order to have a mountable folder on Linux, you would need to specify this in your **/etc/fstab** file.
 
 Therefore I sudo vim /etc/fstab into the file and add the following line to the bottom (underneath my existing partition mount points):
@@ -70,7 +91,7 @@ Therefore I sudo vim /etc/fstab into the file and add the following line to the 
 ```
 Note the slashes **must be in the forwards orientation** to conform to the linux filesytem.
 
-# Add Windows Credentials File
+## Add Windows Credentials File
 In your home directory to can make a **.credentials** file to parse in the windows login credentials as you are executing the mount command.
 
 ~/.crendentials may look something like this:
@@ -82,7 +103,7 @@ password: <windows_password>
 
 If you want to can run **sudo chmod 600 .credentials** to restrict visibility from other users to keep the file permissions more secure.
 
-# Write Bash Script to Mount Windows Shared Folder to Linux Filesystem
+## Write Bash Script to Mount Windows Shared Folder to Linux Filesystem
 Now you can put the mounting commands into a script such that you don't always need to type the full command for the mounting procedure. It could also be stuffed into some kind of systemD process for it auto-run when you boot up (if you want). You can name the script whatever you want and place wherever you want.
 
 ```bash
@@ -91,7 +112,7 @@ mount -t cifs //DESKTOP-R1B3P7P/vm_share_folder /mnt/Hyper-V -o crendentials=~/.
 
 ***Reminder that you Ip address can be bundled into a variable using ----> nmblookup DESKTOP-R1B3P7P | head -n 1 | cut -d ' ' -f 1***
 
-# Execute Bash Script
+## Execute Bash Script
 After executing the script, you will be prompted for the windows pwd which can enter into the terminal. And if there are no errors, you should be able to **access vm_shared (Windows) from /mnt/Hyper-V (Linux)**.
 
 Hopefully the article assists in helping you get a more seamless experience between Windows and Linux.
