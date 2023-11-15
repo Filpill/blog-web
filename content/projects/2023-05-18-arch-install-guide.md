@@ -11,7 +11,7 @@ cover:
   image: /img/arch/install_process/45.jpg
   alt: Arch Linux Neofetch
 
-categories: [computing]
+categories: [Computing]
 
 ---
 

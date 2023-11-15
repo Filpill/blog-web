@@ -13,7 +13,7 @@ cover:
   image: /img/arch/fileshare/fileshare_cover.png
   alt: File Share Image Cover
 
-categories: [computing]
+categories: [Computing]
 
 ---
 

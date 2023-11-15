@@ -13,7 +13,7 @@ cover:
   image: /img/arch/gui/linux_gui.png
   alt: File Share Image Cover
 
-categories: [computing]
+categories: [Computing]
 
 ---
 

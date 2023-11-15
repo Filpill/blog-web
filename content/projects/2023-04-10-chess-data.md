@@ -11,7 +11,7 @@ cover:
   image: /img/chess/chess_gimp.png
   alt: Chess Data Analysis Image Cover
 
-categories: [data]
+categories: [Data]
 
 ---
 

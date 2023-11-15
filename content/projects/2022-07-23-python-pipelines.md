@@ -11,7 +11,7 @@ cover:
   image: /img/auto/python_all_auto.png
   alt: Python Automating Everything
 
-categories: [data]
+categories: [Data]
 
 ---
 

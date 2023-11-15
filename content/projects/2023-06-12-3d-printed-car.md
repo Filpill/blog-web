@@ -11,7 +11,7 @@ cover:
   image : img/tractor/rc_car_full.png
   alt: 'Solidworks Render of Tractor'
 
-categories: [engineering]
+categories: [Engineering]
 ---
 
 ## Summary

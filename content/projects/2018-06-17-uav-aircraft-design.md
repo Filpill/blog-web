@@ -11,7 +11,7 @@ cover:
   image: img/uav/windtunnel.jpg
   alt: 'Wind Tunnel Test'
 
-categories: [engineering]
+categories: [Engineering]
 ---
 
 ## Summary

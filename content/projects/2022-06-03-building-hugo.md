@@ -11,7 +11,7 @@ cover:
   image: img/hugo/hugologo.png
   alt: "Hugo Logo"
 
-categories: [computing]
+categories: [Computing]
 
 ---
 

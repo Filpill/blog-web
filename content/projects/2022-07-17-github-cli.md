@@ -11,7 +11,7 @@ cover:
   image: img/github/github_terminal.png
   alt: 'Github Logo'
 
-categories: [computing]
+categories: [Computing]
 ---
 
 # Summary

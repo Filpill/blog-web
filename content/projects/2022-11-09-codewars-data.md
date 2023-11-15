@@ -11,7 +11,7 @@ cover:
   image: img/codewars/codewars-stats.png
   alt: "Codewars Stats Image"
 
-categories: [data]
+categories: [Data]
 
 ---
 

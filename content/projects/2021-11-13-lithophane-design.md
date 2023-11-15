@@ -11,7 +11,7 @@ cover:
   image : img/litho/sw-litho.jpg
   alt: 'Lithophane SW Model'
 
-categories: [engineering]
+categories: [Engineering]
 ---
 
 ### Summary
