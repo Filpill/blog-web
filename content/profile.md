@@ -21,10 +21,10 @@ cover:
 
 > ***"Learning never exhausts the mind."*** - *Leonardo da Vinci*
 
-There is an infinite capcity to learn from...but how far will you choose to take it?
+There is an infinite capacity to learn from...but how far will you choose to take it?
 
 The purpose of this website is to document my learning journey and it aims to achieve these goals:
-- Primarily to build up a repository of information to referenence back to in the future.
+- Primarily to continually build a repository of information to serve as a referenence guide.
 - Share my findings with other people who may extract useful learnings.
 
 I've made all kinds of hand-written engineering notes in the past while learning Aeronautical Engineering. Although, everything I considered worth remembering is slowly being lost to time (or misplaced USB sticks).
