@@ -9,28 +9,30 @@ cover:
 
 - Aeronautical Engineering Degree
 - Airline safety management expeience
-- Self-taught in programming and data analytics
-- Invested in automating workflows and applying systems level thinking.
+- Approach problems with systems level perspective
+- Self-taught programmer and data analyst
+- Detest manual, repetitive tasks; invested in making automated workflows 
+- I like CAD, 3D Printing, programming and travelling
 
-### Hobbies
-- CAD Design
-- 3D Printing
-- Glider Pilot
+---
 
-### Goals of Website
+### Vision for the Website
+
+The purpose of this website is to document my learning journey and aims to:
+
+> ***Continually build a repository of information to serve as a referenence guide for myself and other people in a variety of domains.***
+
+The true value of knowledge is only unlocked when you are interested and deeply engaged in the subject matter. 
+
+It's not something you can absorb in 10 minute skim read on a random article you googled. Very often, you will have to go deeper into a subject (than initially intended), do some experimentation and revisit ideas multiple times before a solid understanding emerges.
+
+I place great value of **writing it down your learning process** as it helps **reinforce and consolidate your new found ideas**. You will be a more grounded thinker and it helps connect previously isolated concepts in order to build bigger and greater things.
 
 > ***"Learning never exhausts the mind."*** - *Leonardo da Vinci*
 
-There is an infinite capacity to learn from...but how far will you choose to take it?
-
-The purpose of this website is to document my learning journey and it aims to achieve these goals:
-- Primarily to continually build a repository of information to serve as a referenence guide.
-- Share my findings with other people who may extract useful learnings.
-
-I've made all kinds of hand-written engineering notes in the past while learning Aeronautical Engineering. Although, everything I considered worth remembering is slowly being lost to time (or misplaced USB sticks).
-
-So this website it designed to immortalise those learnings along the way, in whatever domain I decide to step in.
-
+---
+> ***This website is designed to immortalise those learnings along this life's journey***
+---
 
 ### Resume
 {{< embed-pdf url="/files/filip_cv.pdf" renderPageNum="1" hideLoader="false" >}}
