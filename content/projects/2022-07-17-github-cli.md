@@ -173,7 +173,7 @@ graph LR;
 ```[bash]
 git pull origin main
 git add .
-git commit -m ”add some comments here”
+git commit -m "add some comments here"
 git push origin main
 ```
 
@@ -183,10 +183,49 @@ git push origin main
 - Commit the changes
 - Push the changes onto the checked out branch
 
-If you are working with other development branches you will need to use the **git checkout** command to change the branch you are working on and modify the routine accordingly.
+## Working with branches
+
+In most scenarios, you will not be working directly with the **main/master** branch. Working directly on main can be fraught with peril as you are constantly pushing every change into a production environment.
+
+The purpose of branching off the main branch is to create an isolated development environment where you can safely change and push code to that branch without changing the production state. Especially if you haven't fully tested or validated your code/commits.
+
+![Git Branch Commits](/img/github/git-branch.png#center)
+
+You can can call branches whatever you want, but lets say you want to create development branch called ***"dev"*** from the branch you are currently on, you can do so with the **git checkout** command:
+
+```bash
+git checkout -b dev
+```
+
+Now you have a dev branch. The ***-b flag*** essentially tells git that you want to create a new branch.
+
+Any commits you make on the dev branch will have to be pushed up to the dev server branch. This can be done like so:
+
+```bash
+git add .
+git commit -m
+git push origin dev
+```
+
+When you think your development is complete and you commits are ready to be put into production, you must perform a **git merge operation**.
+
+In order for this to occur, you must switch back to the main branch of your repository before applying the merge:
+
+```bash
+git checkout main
+git merge dev
+```
+
+And now all your "development commits" should be merged into the main branch.
+
+If you want to see what other branches currently exist in your repository, you can simply type:
+
+```bash
+git branch -a
+```
 
 # Conclusion
 
 This guide is designed to get you up and running with git on the CLI and understand the fundamentals of interacting with git.
 
-With respect to the git's numerous other features, it's recommended to read the documentation to understand how they function and how to use those tools.
+With respect to the git's numerous other features, it's recommended to read [git's documentation](https://git-scm.com/doc) to understand how to use the tool in more depth.
