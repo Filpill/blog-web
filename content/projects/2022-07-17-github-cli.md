@@ -57,7 +57,7 @@ Something worth noting is that Git will search the path for the ssh-key file **~
 - Go to your **~/.ssh** directory which is storing ssh-keys
 - Type this command to generate an SSH Keypair:
 ```[bash]
-ssh-keygen -t rsa -b 4096 -C emailnae@domain.com
+ssh-keygen -t rsa -b 4096 -C emailname@domain.com
 ```
 - Name your SSH keys (**preferably "id_rsa"** for the default filename), and skip password prompts
 - **"Cat"** out the **public key (suffixed .pub)** that was generated and paste into the Github settings for SSH Keys
@@ -78,14 +78,14 @@ I've added this line (shown below) to my **.bashrc** in order to add the relevan
 When I spawn a terminal, it will activate this command automatically and start a new process.
 
 ```bash
-eval $(keychain --eval ~/.ssh_id_rsa/arch_vm) #2>/dev/null
+eval $(keychain --eval ~/.ssh/keys/arch_vm) #2>/dev/null
 ```
 
 In order to do the same process manually, these are the following commands:
 
 ```[bash]
 eval `ssh-agent`
-ssh-add path/to/your/private/ssh/key
+ssh-add ~/.ssh/keys/arch_vm
 ```
 # Git Basic Setup
 
