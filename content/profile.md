@@ -28,8 +28,6 @@ It's not something you can absorb in 10 minute skim read on a random article you
 
 I place great value of **writing it down your learning process** as it helps **reinforce and consolidate your new found ideas**. You will be a more grounded thinker and it helps connect previously isolated concepts in order to build bigger and greater things.
 
-> ***"Learning never exhausts the mind."*** - *Leonardo da Vinci*
-
 ---
 > ***This website is designed to immortalise those learnings along this life's journey***
 ---

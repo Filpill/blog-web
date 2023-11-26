@@ -19,9 +19,6 @@ categories: [Computing]
 ---
 
 ## Why Share Files Directly Between Windows and Linux?
-Why share files between these two different operating systems? A redundant system, no?
-
-***I think not.***
 
 I'll share my reasons why here:
 
@@ -30,15 +27,15 @@ I'll share my reasons why here:
 - Other tasks are more optimally accomplished on linux software: file management, code development etc.
 - The workflow eventually bleeds over from windows to linux (or vice versa) and I need file transfers to complete my work e.g. adding images to this website.
 
-Many of the images hosted on this website were created on a windows PC. And I painstakingly used Google Drive (cringe, I know...) as the method of file transfer (plz don't judge).
+Many of the images hosted on this website were created on a windows PC. And I painstakingly used Google Drive, as the method of file transfer.
 
-This process was so painful that it was enough to motivate a better system. Especially with the volumes of files I am dealing with for every article written.
+This process was so laborious that it was enough to motivate me to make a better workflow. Especially when dealing with large volumes of files for every article written.
 
-I would do "everything" in Linux if I could, but sadly some things just cannot replicate the experience on Windows. The best illustration of this is probable CAD; an engineering industry that was literally built on the foundation of the Windows OS and proprietary software. Sadly, there is no Linux equivalent that can do better in my experience. Not even close.
+I would do "everything" in Linux if I could, but sadly some things just cannot replicate the experience on Windows. The best illustration of this is probable CAD; an engineering industry that was literally built on the foundation of the Windows OS. Sadly, there is no Linux equivalent that can do better in my experience. Not even close.
 
-Before I go on a complete tangent, I will show you how to create a shared folder.
+I will show you how to create a shared folder, if you end up in such a position as myself.
 
-In the instance of this article I am running the following setup, but will likely work with other distros:
+In the instance of this article I am running the following setup, but will likely work with any Linux distribution:
 - Arch Linux - Hyper-V VM
 
 ## Create Windows Shared Folder
@@ -120,4 +117,4 @@ mount -t cifs //DESKTOP-R1B3P7P/vm_share_folder /mnt/Hyper-V -o crendentials=~/.
 ## Execute Bash Script
 After executing the script, you will be prompted for the windows pwd which can enter into the terminal. And if there are no errors, you should be able to **access vm_shared (Windows) from /mnt/Hyper-V (Linux)**.
 
-Hopefully the article assists in helping you get a more seamless experience between Windows and Linux.
+Hopefully the article assists in helping you get a more seamless file transfer experience between Windows and Linux.

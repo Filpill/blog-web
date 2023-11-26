@@ -21,17 +21,15 @@ categories: [Computing]
 
 After installing a fresh copy of Arch Linux, you are probably wanting to get around to setting up some type of graphical environment. 
 
-A black terminal screen is not necessarily conducive to an enjoyable Linux desktop experience.
-
-It can be difficult to setup a graphical environment for the first time if there is not much guidance. A lot of Linux advice can be very scattershot, and leaving most people quite lost. You end up digging through multitudes of internet archives just to surface something vaguely useful for your own setup. 
+It can be difficult to setup a graphical environment for the first time if there is not much guidance. Linux advice can be very scattershot, and can leave people feeling quite lost. You will end up digging through heaps of internet archives just to surface something vaguely relevant to your own setup. 
 
 This article should guide you on creating a basic graphical setup for your Linux machine relatively quickly and with ease.
 
 ***Note: Depending on your own software and hardware, you may need to deviate from these prescribed procedures from time to time. Read the documentation for the programs you use and adjust accordingly.***
 
-I will prescribe the software choices in the beginning, however, once you feel comfortable, you can make whatever ammendments you want.
+I will prescribe the software choices in this article, however, once you feel comfortable, you can choose to go in your own direction.
 
-I will be creating a window manger set-up as the foundation for this guide. The basis of this set up is under the guise of Arch Linux running under Hyper-V.
+I setting up a window manger as the foundation for this guide. My system is running Arch Linux running under Hyper-V.
 
 # Grub Config - Change Startup Screen Resolution
 
@@ -53,7 +51,7 @@ You will want to edit the following grub variables:
 
 **GRUB_CMD_LINUX_DEFAULT** - You will need to append **video=hyperv_fb:1920x1080** to the end as shown below:
 
-***Note: For this step, the video parameter may be different if you are doing this bare metal or using another VM software.***
+***Note: The video parameter may be different if you are doing this bare metal or are using another VM software.***
 
 ```bash
 GRUB_CMD_LINUX_DEFAULT="quiet splash video=hyperv_fb:1920x1080"
@@ -67,7 +65,7 @@ GRUB_GFXMODE=1920x1080
 
 Save and exit from the grub file.
 
-Now you will need to enact those changes onto the grub.cfg file which is read at boot time. You will need to run the following command:
+Now you will need to enact those changes onto the grub.cfg file which is read at boot time. So you will need to run the following command:
 
 ```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
