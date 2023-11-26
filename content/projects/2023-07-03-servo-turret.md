@@ -12,10 +12,10 @@ cover:
   image : img/servoTurret/mouse_setup.jpg
   alt: 'Solidworks Render of Tractor'
 
-categories: [Engineering]
+categories: [Electronics]
 ---
 
-## Summary
+## Summary 
 
 This project has been made to practise the use of sending instructions to various electronics for both the Arduino and the Raspberry Pi.
 

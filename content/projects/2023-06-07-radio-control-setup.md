@@ -12,7 +12,7 @@ cover:
   image : img/rcSetUp/rc_system.jpg
   alt: 'Image of RC Electronics'
 
-categories: [Engineering]
+categories: [Electronics]
 ---
 
 ## Summary
