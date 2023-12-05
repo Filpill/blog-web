@@ -5,15 +5,14 @@ date: 2023-05-18
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image: /img/arch/install_process/45.jpg
   alt: Arch Linux Neofetch
 
 categories: [Computing]
-
 ---
 
 # Introduction

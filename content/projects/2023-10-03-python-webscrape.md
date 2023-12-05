@@ -5,15 +5,14 @@ date: 2023-10-03
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image: /img/scrape/scrape_thumbnail.png
   alt: Scraping thumbnail
 
 categories: [Data]
-
 ---
 
 # Summary

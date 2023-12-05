@@ -5,15 +5,14 @@ date: 2022-06-03T12:29:15+01:00
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image: img/hugo/hugologo.png
   alt: "Hugo Logo"
 
 categories: [Computing]
-
 ---
 
 # Summary

@@ -5,15 +5,14 @@ date: 2022-09-16
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image: /img/tableau/tableau_py.png
   alt: Tableau Client Server API with Python
 
 categories: [Data]
-
 ---
 
 # Summary

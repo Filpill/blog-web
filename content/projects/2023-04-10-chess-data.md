@@ -5,15 +5,14 @@ date: 2023-04-10
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image: /img/chess/chess_gimp.png
   alt: Chess Data Analysis Image Cover
 
 categories: [Data]
-
 ---
 
 # Summary

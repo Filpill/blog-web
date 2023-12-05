@@ -5,8 +5,8 @@ date: 2023-06-12
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image : img/tractor/rc_car_full.png

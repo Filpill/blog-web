@@ -5,15 +5,14 @@ date: 2022-11-09
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image: img/codewars/codewars-stats.png
   alt: "Codewars Stats Image"
 
 categories: [Data]
-
 ---
 
 # Summary

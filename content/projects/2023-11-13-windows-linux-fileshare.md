@@ -1,21 +1,18 @@
 ---
-
 title: "Windows to Linux VM Fileshare"
 description: "How-to guide for setting up shared folder on Windows with your Hyper-V Linux VM"
 date: 2023-11-13
-draft: false
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image: /img/arch/fileshare/fileshare_cover.png
   alt: File Share Image Cover
 
 categories: [Computing]
-
 ---
 
 ## Why Share Files Directly Between Windows and Linux?

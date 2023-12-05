@@ -5,8 +5,8 @@ date: 2021-11-13
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image : /img/litho/sw-litho.jpg

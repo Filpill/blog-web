@@ -5,8 +5,8 @@ date: 2017-06-01
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image : /img/piv/ffs-bl-diagram.png

@@ -5,8 +5,8 @@ date: 2023-07-03
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image : img/servoTurret/mouse_setup.jpg

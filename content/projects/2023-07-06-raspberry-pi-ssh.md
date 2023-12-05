@@ -5,8 +5,8 @@ date: 2023-07-06
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image: img/piSSH/pi_ssh_rdp.png

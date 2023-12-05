@@ -1,21 +1,18 @@
 ---
-
-title: "Soldering Tasks"
-description: "List of things to solder cinepi camera"
+title: "Soldering Tasking"
+description: "Soldering for the cinepi"
 date: 2023-11-26
-draft: true
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: true
 
 cover:
   image: 
   alt: Soldering
 
 categories: [Electronics]
-
 ---
 
 # Tasks

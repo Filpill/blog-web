@@ -5,8 +5,8 @@ date: 2022-07-17
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image: img/github/github_terminal.png

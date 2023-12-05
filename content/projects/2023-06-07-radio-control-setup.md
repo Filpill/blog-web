@@ -5,8 +5,8 @@ date: 2023-06-07
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image : img/rcSetUp/rc_system.jpg

@@ -1,20 +1,18 @@
 ---
-
 title: "Graphical Setup For Linux Desktop"
 description: "Instructional guide for setting up a GUI Window Manager in Linux | DWM + Alacritty"
 date: 2023-11-14
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image: /img/arch/gui/linux_gui.png
   alt: File Share Image Cover
 
 categories: [Computing]
-
 ---
 
 # Introduction

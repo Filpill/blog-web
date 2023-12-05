@@ -5,15 +5,14 @@ date: 2022-07-23T21:12:42+01:00
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image: /img/auto/python_all_auto.png
   alt: Python Automating Everything
 
 categories: [Data]
-
 ---
 
 # Summary

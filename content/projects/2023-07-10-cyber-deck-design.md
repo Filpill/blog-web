@@ -5,8 +5,8 @@ date: 2023-07-10
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
   image : img/cyberDeck/frontNeofetch.jpg
