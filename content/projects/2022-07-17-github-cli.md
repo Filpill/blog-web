@@ -47,7 +47,7 @@ But its worth building some knowledge around the concept of how to use the Shell
 
 There are 2 main ways to connect to a git repository. We can either use the HTTPS or SSH protocols respectively.
 
-SSH has the advantage of having passwordless interactions with git which I strongly recommended when pushing code. Its trivial to set-up an SSH key-pair; it saves time and its very secure. (Assuming you take the right precautions to protect your ssh-keys!)
+SSH has the advantage of having password-less interactions with git which I strongly recommended when pushing code. Its trivial to set-up an SSH key-pair; it saves time and its very secure. (Assuming you take the right precautions to protect your ssh-keys!)
 
 My **deep personal recommendation is to use the SSH Method** and avoid using the access tokens for authentications.
 
@@ -127,7 +127,7 @@ git branch -m main
 ```
 Staging is the process of preparing the changed files for the next commit.
 
-You can stage the files with add; the full stop will include all files that have changed. Or you can explictly write which files you want to add to the commit.
+You can stage the files with add; the full stop will include all files that have changed. Or you can explicitly write which files you want to add to the commit.
 
 The **commit** command will create the commit, (the -m flag allows you to add a commit message inline):
 
@@ -135,13 +135,13 @@ The **commit** command will create the commit, (the -m flag allows you to add a 
 git add.
 git commit -m "first commit msg"
 ```
-To connect the remote repository to the the github server, you can write this command:
+To connect the remote repository to the Github server, you can write this command:
 
 ```bash
 git remote add origin git@github.com:github.com:github_username/repo_name.git
 ```
 
-To push your first commit into github, write this command (the -u flag sets a tracking reference upstream for the git pull command):
+To push your first commit into Github, write this command (the -u flag sets a tracking reference upstream for the git pull command):
 
 ```bash
 git push -u origin main
@@ -178,7 +178,7 @@ git push origin main
 ```
 
 - Pull the most recent changes from repo 
-- Make ammendments to your work and save it locally
+- Make amendments to your work and save it locally
 - Queue up changes to upload
 - Commit the changes
 - Push the changes onto the checked out branch

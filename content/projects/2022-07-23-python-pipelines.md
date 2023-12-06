@@ -17,7 +17,7 @@ categories: [Data]
 
 # Summary
 
-There are endless oppertunities to streamline processes and automate our data production tasks.
+There are endless opportunities to streamline processes and automate our data production tasks.
 
 This article serves as an example for the wide ranging applications I've been using Python to automate both simple and complex tasks with high efficiency.
 
@@ -73,7 +73,7 @@ This is the result of incremental upgrades made gradually over time to optimise 
 
 As long as the tools are well built, you can bridge them across to new processes easily and maintain them with minimal effort. Not to mention you will be saving hundreds (and maybe thousands of) hours as you execute these processes.
 
-The idea is not to replicate this system one-to-one, but to demonstate the possibilities for connecting automation tools togther.
+The idea is not to replicate this system one-to-one, but to demonstrate the possibilities for connecting automation tools together.
 
 And perhaps we can learn to make more elaborate systems...
 
@@ -99,7 +99,7 @@ The pyodbc set-up can be generalised because you only need two inputs: the serve
 
 The proliferation of Excel as a standard piece of software has enabled much easier sharing and communication of data. There is no office computer in the world that is not supplied with Excel.
 
-BI tools are also used to communicate and share data accross the business. However, this depends on how much the organisation can stretch the budget to license the majority of individuals.
+BI tools are also used to communicate and share data across the business. However, this depends on how much the organisation can stretch the budget to license the majority of individuals.
 
 Working inside the Excel ecosystem can help save on the extra overhead. However, **we don't want to be doing any analysis in Excel.**
 
@@ -119,7 +119,7 @@ With a bit of effort, you can easily turn the analysis into a dashboard that mim
 
 ![Powerpoint](/img/logo/pptx.png#center)
 
-How many hours do you waste making powerpoints? I've spent countless hours adjusting trivial features such as formatting or chart positioning.
+How many hours do you waste making PowerPoint's? I've spent countless hours adjusting trivial features such as formatting or chart positioning.
 
 *But what if the presentation content and design can be prepared automatically?*
 
@@ -129,13 +129,13 @@ I've experimented with markdown presentation tools. However, I run into a lot of
 
 Stakeholders tend to ask for extra features or to move shapes around the slide. However, this is happens to be the power of python-pptx library.
 
-Python-pptx is much more powerful in controling the powerpoint design in comparison to letting markdown dictate all the default positions of your powerpoint shapes.
+Python-pptx is much more powerful in controlling the PowerPoint design in comparison to letting markdown dictate all the default positions of your PowerPoint shapes.
 
 The control of the objects is very granular its therefore very important to set up functions to standardise some layouts or shapes you want to insert. This speeds up the presentation building process as usually slides tend to borrow a lot of the same code.
 
-The powerpoint functions I write are imported from a seperate .py file. A global function file helps us share the functions to any python script involving presentation automation.
+The PowerPoint functions I write are imported from a separate .py file. A global function file helps us share the functions to any python script involving presentation automation.
 
-***Note:** Python-pptx works in similar fashion to xlsxwriter. Everytime the script is run, a brand new presentation file will be built from sratch.*
+***Note:** Python-pptx works in similar fashion to xlsxwriter. Every time the script is run, a brand new presentation file will be built from scratch.*
 
 
 ## Smtplib - Email Automation with Python
@@ -146,7 +146,7 @@ Routine emails sent on a recurring basis can be automated using the python libra
 
 We can borrow the SMTP protocol to send our emails and we can avoid our GUI email environment entirely. Python acts as the interface and can send the email directly.
 
-The script can be designed to have a message template built into itself. Additonally, we can make a list of tuples containing the addresses and attachments you want to send to the respective parties.
+The script can be designed to have a message template built into itself. Additionally, we can make a list of tuples containing the addresses and attachments you want to send to the respective parties.
 
 By looping over these templates and lists, we can entirely bypass the requirement of building all the components for all the emails.
 

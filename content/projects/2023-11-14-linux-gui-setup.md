@@ -78,7 +78,7 @@ At this stage, you probably only have a root user on a fresh install, so it woul
 useradd -mg wheel filpill
 ```
 
-You want to add yourself to the wheel group as we will make some changes to enable you to have access to the sudo command i.e. allow admin privlleges.
+You want to add yourself to the wheel group as we will make some changes to enable you to have access to the sudo command i.e. allow admin privileges.
 
 Add a password for that your using this command (and follow the prompts):
 ```bash
@@ -133,7 +133,7 @@ DWM forms the backbone for the environment we are building. Bare in mind this is
 
 Instead you will need to visit the [Suckless Website](https://suckless.org/) to get the source files and relevant patches.
 
-They have the base version of dwm on git, so you will need to run the clone command to pull it down onto your machine. Run the git commmand:
+They have the base version of dwm on git, so you will need to run the clone command to pull it down onto your machine. Run the git command:
 
 ```bash
 git clone git://git.suckless.org/dwm
@@ -159,7 +159,7 @@ You can compile the DWM using this command:
 sudo make clean install
 ```
 
-It's fairly straightforward, if no errors occur, you have successfull installed DWM.
+It's fairly straightforward, if no errors occur, you have successfully installed DWM.
 
 # Config Files - .xinitrc and .bash_profile
 
@@ -205,7 +205,7 @@ Now you should have DWM automatically loaded in and you should be able to spawn 
 
 # Ranger - Terminal File Explorer
 
-A neat program that I like to use to quickly navigate through filesystems in called **ranger**. It's handy for when you want to explore around more easily. Also very useful for bulk operations. You can install using pacman:
+A neat program that I like to use to quickly navigate through file systems in called **ranger**. It's handy for when you want to explore around more easily. Also very useful for bulk operations. You can install using pacman:
 
 ```bash
 sudo pacman -S ranger
@@ -229,7 +229,7 @@ You can install zsh using the pacman command:
 sudo pacman -S zsh
 ```
 
-The first time you run zsh (by typing **zsh** into the terminal), you will be greeted with CLI configuration menu to perform a first time set up. Once thats complete, the setup menu will not appear again, it will just launch zsh.
+The first time you run zsh (by typing **zsh** into the terminal), you will be greeted with CLI configuration menu to perform a first time set up. Once that's complete, the setup menu will not appear again, it will just launch zsh.
 
 However, if you want to change your default shell from bash to zsh when you login, you will need to run some extra commands.
 
@@ -253,6 +253,6 @@ Don't forget to migrate all the configuration you have down in ~/.bash_profile t
 
 At this stage you should have a fairly rudimentary setup, however, it should get you aquainted with the various features Linux provides and how to approach the configuration in the future.
 
-You should consider saving all your configurations onto a git repo so you can more easily manage your setups and deploy a desktop environment more easily in the future. Ideally, you would want to run some of these procedures using shell scripts. Applying some automation will help in getting an environment setup more readily and consitently.
+You should consider saving all your configurations onto a git repo so you can more easily manage your setups and deploy a desktop environment more easily in the future. Ideally, you would want to run some of these procedures using shell scripts. Applying some automation will help in getting an environment setup more readily and consistently.
 
 For now you can enjoy a more enhanced Linux experience and play around with new programs and new workflows.

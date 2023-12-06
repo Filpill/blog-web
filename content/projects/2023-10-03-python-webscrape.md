@@ -25,13 +25,13 @@ Modern website designs are increasingly making it more challenging to extract da
 - The stress put on the server with rate of requests being made.
 - Cutting into their profit margins by using the collected data against them.
 
-The webscraping approach always needs to be tailored to the website your are visiting. But from my current experience, it will usually fall into these catagories:
+The web scraping approach always needs to be tailored to the website your are visiting. But from my current experience, it will usually fall into these categories:
 - Using some web-automation framework like Selenium or Playwright and then parsing the HTML (loaded via the browser automation) using something like Selectolax.
-- If the data is being loaded dynamically with Javascript, then I'm also searching the browser for the *"hidden API"* which is calling the backend to fetch into the frontend.
+- If the data is being loaded dynamically with JavaScript, then I'm also searching the browser for the *"hidden API"* which is calling the back-end to fetch into the front-end.
 
 The benefit of searching for that so called *"Hidden API"* is that the retrieved data is already organised into a neat little JSON file. 
 
-Preferably you will probably want the data directly from the backend to retrieve a dataset. Transforming a JSON is much easier than trying to parse through the front matter for HTML tags and containers.
+Preferably you will probably want the data directly from the back-end to retrieve a dataset. Transforming a JSON is much easier than trying to parse through the front matter for HTML tags and containers.
 
 In the example shown below, I've scraped the Pimoroni.com website by making requests to the back-end API to retrieve the JSON data. I've analysed a sample of the data here for reference:
 

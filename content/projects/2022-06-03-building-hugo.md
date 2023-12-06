@@ -21,7 +21,7 @@ I wanted to showcase my projects without devoting a large amount of time to main
 
 Hugo is a static site generator written in Go and compiles your documents written in markdown into cleanly formatted HTML and CSS files.
 
-The first iteration of my website was manually written in HTML/CSS. It was a little bit ugly compared to the second iteration which is using hugo framework. Additionally, using someone else's theme takes alot of the legwork out of the page design.
+The first iteration of my website was manually written in HTML/CSS. It was a little bit ugly compared to the second iteration which is using hugo framework. Additionally, using someone else's theme takes a lot of the legwork out of the page design.
 
 The compiled HTML files are hosted on my github pages for reference.
 
@@ -35,7 +35,7 @@ Here is some general guidance as to how this website was developed from a Linux 
 
 ## Github Repositories
 
-- To build and deploy the website, we require two seperate repositories:
+- To build and deploy the website, we require two separate repositories:
 	- A production repo [blog-web](https://github.com/Filpill/blog-web): with markup documents and web config.
 	- A deployment repo [Filpill.github.io](https://github.com/Filpill/Filpill.github.io): with compiled static HTML files.
 
@@ -54,7 +54,7 @@ sudo pacman -S hugo
 
 ## Installing Hugo on Windows
 
-*Update 17/02/23: I've added instructions for a Windows Installation for convinience. (I spend too much time switching between operating systems for certain tasks.)*
+*Update 17/02/23: I've added instructions for a Windows Installation for convenience. (I spend too much time switching between operating systems for certain tasks.)*
 
 There are two pre-requisites for setting up hugo - you must install:
 - [Git Bash](https://git-scm.com/downloads)
@@ -169,7 +169,7 @@ And this enables us build from [blog-web](https://github.com/Filpill/blog-web) a
 
 ### Compiling Static Files into Public Folder
 
-In order to compile the files nessesary for the deployment repository on git. Type the following command in the root directory of website:
+In order to compile the files necessary for the deployment repository on git. Type the following command in the root directory of website:
 
 ```[zsh]
 hugo -t hugo-PaperMod -D

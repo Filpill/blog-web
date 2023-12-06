@@ -17,7 +17,7 @@ categories: [Data]
 
 # Summary
 
-I've been very involved in practising my programming skills in python and sql lately on codewars.
+I've been very involved in practising my programming skills in python and SQL lately on codewars.
 
 I figured it would be a good idea to visualise my codewars progression.
 

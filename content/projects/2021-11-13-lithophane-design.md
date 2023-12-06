@@ -24,15 +24,15 @@ categories: [Engineering]
 
 - Top/Bottom Panels retained with three M3 screws -- Removing the panels gives access to replacing the printed lithophane.
 - Wiring threads through back of assembly and socket leans on back the back panel.
-- Forward attachment clamps the socket and constrains the foward movement of the light socket with screws.
-- I have two slightly different designs to accomadate either an E14 lamp socket or an E27 lamp socket.
+- Forward attachment clamps the socket and constrains the forward movement of the light socket with screws.
+- I have two slightly different designs to accommodate either an E14 lamp socket or an E27 lamp socket.
 - This was due to supply issues of light sockets at the time of design which prompted a redesign due to time constraints.
 
 
 ### Printing and Design
 
 - Images are preprocessed to correct specs and lithophane stl's are generated using: https://itslitho.com"
-- Lithophane thickness paramaters:
+- Lithophane thickness parameters:
 	- smallest wall thickness 0.9mm
 	- largest wall thickness is 3mm
 	- border thickness: 5.25mm

@@ -32,13 +32,13 @@ categories: [Engineering]
 
 - The design feasibility relies on estimating a relatively sensible MTOW. It is expected that early MTOW estimates may vary &plusmn;20% from the final result, however it is sufficient as a starting point.
 
-- The entire design process is cyclic and interdependant on other design elements, for example: adjustments in aerodynamic configuration may require a re-assessment of the centre of gravity positioning. There are hundreds of other situtations were systems are interconnected and require engineering attention.
+- The entire design process is cyclic and interdependent on other design elements, for example: adjustments in aerodynamic configuration may require a re-assessment of the centre of gravity positioning. There are hundreds of other situations were systems are interconnected and require engineering attention.
 
-- Beyond the conceptual design, we are relying on emulating design practices within the aircraft model building community in order to achieve a mechnical design that does not add any unecessary weight.
+- Beyond the conceptual design, we are relying on emulating design practices within the aircraft model building community in order to achieve a mechanical design that does not add any unnecessary weight.
 
-- We have elected to stick with a highly conventional configuration which has been tried and tested. The materials involved are mixture between balsawood, plywood and carbon fibre. This list of materials provide a good stength to weight ratio for the mission we are designing for.
+- We have elected to stick with a highly conventional configuration which has been tried and tested. The materials involved are mixture between balsa wood, plywood and carbon fibre. This list of materials provide a good strength to weight ratio for the mission we are designing for.
 
-- Areas of the aircaft which experience high loading (e.g. landing gear, wing root etc.) have been reinforced with plywood and less stressed areas are built with the less dense materials such as balsa to maintain a low overall empty weight.
+- Areas of the aircraft which experience high loading (e.g. landing gear, wing root etc.) have been reinforced with plywood and less stressed areas are built with the less dense materials such as balsa to maintain a low overall empty weight.
 
 
  Conceptual Design Phase                |  &nbsp;  &nbsp;  |  Detailed Design Phase
@@ -49,7 +49,7 @@ categories: [Engineering]
 | Estimate MTOW and OWE                 |   | Early Prototyping and Testing    |
 | Decide on Aircraft Configuration      |   | Design Revisions and Improvement |
 | Aircraft Centre of Gravity Estimation |   | Final Manufacturing Output       |
-| Aerofoil Comparision and Selection    |   | Electronic Systems Integration   |
+| Aerofoil Comparison and Selection    |   | Electronic Systems Integration   |
 | Flight Dynamics Analysis              |   | Systems Validation and Testing   |
 | Material Selection                    |   | Wind Tunnel Testing              |
 | Preliminary Structural Analysis       |   | Flight Test                      |
@@ -76,7 +76,7 @@ categories: [Engineering]
 
 ### Early Construction of Aircraft
 
-- Constructed with sheets of lasercut balsa and plywood jigsawed together into an assembly.
+- Constructed with sheets of laser cut balsa and plywood jigsawed together into an assembly.
 
 ![Early Construction](/img/uav/early-build.jpg)
 

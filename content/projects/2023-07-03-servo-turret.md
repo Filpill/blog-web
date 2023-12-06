@@ -31,7 +31,7 @@ The arduino project is very simple, there is a program written in Processing whi
 
 A small delay of 100ms is maintained to limit the rate of data coming to the Arduino board. The Arduino has a small serial buffer, it can only read 8 bytes at a time. Therefore we need to limit the rate of data to prevent a serial buffer overflow. If this issue occurs, then the servo will not be able to effectively read the data stream.
 
-The Arduino has a sketch uploaded to the board that will do a number opperations. 
+The Arduino has a sketch uploaded to the board that will do a number operations. 
 - It will ingest the string data character by character from '<' and terminate at '>'.
 - It will concatenate all the characters into a single string.
 - Split the string to serve as inputs to its respective components i.e. Servo1 and Servo2
@@ -71,9 +71,9 @@ The Raspberry Pi project is using a Python script to drive the inputs. I've crea
 
 The mouse movements are passed into an event handler to locate mouse position on the window x,y coordinates. We use positional data on the mouse to calculate a servo angle based on the coordinate on the drawn window.
 
-In order to acuate the servos, the angle inputs must be mapped to the corresponding duty cycle. The duty cycle can take any range of values between 2 and 12 for this particular servo. It handles angles in the range between 0 and 180 degrees.
+In order to actuate the servos, the angle inputs must be mapped to the corresponding duty cycle. The duty cycle can take any range of values between 2 and 12 for this particular servo. It handles angles in the range between 0 and 180 degrees.
 
-The duty cycle can be calulcated like with this calculation:
+The duty cycle can be calculated like with this calculation:
 
 ```
 1/18 * angle + 2

@@ -17,15 +17,15 @@ categories: [Engineering]
 
 ## Summary
 
-Finshed designing and building a functional 3D Printed RC car which accidently ended up resembling a tractor by chance. Thats the consequence of a lack of planning and design contraints...
+Finished designing and building a functional 3D Printed RC car which accidentally ended up resembling a tractor by chance. That's the consequence of a lack of planning and design constraints...
 
 The reason for the large wheels in the back is because of how I started my design process. The design was built around the gearbox. Since the gearbox ended up being very tall, I figured I would just mount some very large wheels to clear the ground. Therefore I didn't need to think about mounting points for the rear wheel, nor a CV jointed drive shaft. It was simply direct drive and it was all 3D printed (except the steering mechanism).
 
-After doing some testing on the rear drive-shaft, it was soon discovered to be necessary to bw printed sideways. This is to take advantage of the directional strength of the 3D printed layers so they can tolerate a degree of torque. I made them mistake of printing the shafts vertically, however this drive-train produces incredible amounts of torque such that the plastic drive shaft failed in 10 seconds of run time. Layer adhesion alone is definitely not strong enough to withstand a large torgue being applied to a small cross-section.
+After doing some testing on the rear drive-shaft, it was soon discovered to be necessary to bw printed sideways. This is to take advantage of the directional strength of the 3D printed layers so they can tolerate a degree of torque. I made them mistake of printing the shafts vertically, however this drive-train produces incredible amounts of torque such that the plastic drive shaft failed in 10 seconds of run time. Layer adhesion alone is definitely not strong enough to withstand a large torque being applied to a small cross-section.
 
 I wanted to make my design as simple as reasonably possible. In my previous projects, trying to implement a suspension was fairly complicated and I had limited spare time I had outside of my 9-5. My only goal was to get a suitable functional prototype car.
 
-I did end up using the lessons from my previous failed car designs to incorporate into this one. I had a 2 year hiatus from designing anything mechanical, so I suprised even myself when I managed to build out a working 3D printed gearbox.
+I did end up using the lessons from my previous failed car designs to incorporate into this one. I had a 2 year hiatus from designing anything mechanical, so I surprised even myself when I managed to build out a working 3D printed gearbox.
 
 It's not perfect by any stretch of the imagination; after the assembly I still had to take a dremel to various parts to shave off some millimeters in order to free up mechanisms and part fits. Even after checking for collisions in Solidworks, the clearances and fits may not be what you expect in real life.
 

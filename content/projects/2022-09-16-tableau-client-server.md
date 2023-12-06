@@ -19,11 +19,11 @@ categories: [Data]
 
 I've been in the process of developing numerous Tableau dashboards across different areas of the airline business to share safety data across the organisation.
 
-However, there is no easy way to download all the various charts from dashboard views you have produced to recycle for the purpose of a powerpoint presentation.
+However, there is no easy way to download all the various charts from dashboard views you have produced to recycle for the purpose of a PowerPoint presentation.
 
-Ideally we want to avoid duplicating the data analytics process in other systems such as Python as we don't want to incur uncessary work to present the same information.
+Ideally we want to avoid duplicating the data analytics process in other systems such as Python as we don't want to incur unnecessary work to present the same information.
 
-The Tableau Client Server API helps solve this issue by enabling us to programatically extract dashboard images in an effcient manner.
+The Tableau Client Server API helps solve this issue by enabling us to programmatically extract dashboard images in an efficient manner.
 
 ## Process Overview
 

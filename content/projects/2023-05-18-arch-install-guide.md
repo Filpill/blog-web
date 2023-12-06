@@ -17,11 +17,11 @@ categories: [Computing]
 
 # Introduction
 
-This guide details the installation procdure of Arch onto a Virtual Machine (VM). Network configuration is not in the scope of this guide if you are installing on bare metal.
+This guide details the installation procedure of Arch onto a Virtual Machine (VM). Network configuration is not in the scope of this guide if you are installing on bare metal.
 
 The motivation behind this web page is to keep some guidance material for myself and also for anybody new looking to install Arch from scratch.
 
-The virtual machine is made with Microsofts Hyper-V program. The steps may differ slightly if you choose to use a another hypervisor such as VirtualBox.
+The virtual machine is made with Microsoft's Hyper-V program. The steps may differ slightly if you choose to use a another hypervisor such as VirtualBox.
 
 ## Arch Linux ISO Download Link
 
@@ -70,14 +70,14 @@ Before going any further, you should test that your internet connecting works. Y
 ```[bash]
 ping archlinux.org
 ```
-Hyper-V should be providing your VM with the internet connection in anycase. If not, you will probably need to configure Hyper-V to alleviate networking issues.
+Hyper-V should be providing your VM with the internet connection in any case. If not, you will probably need to configure Hyper-V to alleviate networking issues.
 ![](/img/arch/install_process/14.jpg#center)
 
 We also need to synchronise the systems clock with the network time, this command will enable that for you.
 ![](/img/arch/install_process/15.jpg#center)
 
 ## Drive Partitioning and Filesystems
-Now we need to start partitioning our drives and creating our filesystem.
+Now we need to start partitioning our drives and creating our file system.
 
 If you type "lsblk" you can see which drives and partitions are on your system.
 ![](/img/arch/install_process/16.jpg#center)
@@ -92,17 +92,17 @@ At this juncture we need to assign the disk label type and it comes down to two 
 - In our case we are using **dos**.
 
 ![](/img/arch/install_process/18.jpg#center)
-There are many partition schemes to choose from, but I will keep it simple and only include the boot patition and root parititon:
-- /dev/sda1 (boot partition) only needs about 128MB of space and needs to be bootable. You can press b to enable the boot flag after making the parition.
+There are many partition schemes to choose from, but I will keep it simple and only include the boot partition and root partition:
+- /dev/sda1 (boot partition) only needs about 128MB of space and needs to be bootable. You can press b to enable the boot flag after making the partition.
 - /dev/sda2 (root paritition) can be assigned the remaining space of the disk.
 
 Write the changes and quit out of cfdisk.
 ![](/img/arch/install_process/19.jpg#center)
-If you lsblk now, you will now see that 2 paritions have been made, sda1 and sda2.
+If you lsblk now, you will now see that 2 partitions have been made, sda1 and sda2.
 ![](/img/arch/install_process/20.jpg#center)
-You will need to make a directory with this path: /mnt/boot/efi which can be done with the mkdir command. We are creating a mount point for the boot partition. Normally you don't need the efi folder, but its necesarry here since we have a UEFI system config.
+You will need to make a directory with this path: /mnt/boot/efi which can be done with the mkdir command. We are creating a mount point for the boot partition. Normally you don't need the efi folder, but its necessary here since we have a UEFI system config.
 
-We also need to make the file systems for each parition sda1 is FAT filesystem and root is ext4.
+We also need to make the file systems for each parition sda1 is FAT file system and root is ext4.
 
 Run these commands:
 
@@ -121,7 +121,7 @@ mount /dev/sda2 /mnt
 mount /dev/sda1 /mnt/boot/efi
 ```
 
-I can't explain the reasoning, but if you do it in reverse, the install will fail down the line. You will have to ignore the order of the commands in image as I remounted in the afforementioned order later.
+I can't explain the reasoning, but if you do it in reverse, the install will fail down the line. You will have to ignore the order of the commands in image as I remounted in the aforementioned order later.
 ![](/img/arch/install_process/21.jpg#center)
 
 At this point you are ready install the base tools for the system as well as the linux kernel.
@@ -133,7 +133,7 @@ Next you want to generate your fstab configuration. Run the following command:
 ![](/img/arch/install_process/23.jpg#center)
 
 ## Chrooting into Arch Install
-At this stage we chroot into our installation filesystem/environment by running this command:
+At this stage we chroot into our installation file system/environment by running this command:
 ![](/img/arch/install_process/24.jpg#center)
 
 Pacman is our package manager and we can use it to install "networkmanager" and "grub" as follows.
@@ -143,7 +143,7 @@ Network manager is a program for managing our internet capabilities and grub is 
 
 We can use systemctl to enable network manager as a service which starts automatically when you boot the computer (which is very useful to have).
 ![](/img/arch/install_process/26.jpg#center)
-We also need to install "efibootmgr" as this is a dependancy for grubs installation.
+We also need to install "efibootmgr" as this is a dependency for grubs installation.
 ![](/img/arch/install_process/27.jpg#center)
 Next we run the grub-install command on /dev/sda
 
@@ -187,7 +187,7 @@ Type all the commands as follows:
 
 If successful you should be greeted with this screen. You can select "Arch Linux" to boot into the system.
 ![](/img/arch/install_process/42.jpg#center)
-And you should see a tty apper on your screen.
+And you should see a tty appear on your screen.
 ![](/img/arch/install_process/43.jpg#center)
 Since we do not have any users set up on the system, we can only login as root for the time being. So you can just enter the root credentials.
 ![](/img/arch/install_process/44.jpg#center)

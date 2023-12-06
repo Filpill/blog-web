@@ -21,11 +21,11 @@ This article documents how to remotely access your Raspberry Pi using either Sec
 
 The benefit of remote access is that you do not need to constantly plug in a wired keyboard and mouse to do some configuration on your Pi devices.
 
-The SSH access is ideal for cases with exclusive involvement of the terminal. The remote desktop acess is requied for situations using the graphical desktop environment.
+The SSH access is ideal for cases with exclusive involvement of the terminal. The remote desktop access is required for situations using the graphical desktop environment.
 
 ## IP Address
 
-Something thats common to both processes is that they both require the IP Address of the device.
+Something that's common to both processes is that they both require the IP Address of the device.
 
 To get the IP address, you can type this command into the Raspberry Pi terminal:
 
@@ -43,7 +43,7 @@ ifconfig
 
 ## Secure Shell (SSH) Remote Access
 
-For the SSH Remote Acess, I will be connecting to my Raspberry Pi via my Arch Linux VM which is running a zsh terminal. But you can follow this process on any shell, it will be exactly the same.
+For the SSH Remote Access, I will be connecting to my Raspberry Pi via my Arch Linux VM which is running a zsh terminal. But you can follow this process on any shell, it will be exactly the same.
 
 ### Pre-requisites
 - Set up wireless networking capability onto the boot disc.
@@ -92,7 +92,7 @@ From the terminal of the machine you are trying to attempt the remote access, yo
 ```[bash]
 ssh <USERNAME>@<IP_ADDRESS>
 ```
-If you didn't configure your pi user crentials, for reference these are the defaults:
+If you didn't configure your pi user credentials, for reference these are the defaults:
 - username: pi
 - password: raspberry
 
@@ -114,7 +114,7 @@ ssh filpill@192.---.-.---
 
 ### Replacing IP Address with Hostname 
 
-Now obviously its not that easy to remember an IP address everytime you want to SSH into the Pi. So we could store an alias for the IP in the **/etc/hosts** directory.
+Now obviously its not that easy to remember an IP address every time you want to SSH into the Pi. So we could store an alias for the IP in the **/etc/hosts** directory.
 
 ```[bash]
 sudo vim /etc/hosts
@@ -137,9 +137,9 @@ ssh filpill@raspberrypi
 
 ![SSH Neofetch](/img/piSSH/ssh_neofetch.jpg#center)
 
-The command functions all the same in additon to being much easier to remember into the future.
+The command functions all the same in addition to being much easier to remember into the future.
 
-### SSH Keys - Passwordless Access
+### SSH Keys - Password-less Access
 
 In order to increase the security of the SSH protocol, its recommended to create a set of SSH keys.
 
@@ -192,7 +192,7 @@ To add a new user, type this command:
 sudo adduser <INSERT USERNAME>
 ```
 
-Skip all the prompts to fill in user detaiils with the Enter Key. 
+Skip all the prompts to fill in user details with the Enter Key. 
 
 Then to give the user sudo privileges i.e. adding them to the sudo group:
 

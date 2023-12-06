@@ -19,7 +19,7 @@ categories: [Data]
 
 I've played a decent number of chess games on the chess.com platform since 2019 and all my chess data can be explored using the API endpoints documented inside the website.
 
-I was interested in monitoring my rating change over the cumalative number of games played.
+I was interested in monitoring my rating change over the cumulative number of games played.
 
 Link to the project here: [Chess.com - Python Analysis](https://github.com/Filpill/chess_analysis)
 

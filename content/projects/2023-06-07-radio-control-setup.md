@@ -21,7 +21,7 @@ This article will briefly outline the basic arrangement that can be used as guid
 
 ## Parts List
 
-Any of these specific parts that are mentioned here can be interchanged for your specific needs. The list of parts outlined is the minumum number of components to have a functioning motor and servo.
+Any of these specific parts that are mentioned here can be interchanged for your specific needs. The list of parts outlined is the minimum number of components to have a functioning motor and servo.
 
 <div align="center">
 
@@ -30,12 +30,12 @@ Component      | Part No.
 | Radio Controller/Transmitter | FS-GT5 
 | Radio Reciever | FS-BS6 
 | Electronic Speed Controller (ESC) | KYRC X60 - Brush
-| Battery Eliminary Curcuit (BEC) | KYRC X60 - Brush
+| Battery Eliminator Circuit (BEC) | KYRC X60 - Brush
 | Lipo Voltage Indicator | BX100
 | Brushed/Brushless Motor | 550/35T Brushed Motor
 | Servo | MG-996R 
 | LiPo Battery | 11.1V 3S HRB Power 
-| Battery Balence Charger/Discharger | HTRC T150 
+| Battery Balance Charger/Discharger | HTRC T150 
 
 </div>
 
@@ -72,13 +72,13 @@ mindmap
 
 {{< /mermaid >}}
 
-The ESC as the hub of the system in which everything connects to. The ESC on my system also happens peform the functionalilty of the BEC and can be considered as one unit.
+The ESC as the hub of the system in which everything connects to. The ESC on my system also happens perform the functionality of the BEC and can be considered as one unit.
 
 ## Radio
 
-My radio Rx/Tx system came as a package, and were already "bound" together already. As long as I could supply a current to the reciever, it automatically connect to the transmitter. 
+My radio Rx/Tx system came as a package, and were already "bound" together already. As long as I could supply a current to the receiver, it automatically connect to the transmitter. 
 
-If you do not have binding (or need to use a new reciever), there are usually specific procedures to follow for your given controller to bind them together (in the manual for the controller).
+If you do not have binding (or need to use a new receiver), there are usually specific procedures to follow for your given controller to bind them together (in the manual for the controller).
 
 There are no complicated procedures outside of this, you just need to follow the block diagram and make sure the components are rated for the supplied voltage/current.
 
@@ -97,7 +97,7 @@ If you are not using the LiPo's when they are in a "charged" state, then you sho
 
 
 ### Charging
-The maximum allowable voltage of a LiPo cell is 4.2V per cell. Do not overcharge the battery as you may cause damage to the battery and reduce the lifespan; it may also become a fire hazard if consitently overcharged. 
+The maximum allowable voltage of a LiPo cell is 4.2V per cell. Do not overcharge the battery as you may cause damage to the battery and reduce the lifespan; it may also become a fire hazard if consistently overcharged. 
 
 In terms of charging rates, I am charging my batteries at a rate of 1C. For a 2200mAH battery this equates to 2.2A.
 
@@ -105,7 +105,7 @@ In terms of charging rates, I am charging my batteries at a rate of 1C. For a 22
 The inverse is true about discharging the battery too much. Do not let the LiPo voltage fall below 3.2V per cell as this will also cause internal damage to the battery which is irreversible. To mitigate this risk, you can use a voltage alarm on your circuit to warn you when the voltage is falling below a desired threshold.
 
 ### Signs to Discontinue Battery Usage
-A well maintenaed LiPo battery should be able to safely achieve at least 300 full charge/discharge cycles if obeying the precautions above.
+A well maintained LiPo battery should be able to safely achieve at least 300 full charge/discharge cycles if obeying the precautions above.
 
 There are a list of signals decide whether or not to discontinue use of any given LiPo:
 - If you see ballooning occur in the battery. 

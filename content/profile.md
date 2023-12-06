@@ -20,7 +20,7 @@ cover:
 
 The purpose of this website is to document my learning journey and aims to:
 
-> ***Continually build a repository of information to serve as a referenence guide for myself and other people in a variety of domains.***
+> ***Continually build a repository of information to serve as a reference guide for myself and other people in a variety of domains.***
 
 The true value of knowledge is only unlocked when you are interested and deeply engaged in the subject matter. 
 
@@ -29,7 +29,7 @@ It's not something you can absorb in 10 minute skim read on a random article you
 I place great value of **writing it down your learning process** as it helps **reinforce and consolidate your new found ideas**. You will be a more grounded thinker and it helps connect previously isolated concepts in order to build bigger and greater things.
 
 ---
-> ***This website is designed to immortalise those learnings along this life's journey***
+> ***This website is dedicated to documenting and preserving learning's through time.***
 ---
 
 ### Resume

@@ -32,7 +32,7 @@ categories: [Engineering]
 
 ### Wind Tunnel Experiment
 
-- The experimental procedure involves diffusing small oil droplets into the freestream flow and having a sheet of laser light illuminating a cross-section of the airflow. Hundreds of images are caputured in the process a high speed camera. Due to the limited field of vision, the results from the top and bottom of the step were recorded seperately.
+- The experimental procedure involves diffusing small oil droplets into the freestream flow and having a sheet of laser light illuminating a cross-section of the airflow. Hundreds of images are captured in the process a high speed camera. Due to the limited field of vision, the results from the top and bottom of the step were recorded separately.
 
 ### Image Post-Processing
 
@@ -40,9 +40,9 @@ categories: [Engineering]
 
 ### OpenPIV and Python Post-Process Scripts
 
-- Particle displacements on the images can be determined by performing a cross-corrleation on the series of image pairs. In my case, I used OpenPIV software written in Python to extract all the velocity fields at all the times steps recorded.  Additionally, I've written some post-processing scripts for the velocity data text files in Python to animate experimental results. (I used MATLAB equivalents for my dissertation at the time of the project).
+- Particle displacements on the images can be determined by performing a cross-correlation on the series of image pairs. In my case, I used OpenPIV software written in Python to extract all the velocity fields at all the times steps recorded.  Additionally, I've written some post-processing scripts for the velocity data text files in Python to animate experimental results. (I used MATLAB equivalents for my dissertation at the time of the project).
 
-# Experimental Arangement
+# Experimental Arrangement
 
 - Illustration of camera and laser positioning to capture wind tunnel data.
 - Raw wind tunnel image with imageJ enhancements - Capturing illuminated particles moving over step within laser plane.
