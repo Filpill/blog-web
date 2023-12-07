@@ -82,34 +82,37 @@ sudo pacman -S cifs-utils
 ## Edit FS Tab
 In order to have a mountable folder on Linux, you would need to specify this in your **/etc/fstab** file.
 
-Therefore I sudo vim /etc/fstab into the file and add the following line to the bottom (underneath my existing partition mount points):
+In our case we would like to mount onto ***/mnt/Hyper-V***
+
+Run ***Sudo vim /etc/fstab*** to edit the file and add the following line to the bottom (underneath my existing partition mount points):
 
 ```bash
 # Hyper-V
 //DESKTOP-R1B3P7P/vm_share_folder /mnt/Hyper-V cifs username=Filip,domain=sealab,noauto,rw,users 0 0
 ```
+Replace with desktop name,folder,usernames with your own set-up.
+
 Note the slashes **must be in the forwards orientation** to conform to the linux file system.
 
-## Add Windows Credentials File
-In your home directory to can make a **.credentials** file to parse in the windows login credentials as you are executing the mount command.
-
-~/.credentials may look something like this:
-
-```bash
-username: Filip
-password: <windows_password>
-```
-
-If you want to can run **sudo chmod 600 .credentials** to restrict visibility from other users to keep the file permissions more secure.
 
 ## Write Bash Script to Mount Windows Shared Folder to Linux File System
 Now you can put the mounting commands into a script such that you don't always need to type the full command for the mounting procedure. It could also be stuffed into some kind of systemD process for it auto-run when you boot up (if you want). You can name the script whatever you want and place wherever you want.
 
 ```bash
-mount -t cifs //DESKTOP-R1B3P7P/vm_share_folder /mnt/Hyper-V -o crendentials=~/.credentials, ip=<Enter your Host PC IP Address e.g. 152.41.97.1>
+mount -t cifs //DESKTOP-R1B3P7P/vm_share_folder /mnt/Hyper-V -o , ip=<Enter your Host PC IP Address e.g. 152.41.97.1>
 ```
-
 ***Reminder that you Ip address can be bundled into a variable using ----> nmblookup DESKTOP-R1B3P7P | head -n 1 | cut -d ' ' -f 1***
+
+A potential mounting script can look like this, but you can customise to your liking:
+```bash
+#!/bin/sh
+desktop="DESKTOP-R1B3P7P"
+windows_folder="vm_share_folder"
+linux_folder="/mnt/Hyper-V"
+desktop_ip=$(nmblookup $desktop | head -n 1 | cut -d ' ' -f 1)
+mount -t cifs //$desktop/$windows_folder $linux_folder -o,ip=$desktop_ip
+```
+I've only extracted the variables to help make the mount command appear more readable. And also the IP address for the desktop will be pulled out dynamically with the nmblookup command.
 
 ## Execute Bash Script
 After executing the script, you will be prompted for the windows pwd which can enter into the terminal. And if there are no errors, you should be able to **access vm_shared (Windows) from /mnt/Hyper-V (Linux)**.

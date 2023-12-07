@@ -1,6 +1,6 @@
 ---
 title: "Graphical Setup For Linux Desktop"
-description: "Instructional guide for setting up a GUI Window Manager in Linux | DWM + Alacritty"
+description: "Instructional guide for setting up a GUI Window Manager in Linux | dwm + st"
 date: 2023-11-14
 hideSummary: true
 ShowWordCount: true
@@ -117,49 +117,55 @@ Using pacman, you can install with is command:
 sudo pacman -S picom xorg xorg-server xorg-init xf86-video-fbdev
 ```
 
-# Alacritty - Terminal Emulator
+# dwm - Window Manager
 
-There are many terminal emulators you can use as an option. The main terminal I've used in the past is called **st** which is one of the suckless utilities. I've liked it in the past, but I am trying something **Alacritty** this time around. Functionally, it should run much the same but will have a few extra built in features.
+Dwm is a *Suckless software* and will be forming the backbone for the environment we are building. 
 
-To install alacritty, you can run the pacman command to install it:
+However, the install procedure and configuration is a little different compared to other programs. 
 
-```bash
-sudo pacman -S alacritty
-```
+We cannot run a simple pacman command to install it. The program is written in C and needs to be compiled directly from those C files.
 
-# DWM - Window Manager
+You will need to visit the [Suckless Website](https://suckless.org/) to get the source files and relevant patches.
 
-DWM forms the backbone for the environment we are building. Bare in mind this is a *Suckless* utility, therefore we are compiling the program from source. The program is written in C and needs to be compiled those C filed. Therefore, we cannot run a pacman command to install it.
-
-Instead you will need to visit the [Suckless Website](https://suckless.org/) to get the source files and relevant patches.
-
-They have the base version of dwm on git, so you will need to run the clone command to pull it down onto your machine. Run the git command:
+They have the base version of dwm on git, so you will need to run a git clone command to pull it down onto your machine. Run the git command:
 
 ```bash
 git clone git://git.suckless.org/dwm
 ```
+If you need to change the configuration, you can do all the changes inside the file **config.h".
 
-By default, DWM will point to **st** as the default terminal, you will need to alter this in the configuration to **Alacritty** as the new terminal we are planning to use.
+To compile the dwm configuration:
 
-Inside the dwm folder, you should look for the **config.h** file. This file has all the relevant configuration options for altering dwm to your needs.
+```bash
+sudo make clean install
+```
+It's fairly straightforward, if no errors occur, you have successfully installed dwm. 
 
-As a quick start, you will need to change the following lines inside **config.h**:
-- #define TERMINAL "st" -- change to --> #define TERMINAL "alacritty"
-- #define TERMCLASS "St" -- change to --> #define TERMINAL "Alacritty"
-- References to "st-256color" -- change to ---> "Alacritty"
-- Any other config referencing a terminal emulator you are not using.
+However, if you ever need to change the config, you will need to re-compile those C-files.
 
-You just want to reference the terminal which you are using which in this case is "Alacritty".
+It would also be advisable to host a copy of your own dwm configuration on your own git repository so that you are able to deploy onto any machine very easily.
 
-After saving that file, we are not quite done yet, we must run a build command, to compile the configuration defined in C. 
+# st - Terminal Emulator
 
-You can compile the DWM using this command:
+There are many terminal emulators you can use as an option to supplement dwm. 
+
+However, for continuity I would go for st which is also a *Suckless utility* and follows a similar procedure.
+
+Clone from the suckless website:
+
+```bash
+git clone git://git.suckless.org/st
+```
+
+Configuration changes occur in the file called **config.h**.
+
+Compiling st into your desktop is done via this command:
 
 ```bash
 sudo make clean install
 ```
 
-It's fairly straightforward, if no errors occur, you have successfully installed DWM.
+Exact same procedure as dwm. Again, you can save the st configuration onto your own git repository.
 
 # Config Files - .xinitrc and .bash_profile
 
@@ -167,7 +173,7 @@ It's fairly straightforward, if no errors occur, you have successfully installed
 
 Your .xinitrc is where you will:
 - Start the terminal compositor as a background process
-- Start DWM
+- Start dwm
 
 After vimming into ~/.xinitrc; add these two lines in:
 ```bash
@@ -199,19 +205,89 @@ After adding that command, your .bash_profile would look something like this:
 
 After saving your .bash_profile, you should be able to reboot your system.
 
-The next time you login into your user profile, it should execute the commands in both ~/.bash_profile and ~/.xinitrc in order to start the display server and start DWM.
+The next time you login into your user profile, it should execute the commands in both ~/.bash_profile and ~/.xinitrc in order to start the display server and start dwm.
 
-Now you should have DWM automatically loaded in and you should be able to spawn Alacritty terminal's inside DWM.
+Now you should have dwm automatically loaded in and you should be able to spawn st terminal's inside dwm.
 
-# Ranger - Terminal File Explorer
+# lf - Terminal File Explorer
 
-A neat program that I like to use to quickly navigate through file systems in called **ranger**. It's handy for when you want to explore around more easily. Also very useful for bulk operations. You can install using pacman:
+The file explorer I recommend using is called **lf**. It's handy for exploring the terminal more efficiently. Also very useful for bulk operations. 
+
+You can install using pacman:
 
 ```bash
-sudo pacman -S ranger
+sudo pacman -S lf
+```
+To open lf, simply type: **lf** into your terminal window.
+
+## Extending lf
+
+I also recommend extending this program to get some more functionality from it by:
+- Adding icons to the file explorer 
+- Adding previews for text, images and pdf's
+
+### Icons - lf
+In order to get the icons to work for the lf configuration, you will need two things: 
+- Create an **icons** file in the lf config
+- Install a **"nerdfont"**
+
+You can make the **icons** file inside ***~/.config/lf*** with:
+```bash
+touch ~/.config/lf/icons
+```
+Go to the [Gokcehan - lf git repo - icons.example](https://github.com/gokcehan/lf/blob/master/etc/icons.example), copy the entire contents and paste directly into your newly created **icons** file.
+
+You will notice that you terminal is unable to read the iconography. This is solved by installing a **"nerdfont".**
+
+Go to [Nerd Fonts Website](https://www.nerdfonts.com) and download any font of your choosing.
+
+Unzip the downloaded font and paste the contents into ***~/.local/share/fonts***.
+
+In order for st to change the font being used, you must edit the **config.h** of st.
+
+There should be a line in config.h which defines the font name, simply edit the line with the new name. For example my st font is configured like this:
+```C
+static char *font = "GeistMonoNerdFont-Medium:pixelsize=14:antialias=true:autohint=true";
+```
+Run **sudo make clean install** to re-compile st and you should now be able to read those characters in the **icons** file.
+
+The next time you run lf on a fresh instance of st, you should be able to see icons of the various files in your system.
+
+![f Icons](/img/arch/gui/lf_icons.jpg)
+
+It should feel much easier to navigate more easily!
+
+As a quick tip, you can press **zh** when inside lf to toggle visibility of hidden files. You will likely want to do this if you are searching for dotfiles.
+
+### Image Preview - ctpv
+
+ctpv is program made by NikitaIvanovV and is designed to be integrated directly into lf to avoid the use of wrapper scripts.
+
+We will only need to make some minor additions to our **lfrc**.
+
+To install ctpv, run these commands:
+
+```bash
+git clone https://github.com/NikitaIvanovV/ctpv
+cd ctpv
+make
+sudo make install
 ```
 
-To open ranger, simply type: **ranger** into your terminal window.
+Go to your lfrc located in ***~.config/lf/lfrc*** and add these lines:
+```bash
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
+```
+
+These configuration lines effectively work to bring up the image previews and (clearing in prep for next image). 
+
+That's all you need; the preview should accommodate most file types:
+
+![Image Preview](/img/arch/gui/lf_img_preview.jpg)
+![PDF Preview](/img/arch/gui/lf_pdf_preview.jpg)
 
 # zsh - Changing default Shell
 
@@ -245,14 +321,16 @@ After finding the one you wish to use by default, you can type the command:
 chsh -s /bin/zsh
 ```
 
-You will be prompted for your password and after this stage the default shell is now zsh. The next time you login, it will spawn a zsh shell within Alacritty.
+You will be prompted for your password and after this stage the default shell is now zsh. The next time you login, it will spawn a zsh shell within st.
 
 Don't forget to migrate all the configuration you have down in ~/.bash_profile to ~/.zprofile as bash and zsh don't share the same config files.
 
 # Conclusion
 
-At this stage you should have a fairly rudimentary setup, however, it should get you aquainted with the various features Linux provides and how to approach the configuration in the future.
+At this stage you should have a fairly rudimentary setup, however, it should get you acquainted with the various features Linux provides and how to approach the configuration in the future.
 
-You should consider saving all your configurations onto a git repo so you can more easily manage your setups and deploy a desktop environment more easily in the future. Ideally, you would want to run some of these procedures using shell scripts. Applying some automation will help in getting an environment setup more readily and consistently.
+You should consider saving all your configurations onto a git repo so you can more easily manage your setups and deploy a desktop environment more easily in the future. 
 
-For now you can enjoy a more enhanced Linux experience and play around with new programs and new workflows.
+Ideally, you would want to run some of these procedures using shell scripts. Applying some automation will help in getting an environment setup more readily and consistently.
+
+From this foundation, I recommend spending time experimenting with different programs to develop workflows that fit your specific needs.
