@@ -325,6 +325,25 @@ You will be prompted for your password and after this stage the default shell is
 
 Don't forget to migrate all the configuration you have down in ~/.bash_profile to ~/.zprofile as bash and zsh don't share the same config files.
 
+# Adding a wallpaper
+
+You need the **xwallpaper** program to run a command to change the wallpaper:
+
+```bash
+sudo pacman -S xwallpaper
+```
+
+Add a line inside your **~/.xinitrc** file to apply a chosen wallpaper every time your computer logs on:
+
+```bash
+xwallpaper --output Virtual-1 --stretch ~/desktop_setup/wallpaper/cartoon_cove.jpg
+```
+
+You would need to adjust the arguments to output to the correct display and path to your chosen image.
+
+![Wallpaper](/img/arch/gui/wallpaper.jpg)
+![Wallpaper](/img/arch/gui/wallpaper_with_terminal.jpg)
+
 # Conclusion
 
 At this stage you should have a fairly rudimentary setup, however, it should get you acquainted with the various features Linux provides and how to approach the configuration in the future.
