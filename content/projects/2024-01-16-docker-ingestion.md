@@ -76,7 +76,7 @@ graph LR;
 
 ### Why Docker?
 
-***What's the purpose of containerise Python and Postgres?***
+***What's the purpose of containerising Python and Postgres?***
 
 One of Dockers greatest strengths is the ability to standardise a software environment in order to run a collection of applications:
 - It's much more efficient than creating an entire Virtual Machine in order to replicate a "standardised environment".
