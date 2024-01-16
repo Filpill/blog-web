@@ -1,7 +1,7 @@
 ---
 title: "Dockerised Postgres Database and Ingestion"
 description: "Basics of setting up a database and ingestion system in a series of docker containers"
-date: 2024-01-15
+date: 2024-01-16
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
@@ -9,8 +9,8 @@ ShowToC: true
 draft: false
 
 cover:
-  image: 
-  alt: 
+  image: ./img/docker/docker_pipeline_cover.png
+  alt: docker pipeline cover image
 
 categories: [Computing]
 ---
