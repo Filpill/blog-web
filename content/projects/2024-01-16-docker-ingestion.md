@@ -1,0 +1,210 @@
+---
+title: "Dockerised Postgres Database"
+description: "Basics of Setting up Database in Docker Container and Analysing NBA Statistics"
+date: 2024-01-15
+hideSummary: true
+ShowWordCount: true
+ShowReadingTime: true
+ShowToC: true
+draft: false
+
+cover:
+  image: 
+  alt: 
+
+categories: [Computing]
+---
+
+## Summary
+This article goes through the process of incorporating Docker as a tool for creating a data ingestion system into a Postgres database. We will containerise both the database and the Python ingestion scripts.
+
+## Required Containers
+We will be building 3 containers to manage the data ingestion:
+- Postgres - Hosting a database
+- PgAdmin - Managing Postgres
+- Python - Ingesting Data into Postgres DB
+
+### The Overall Plan:
+
+{{<mermaid>}}
+
+graph LR;
+    subgraph Stage 1: localhost - Prepare Data
+    0([API - <br><strong>data_extraction.py</strong>])
+    1([Create <br><strong>data_ingestion.py</strong>])
+    2([Create <br><strong>docker-compose.yaml</strong>])
+    3[Create <br><strong>Dockerfile</strong>]
+    0-->3
+    1-->3
+    end
+
+    subgraph Stage 2: Docker Containers - Ingestion Pipeline
+    subgraph Network 
+    2-->D0([compose <br><strong>Postgres DB</strong>])
+    2-->D1([compose <br><strong>PgAdmin</strong>])
+    3-->D2([build <br><strong>Python</strong>])
+    end
+
+    subgraph ETL/ELT 
+    D0-->DB[(Database)]
+    D1-->DB
+    D2-->DB
+    end
+    end                                        
+
+    subgraph Stage 3: Raspberry Pi - Visualisation
+    DB-->data[Connect DB <br>to streamlit]
+    data-->viz(Visualise <br>Data)
+    end
+    
+{{</mermaid>}}
+
+#### Stage 1 - Prepare Raw Data
+1. Retrieving data from an open-source API providing NBA data: [balldontlie.io](balldontlie.io/home.html/introduction). 
+2. Python scripts to request JSON data from all endpoints.
+3. Merge JSON data into a consolidated file for each endpoint.
+
+#### Stage 2 - Create Dockerised Data Ingestion Pipeline
+4. Create Dockerised instance of Postgres database.
+5. Create Dockerised instance of PgAdmin to connect and manage database.
+6. Create tables into Postgres DB using Dockerised Python ingestion script.
+
+#### Stage 3 - Analyse and Visualise Data
+7. Use SQL to create analytical tables to serve for analytical capability.
+8. Host instance of streamlit, connect to database and show visualisations
+
+### Why Docker?
+
+***What's the purpose of containerise Python and Postgres?***
+
+One of Dockers greatest strengths is the ability to standardise a software environment in order to run a collection of applications:
+- It's much more efficient than creating an entire Virtual Machine in order to replicate a "standardised environment".
+- Docker containers share its resources natively with the host, which means your application only uses the compute it needs. 
+- The container build files can be deployed easily to any computer/cloud/server and it will run identically on all instances.
+
+A virtual machine has to reserve a portion of system resources such as the Memory and Drive space. These are not scalable resources at runtime. This limits how many instance you can spin up on a given computer/server. 
+
+In addition to the easier code deployment, it's more powerful and efficient to manage a collection of containers.
+
+### Data Ingestion Pipeline
+
+#### Building Postgres and PgAdmin Containers Simultaneously
+
+Docker has a utility called **docker-compose** which provides the capability of creating multiple services simultaneously from a **.yaml** file. All images are created simultaneously.
+
+A natural benefit of this utility is that docker automatically sets up a default networking configuration for containers to communicate with each other in the same config.
+
+I've decided to run Postgres and PgAdmin in the same configuration file since it would be natural to be natural to pair the database with DBMS.
+
+```yaml
+services:
+    pgdatabase:
+        image: postgres:13
+        environment:
+          - POSTGRES_USER=root
+          - POSTGRES_PASSWORD=root
+          - POSGRES_DB=nba
+        volumes:
+          - "./nba_postgres_data:/var/lib/postgresql/data:rw"
+        ports:
+          - "5432:5432"
+    pgadmin:
+        image: dpage/pgadmin4
+        environment:
+          - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+          - PGADMIN_DEFAULT_PASSWORD=root
+        ports:
+          - "8080:80"
+```
+
+This file must be called **docker-compose.yaml** in order to be able to run the command: ***docker compose up***.
+
+This will instantiate those two services under the same network so they are able to communicate with each other.
+
+#### Building Container for Data Ingestion Script
+
+For the purposes of my system, I have decided to keep my ingestion script separate from my other 2 containers. I don't want to invoke the ingestion process every time I run the database. This process I've kept manual for now.
+
+We can create an independent Docker image and connect via the default network generated by the "docker-compose" tool.
+
+To create a singular docker image, you need a **Dockerfile**. For this project, it looks like this:
+
+```Docker
+FROM python:3.9
+
+RUN apt-get install wget
+RUN pip install pandas sqlalchemy psycopg2
+
+WORKDIR /app
+COPY data_ingestion.py data_ingestion.py
+COPY data/combined data
+
+ENTRYPOINT [ "python", "data_ingestion.py" ]
+```
+
+In this Dockerfile I am specifying:
+- The software versions and packages.
+- The working directory.
+- Local files/scripts to be copied.
+- Entering program directly through Python.
+
+To build the image from the Dockerfile, you will need to run the following Docker command:
+
+***Note: If you are running docker from Windows, you must prefix docker commands with "winpty"***
+
+```bash
+docker build -t nba_ingest:v001 .
+```
+The build command has generated an image called **nba_ingest:v001**.
+
+However to run the image in a container, we can use the **docker run** command as follows.
+
+The command is structured in a manner to pass to docker arguments to the docker tool and the python arguments to the image containing the python script.
+
+```bash
+docker run -it \
+    --name=pyingest \
+    --network=docker_sql_default \
+    nba_ingest:v001 \
+	--user=root \
+	--password=root \
+	--host=pgdatabase \
+	--port=5432 \
+	--db=nba \
+```
+
+As per the command, we have named this container **pyingest**. Which means we cannot run the same run command again.
+
+Therefore, if the container stops and you want to run the program again; you can simply use the command:
+
+```bash
+docker start -i pyingest
+```
+#### Container Summary
+
+After this entire process, you should 3 containers that look like this:
+
+![docker_containers](/img/docker/docker_containers.jpg#center)
+
+#### Networking Explanation
+
+We do not need to manually create a network as mentioned earlier.
+
+This is automatically defined by the docker-compose process we ran earlier. We can simply borrow the default network name in order to connect this container to the database.
+
+The default name of the network from docker-compose is the working directory of the .yaml file suffixed with **"_default"**.
+
+You can verify this by running the command:
+
+```bash
+docker network ls
+```
+
+Since our working directory is **docker_sql**, the network created earlier is called **"docker_sql_default"**. We have simply applied this to the network argument in our docker run command to allow the connection between those containers.
+
+#### PgAdmin - Data Transformation
+
+From this point forward, you will have a data ingestion pipeline running, all you need to do is connect to the DBMS to enact transformations on the data we have ingested.
+
+We can access PgAdmin in our browser via the port number we have designated: [localhost:8080](localhost:8080)
+
