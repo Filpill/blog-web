@@ -8,11 +8,9 @@ cover:
 ### About Me
 
 - Aeronautical Engineering Degree
-- Airline safety management expeience
-- Approach problems with systems level perspective
-- Self-taught programmer and data analyst
-- Detest manual, repetitive tasks; invested in making automated workflows 
-- I like CAD, 3D Printing, programming and travelling
+- Aviation safety management system experience
+- Self-taught maker, programmer and data analyst
+- Hobbies: CAD, 3D Printing, programming and travelling
 
 ---
 
@@ -22,9 +20,13 @@ The purpose of this website is to document my learning journey and aims to:
 
 > ***Continually build a repository of information to serve as a reference guide for myself and other people in a variety of domains.***
 
-The true value of knowledge is only unlocked when you are interested and deeply engaged in the subject matter. 
+The true value of knowledge is only unlocked when you are deeply interested in the subject matter and are able to conjure solutions to real world problems. 
 
-It's not something you can absorb in 10 minute skim read on a random article you googled. Very often, you will have to go deeper into a subject (than initially intended), do some experimentation and revisit ideas multiple times before a solid understanding emerges.
+You cannot read random internet articles and then suddenly proclaim *"I have learned the thing!"*. It completely dismisses all the stumbling blocks people typically encounter in the learning process. Be real with yourself. Do not delude yourself into believing passive learning is effective.
+
+***If you are not struggling, you are probably doing it wrong...***
+
+My articles are written to provoke thoughts of how you can use technology in the real world. Experiment with your new found knowledge and apply it in different ways. Revisit those concepts several times before a solid understanding emerges.
 
 I place great value of **writing it down your learning process** as it helps **reinforce and consolidate your new found ideas**. You will be a more grounded thinker and it helps connect previously isolated concepts in order to build bigger and greater things.
 

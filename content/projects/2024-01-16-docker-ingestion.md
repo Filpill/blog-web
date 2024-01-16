@@ -1,6 +1,6 @@
 ---
-title: "Dockerised Postgres Database"
-description: "Basics of Setting up Database in Docker Container and Analysing NBA Statistics"
+title: "Dockerised Postgres Database and Ingestion"
+description: "Basics of setting up a database and ingestion system in a series of docker containers"
 date: 2024-01-15
 hideSummary: true
 ShowWordCount: true
@@ -17,6 +17,8 @@ categories: [Computing]
 
 ## Summary
 This article goes through the process of incorporating Docker as a tool for creating a data ingestion system into a Postgres database. We will containerise both the database and the Python ingestion scripts.
+
+The Github project this article is based on can be found here: [github_repo: nba_stats](https://github.com/Filpill/nba_stats/tree/main)
 
 ## Required Containers
 We will be building 3 containers to manage the data ingestion:
@@ -52,15 +54,14 @@ graph LR;
     end
     end                                        
 
-    subgraph Stage 3: Raspberry Pi - Visualisation
-    DB-->data[Connect DB <br>to streamlit]
-    data-->viz(Visualise <br>Data)
+    subgraph Stage 3: Visualisation
+    DB-->viz[Connect DB <br>to Visualisation Tool]
     end
     
 {{</mermaid>}}
 
 #### Stage 1 - Prepare Raw Data
-1. Retrieving data from an open-source API providing NBA data: [balldontlie.io](balldontlie.io/home.html/introduction). 
+1. Retrieving data from an open-source API providing NBA data: [balldontlie.io](https://balldontlie.io/home). 
 2. Python scripts to request JSON data from all endpoints.
 3. Merge JSON data into a consolidated file for each endpoint.
 
@@ -70,8 +71,8 @@ graph LR;
 6. Create tables into Postgres DB using Dockerised Python ingestion script.
 
 #### Stage 3 - Analyse and Visualise Data
-7. Use SQL to create analytical tables to serve for analytical capability.
-8. Host instance of streamlit, connect to database and show visualisations
+7. Use SQL to transform data and create tables for analytical capability.
+8. Connect dashboarding tool to database and showcase data visualisations.
 
 ### Why Docker?
 
@@ -82,9 +83,9 @@ One of Dockers greatest strengths is the ability to standardise a software envir
 - Docker containers share its resources natively with the host, which means your application only uses the compute it needs. 
 - The container build files can be deployed easily to any computer/cloud/server and it will run identically on all instances.
 
-A virtual machine has to reserve a portion of system resources such as the Memory and Drive space. These are not scalable resources at runtime. This limits how many instance you can spin up on a given computer/server. 
+A virtual machine has to reserve a portion of system resources such as the Memory and Drive space. Virtual machines are not scalable resources at runtime. This limits how many instance you can spin up on a given computer/server. 
 
-In addition to the easier code deployment, it's more powerful and efficient to manage a collection of containers.
+To sum up: containerisation provides easier code deployment/distribution, and can be scaled more easily in conjunction with cloud technology.
 
 ### Data Ingestion Pipeline
 
@@ -188,7 +189,7 @@ After this entire process, you should 3 containers that look like this:
 
 #### Networking Explanation
 
-We do not need to manually create a network as mentioned earlier.
+In this specific scenario we are working in, we do not need to manually create a network as mentioned earlier.
 
 This is automatically defined by the docker-compose process we ran earlier. We can simply borrow the default network name in order to connect this container to the database.
 
@@ -208,3 +209,8 @@ From this point forward, you will have a data ingestion pipeline running, all yo
 
 We can access PgAdmin in our browser via the port number we have designated: [localhost:8080](localhost:8080)
 
+## Conclusion
+
+From this point onwards, you should be able to have a rudimentary database system which can easily be deployed on a server or cloud provider. But the main purpose of this article is to show the utility of Docker as a tool.
+
+I will follow up in a later article when I get a chance to process and analyse all the NBA data from the API. I will likely try to visualise the NBA dataset using streamlit hosted on a Raspberry Pi.
