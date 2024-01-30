@@ -21,12 +21,13 @@ This article goes through the process of incorporating Docker as a tool for crea
 The Github project this article is based on can be found here: [github_repo: nba_stats](https://github.com/Filpill/nba_stats/tree/main)
 
 ## Required Containers
-We will be building 3 containers to manage the data ingestion:
+We will be building 4 containers to manage the data ingestion:
 - Postgres - Hosting a database
+- Psql - Running Postgres CLI Tool (Another Postgres Instance)
 - PgAdmin - Managing Postgres
 - Python - Ingesting Data into Postgres DB
 
-### The Overall Plan:
+### The container set-up:
 
 {{<mermaid>}}
 
@@ -34,28 +35,32 @@ graph LR;
     subgraph Stage 1: localhost - Prepare Data
     0([API - <br><strong>data_extraction.py</strong>])
     1([Create <br><strong>data_ingestion.py</strong>])
-    2([Create <br><strong>docker-compose.yaml</strong>])
-    3[Create <br><strong>Dockerfile</strong>]
-    0-->3
-    1-->3
+    cli0([Create <br><strong>ETL SQL Files</strong>])
+    2([Postgres/PgAdmin <br><strong>docker-compose.yaml</strong>])
+    3[Python <br><strong>Dockerfile</strong>]
+    cli0--Copy .sql Files--> cli1([psql<br><strong>Dockerfile</strong>])
+    0--Copy Data-->3
+    1--Copy Script-->3
     end
 
     subgraph Stage 2: Docker Containers - Ingestion Pipeline
-    subgraph Network 
+    subgraph Container Network 
     2-->D0([compose <br><strong>Postgres DB</strong>])
     2-->D1([compose <br><strong>PgAdmin</strong>])
     3-->D2([build <br><strong>Python</strong>])
+    cli1-->cli2([build <br><strong>psql</strong>])
     end
 
     subgraph ETL/ELT 
     D0-->DB[(Database)]
-    D1-->DB
-    D2-->DB
+    D1--Manage DB-->DB
+    D2--Ingest<br>Data-->DB
+    cli2--ETL <br>via shell -->DB
     end
     end                                        
 
     subgraph Stage 3: Visualisation
-    DB-->viz[Connect DB <br>to Visualisation Tool]
+    DB--Live<br>Query-->viz[Connect DB <br>to Visualisation Tool]
     end
     
 {{</mermaid>}}
@@ -69,10 +74,11 @@ graph LR;
 4. Create Dockerised instance of Postgres database.
 5. Create Dockerised instance of PgAdmin to connect and manage database.
 6. Create tables into Postgres DB using Dockerised Python ingestion script.
+7. Use SQL to transform data and create tables for analytical capability.
+8. Automate the ETL procedure by running SQL scripts with psql.
 
 #### Stage 3 - Analyse and Visualise Data
-7. Use SQL to transform data and create tables for analytical capability.
-8. Connect dashboarding tool to database and showcase data visualisations.
+9. Connect dashboarding tool to database and showcase data visualisations.
 
 ### Why Docker?
 
@@ -104,7 +110,7 @@ services:
         environment:
           - POSTGRES_USER=root
           - POSTGRES_PASSWORD=root
-          - POSGRES_DB=nba
+          - POSTGRES_DB=nba
         volumes:
           - "./nba_postgres_data:/var/lib/postgresql/data:rw"
         ports:
@@ -209,8 +215,113 @@ From this point forward, you will have a data ingestion pipeline running, all yo
 
 We can access PgAdmin in our browser via the port number we have designated: [localhost:8080](localhost:8080)
 
+### Automated Docker Container/Image Rebuilding
+ You are in the process of developing or changing containers configurations, you will likely encounter the issue of having to delete the containers/images and re-build them. If you are doing this for isolated containers, it can become very annoying and repetitive. 
+
+ To avoid running the docker rm and build commands constantly, consider building a script to automate that process to speed up your config changes:
+
+```bash
+#!/bin/bash
+container="psql_contain"
+image="psql:v001"
+
+
+# Re-Build Container with New Configuration
+function update_container {
+    winpty docker rm $container
+    winpty docker rmi $image
+
+    winpty docker build -t $image .
+    winpty docker run -it \
+	--name=$container \
+	--network=docker_sql_default \
+	$image 
+}
+
+# Run Dockerised Python Ingestion Script
+function run_script {
+    winpty docker start -i $container
+}
+
+declare -A container_options=(
+    [1]="1 - Update Container/Image with New Configuration" 
+    [2]="2 - Run psql" 
+)
+keys_sorted=($(echo ${!container_options[@]} | tr ' ' '\n' | sort -n))
+
+while true; do
+    echo "=============================================="
+    echo "Please Select An Action (Enter Integer Value):"
+    echo "=============================================="
+    for key in "${keys_sorted[@]}"; do
+        echo "  ${container_options[$key]}"
+    done
+    read num
+    case $num in
+        1) update_container ;;
+        2) run_script ;;
+        *) 
+            clear
+            echo "-------------------------------------------------"
+            echo "---  Invalid Selection - Enter Value on List  ---"
+            echo "-------------------------------------------------
+            "
+            continue ;;
+    esac
+    break
+done
+```
+
+This script will give you two options:
+- **Selecting Option 1** - If you need to re-image the container because you updated your scripts or have new data to be copied into the container. 
+- **Selecting Option 2** - Will simply run the existing container in its current state.
+
+I've made multiple instances of this scripts for each individual image/container pair. But it's a little redundant given the duplicity.  It would be wiser to pass in parameters for an image name and container name via some config or secondary script. I'll rework this concept/soltion in the future.
+
+But my main point here is that we want to avoid manually typing out Docker commands. Once we internalise what each command does, its much better to automate that process.
+
+## Automating the ETL with psql
+
+Ideally we don't want to manually run an ETL process every day via the graphical interface. We want to free up our time to engage in other work in parallel. Therefore, I would strongly suggest the incorporation of scripting out the transformation process.
+
+Thankfully, Postgres comes pre-packaged with psql which is a command-line tool to interface with the database. Using this tool we are able to execute a series of SQL scripts to transform the data to our requirements in the destination tables.
+
+Even though Postgres, comes with psql, I decided to load it into a separate container strictly for the purpose of ETL which is arguably a more bloated way of dealing with the situation, (but we'll run with it for the sake of having a functional system).
+
+For purposes of running it independently from the "docker-composition", this program will be in it's own container with an independent Dockerfile:
+
+```Dockerfile
+FROM postgres:13
+
+WORKDIR /app
+
+COPY tf tf
+COPY etl.sh etl.sh
+
+ENTRYPOINT [ "bash" ]
+
+RUN chmod +x etl.sh
+
+CMD [ "./etl.sh" ]
+```
+
+We will be entering this container via bash and automatically executing our **etl.sh** script. The script points to all the SQL files we have saved in the folder named **tf**.
+
+Under the hood of the etl.sh script is simply a one-liner psql command which after logging into the relevant database, runs all the SQL files I have specified explicitly:
+
+```bash
+#!/bin/bash
+psql postgresql://root:root@pgdatabase:5432/nba -f tf/create_tf_season_averages.sql -f create_tf_unioned_games.sql
+```
+
+You can have as many or as little SQL scripts as you need.
+
+I haven't set it up yet but assuming you have a server arrangement, you can schedule to run this Docker container using a **crontab** (daily, weekly, monthly etc). And you can easily run the psql ETL container without your intervention.
+
 ## Conclusion
 
-From this point onwards, you should be able to have a rudimentary database system which can easily be deployed on a server or cloud provider. But the main purpose of this article is to show the utility of Docker as a tool.
+Hopefully this article illustrates the power and utility of Docker as a tool.You should be able to build a rudimentary database system which can easily be deployed on a server or cloud provider. 
+
+Although further care should be considered with the passwords and how to protect them as they are visibly bundled in all the scripts. So, consider how to incorporate password encryption and improve security for this set up.
 
 I will follow up in a later article when I get a chance to process and analyse all the NBA data from the API. I will likely try to visualise the NBA dataset using streamlit hosted on a Raspberry Pi.
