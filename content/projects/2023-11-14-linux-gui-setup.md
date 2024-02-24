@@ -1,6 +1,6 @@
 ---
-title: "Graphical Setup For Linux Desktop"
-description: "Instructional guide for setting up a GUI Window Manager in Linux | dwm + st"
+title: "Ricing Minimalist Linux Desktop Environment"
+description: "Instructional guide for setting up a Window Manager in Linux | dwm + st"
 date: 2023-11-14
 hideSummary: true
 ShowWordCount: true
@@ -324,6 +324,26 @@ chsh -s /bin/zsh
 You will be prompted for your password and after this stage the default shell is now zsh. The next time you login, it will spawn a zsh shell within st.
 
 Don't forget to migrate all the configuration you have down in ~/.bash_profile to ~/.zprofile as bash and zsh don't share the same config files.
+
+# Adding Terminal Based Copy-Paste Bindings
+
+This is for enabling the clipboard across any program or instance.
+
+You can add a couple of lines to your neovim config in ~/.config/nvim/init.vim:
+
+```config
+"Copy paste to X11 Clipboard
+vmap <leader><F6> :!xclip -f -sel clip<CR>
+map  <leader><F7> mz:-1r !xclip -o -sel clip<CR>
+```
+These key bindings xclip commands allow terminal based copy-pasting:
+- Leader-F6 for Copying
+- Leader-F7 for Pasting
+
+You will need to go into "visual mode" in order to enact the copy command and you can paste into another terminal using normal mode.
+
+> **Note for Copying from Browser to Terminal:**  Highlight what you are copying and paste by clicking the middle mouse button on the target.
+
 
 # Adding a wallpaper
 

@@ -169,6 +169,9 @@ Uncomment the lines that apply to your language of choice.
 Run "local-gen" command to generate the locales you have selected.
 ![](/img/arch/install_process/35.jpg#center)
 Vim into a new file called /etc/locale.conf and set the language being used.
+
+***Edit 2024-02-2024: I realised I made a mistake with setting the LANG for the locale.conf, it should have an underscore and not a dash. For example: The correct syntax should be "LANG=en_GB.UTF-8" otherwise some locale dependent programs will fail to work.***
+
 ![](/img/arch/install_process/36.jpg#center)
 Type in the language.
 ![](/img/arch/install_process/37.jpg#center)

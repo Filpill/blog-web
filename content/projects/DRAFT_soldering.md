@@ -1,7 +1,7 @@
 ---
 title: "Soldering Tasking"
 description: "Soldering for the cinepi"
-date: 2023-11-26
+date: 1999-11-26
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
