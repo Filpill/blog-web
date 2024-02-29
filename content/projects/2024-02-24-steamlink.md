@@ -1,7 +1,7 @@
 ---
 title: "Steamlink Setup"
 description: "How to set up steamlink on a Raspberry Pi"
-date: 2023-10-03
+date: 2024-02-24
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true

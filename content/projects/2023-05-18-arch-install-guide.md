@@ -31,169 +31,265 @@ The recommended way to pull down the ISO file is by torrenting it from the refer
 
 When the download is complete, you can configure your virtual machine.
 
-## Creating a Virtual Machine
+## Creating a Hyper-V Virtual Machine
 
+### 1. Create New Virtual Machine
 The first step is to open up Hyper-V and create a new virtual machine
 ![](/img/arch/install_process/1.jpg#center)
+
+### 2. Select VM Generation
 You will be asked which generation of VM to create. I would reccommend to select "Generation 2". It supports UEFI firmware and it should be better from a cyber-security standpoint.
 ![](/img/arch/install_process/2.jpg#center)
+
+### 3. Allocate Memory
 You can specify how much memory to allocate to the VM. I decided to allocate 4000MB in my use case.
 ![](/img/arch/install_process/3.jpg#center)
+
+
+### 4. Configure Network Adapter
 Hyper-V has a built in network adapter that works out of the box, so you'd want to select "Default Switch" to have it enabled.
 ![](/img/arch/install_process/4.jpg#center)
+
+### 5. Create Virtual Hard Disk
 For the VM you should create a virtual hard disk to store the data. I decided to allocate 30GB of storage space.
 ![](/img/arch/install_process/5.jpg#center)
+
+### 6. Select .iso Image
 You need to select the arch linux ISO file to boot from and then you can finalise the VM creation.
 ![](/img/arch/install_process/6.jpg#center)
+
+### 7. Go to Settings
 We are not done yet, we still need to configure 2 more things in the settings panel of this VM we just created.
 ![](/img/arch/install_process/7.jpg#center)
+
+### 8. Disable Secure Boot
 We need to **disable Secure Boot**, if you do not do this step, it will interfere with your ability to boot the ISO image.
 ![](/img/arch/install_process/8.jpg#center)
+
+### 9. Change Boot Priority
 Next we need to **bump the Hard Drive to the first priority of boot loading**. Its very important that you do this step before you start installing linux otherwise the Grub will fail down the line because it will be trying to boot from the DVD Drive. You will not be able to retroactively change the boot order at a later stage.
 ![](/img/arch/install_process/9.jpg#center)
 After applying the changes:
 
-Connect to the VM
+### 10. Start the VM
+Connect to the VM:
 ![](/img/arch/install_process/10.jpg#center)
-Start the VM
+Start the VM:
 ![](/img/arch/install_process/11.jpg#center)
 
-## Booting From Arch Linux ISO Image
+## Installing Arch Linux
 
 From this screen select the highlighted option to load the ISO image
 ![](/img/arch/install_process/12.jpg#center)
 
 The install process starts here:
 ![](/img/arch/install_process/13.jpg#center)
-Before going any further, you should test that your internet connecting works. You can use the ping command to run the test to any website:
 
-```[bash]
+### 1. Verify Internet Connection
+Before going any further, you should ping a website to test your internet connection:
+
+```bash
 ping archlinux.org
 ```
-Hyper-V should be providing your VM with the internet connection in any case. If not, you will probably need to configure Hyper-V to alleviate networking issues.
 ![](/img/arch/install_process/14.jpg#center)
+The Hyper-V default network switch should automatically provide your VM with the internet connection. If not, you will probably need to configure Hyper-V to alleviate networking issues.
 
-We also need to synchronise the systems clock with the network time, this command will enable that for you.
-![](/img/arch/install_process/15.jpg#center)
+### 2. Synchronise System Clock
 
-## Drive Partitioning and Filesystems
+We also need to synchronise the systems clock with the network time:
+```bash
+timedatectl set-ntp true
+```
+
+### 3. Drive Partitioning
 Now we need to start partitioning our drives and creating our file system.
 
-If you type "lsblk" you can see which drives and partitions are on your system.
+The **lsblk** command indicates which drives and partitions are on your system. And we can use **cfdisk** to partition the drives.
 ![](/img/arch/install_process/16.jpg#center)
 
-We want to "cfdisk" into "/dev/sda" which effectively our hard disk.
-![](/img/arch/install_process/17.jpg#center)
+Type the command to start partitioning your virtualised disk:
+```bash
+cfdisk /dev/sda
+```
+
+![](/img/arch/install_process/18.jpg#center)
 
 At this juncture we need to assign the disk label type and it comes down to two options mainly:
 
-- If your hardware is new and your hard drive is over 2TB, then the recommendation is to use **gpt**.
-- If you don't fulfill the above conditions, then the recommendation is use **dos**.
-- In our case we are using **dos**.
+- If the hardware is new and the drive >= 2TB, use **gpt**.
+- Otherwise use **dos**.
+>  ***For our scenario we are using dos***
 
-![](/img/arch/install_process/18.jpg#center)
-There are many partition schemes to choose from, but I will keep it simple and only include the boot partition and root partition:
-- /dev/sda1 (boot partition) only needs about 128MB of space and needs to be bootable. You can press b to enable the boot flag after making the partition.
-- /dev/sda2 (root paritition) can be assigned the remaining space of the disk.
+Decide on a partition scheme. I will keep it simple and reduce it to a **boot and root partition**:
+- **/dev/sda1 (boot partition)** only needs about **128MB** of space and needs to be bootable. You can **press b to enable the boot flag** after making the partition.
+- **/dev/sda2 (root partition)** can be assigned the **remaining space of the disk**.
+
 
 Write the changes and quit out of cfdisk.
 ![](/img/arch/install_process/19.jpg#center)
-If you lsblk now, you will now see that 2 partitions have been made, sda1 and sda2.
-![](/img/arch/install_process/20.jpg#center)
-You will need to make a directory with this path: /mnt/boot/efi which can be done with the mkdir command. We are creating a mount point for the boot partition. Normally you don't need the efi folder, but its necessary here since we have a UEFI system config.
+If you **lsblk** now, you will now see that 2 partitions have been made which are called **sda1 and sda2**.
 
-We also need to make the file systems for each parition sda1 is FAT file system and root is ext4.
+### 4. Creating File Systems
 
-Run these commands:
+We also need to make the file systems for each partition:
+- **sda1 (boot)** is **FAT32** file system.
+- **sda2 (root)** is **ext4** file system.
+
+Run these commands to create the file systems respectively:
 
 ```[bash]
-mkfs.fat -F /dev/sda1
+mkfs.fat -F 32 /dev/sda1
 mkfs.ext4 /dev/sda2
 ```
 
+### 5. Mounting the File Systems
+
 Now the mounting procedure MUST go in a specific order:
 
-- sda2 (root) is mounted first to /mnt
-- sda1 (boot) is mounted second to /mnt/boot/efi
+- **sda2 (root)** is mounted first to **/mnt**
+- **sda1 (boot)** is mounted last to **/mnt/boot/efi**
 
-```[bash]
+```bash
 mount /dev/sda2 /mnt
+```
+
+> **Warning:** If you mount in reverse order, the install will fail!
+
+For the boot partition, you will need to make a directory with this path **/mnt/boot/efi**:
+```bash
+cd /mnt
+mkdir boot
+cd /mnt/boot
+mkdir efi
+```
+
+Since we have a UEFI system config, we need this extra efi directory (normally we do not). Now we can mount the filesystem for boot:
+
+```bash
 mount /dev/sda1 /mnt/boot/efi
 ```
 
-I can't explain the reasoning, but if you do it in reverse, the install will fail down the line. You will have to ignore the order of the commands in image as I remounted in the aforementioned order later.
-![](/img/arch/install_process/21.jpg#center)
+### 6. Installing Essential Packages
 
-At this point you are ready install the base tools for the system as well as the linux kernel.
+At this stage, you are ready install the base tools for the system in addition to the Linux kernel.
 
-Use the pacstrap command to install the following tools to /mnt
-![](/img/arch/install_process/22.jpg#center)
+Use the pacstrap command to install the following tools to /mnt:
 
-Next you want to generate your fstab configuration. Run the following command:
-![](/img/arch/install_process/23.jpg#center)
+```bash
+pacstrap /mnt base base-devel linux linux-firmware vim
+```
 
-## Chrooting into Arch Install
-At this stage we chroot into our installation file system/environment by running this command:
-![](/img/arch/install_process/24.jpg#center)
+### 7. Generate fstab Configuration
 
-Pacman is our package manager and we can use it to install "networkmanager" and "grub" as follows.
+Run the following command to generate your fstab configuration:
+```bash
+genfstab -U /mnt >> /mnt/etc/fstab
+genfstab -U /mnt
+```
 
-Network manager is a program for managing our internet capabilities and grub is our boot loader.
-![](/img/arch/install_process/25.jpg#center)
+### 8. Chroot
+Change root into new system by running this command:
+```bash
+arch-chroot /mnt /bin/bash
+```
 
+### 9. Install Key Packages
+Pacman is our package manager and we can use it to install some key packages:
+- networkmanager - Detection and configuration of systems to connect to networks
+- grub - Bootloader for the computer
+- efibootmgr - Package dependency for grub's installation command
+
+```bash
+pacman -S networkmanager grub efibootmgr
+```
+
+### 10. Auto-enable Internet on Startup
 We can use systemctl to enable network manager as a service which starts automatically when you boot the computer (which is very useful to have).
-![](/img/arch/install_process/26.jpg#center)
-We also need to install "efibootmgr" as this is a dependency for grubs installation.
-![](/img/arch/install_process/27.jpg#center)
-Next we run the grub-install command on /dev/sda
 
-It should run with no errors.
-![](/img/arch/install_process/28.jpg#center)
+```bash
+systemctl enable NetworkManager
+```
 
-We need to make a config file for grub, which is done using the following command:
+### 11. Install Grub
+Next we run the grub-install command on /dev/sda; it should run with no errors:
 
-```[bash]
+```bash
+grub-install /dev/sda
+```
+
+We need to make a config file for grub, with the following command:
+
+```bash
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
-![](/img/arch/install_process/29.jpg#center)
-We need to vim into this grub file and make an edit to it.
-![](/img/arch/install_process/30.jpg#center)
-We need to uncomment the line "GRUB_DISABLE_OS_PROBER=false" and then save the file.
+We need to edit this grub file:
+
+```bash
+vim /etc/default/grub
+```
+Uncomment the line "GRUB_DISABLE_OS_PROBER=false" and then save the file.
+
 ![](/img/arch/install_process/31.jpg#center)
+
+### 12. Set Root Password
 Run the passwd command to set a root password for the machine
 ![](/img/arch/install_process/32.jpg#center)
-Then we want to vim into /etc/locale.gen to change the language settings of the machine. 
-![](/img/arch/install_process/33.jpg#center)
+
+### 13. Localization
+Edit **/etc/locale.gen** to change the language settings of the machine. 
+```bash
+vim /etc/locale.gen
+```
 Uncomment the lines that apply to your language of choice.
 ![](/img/arch/install_process/34.jpg#center)
-Run "local-gen" command to generate the locales you have selected.
-![](/img/arch/install_process/35.jpg#center)
-Vim into a new file called /etc/locale.conf and set the language being used.
+Run **locale-gen** command to generate the locales you have selected:
+```bash
+locale-gen
+```
+Edit /etc/locale.conf and set the language being used:
+```bash
+vim /etc/locale.conf
+```
+Enter the **LANG variable** into the file with the relevant language setting:
 
-***Edit 2024-02-2024: I realised I made a mistake with setting the LANG for the locale.conf, it should have an underscore and not a dash. For example: The correct syntax should be "LANG=en_GB.UTF-8" otherwise some locale dependent programs will fail to work.***
+```
+LANG=en_GB.UTF-8
+```
 
-![](/img/arch/install_process/36.jpg#center)
-Type in the language.
-![](/img/arch/install_process/37.jpg#center)
-Vim into /etc/hostname
-![](/img/arch/install_process/38.jpg#center)
-The word you type in here will be the name of your computer.
-![](/img/arch/install_process/39.jpg#center)
-Type the below command to set up the local time zone of your system. Greenwich can be substituted for any region within that zoneinfo folder.
-![](/img/arch/install_process/40.jpg#center)
+### 14. Hostname
+Edit **/etc/hostname**:
+```bash
+vim /etc/hostname
+```
+The word you type in here will be the name of your computer. I decided to call mine **arch**. But it can be anything you want. Save and close the file.
 
-## Rebooting the System
-At this stage we should be ready to reboot the system. We need to exit out of the root environment. Then we need to unmount all the partitions and reboot the system.
+### 15. Timezone
+You can set the time zone with the following command:
 
-Type all the commands as follows:
-![](/img/arch/install_process/41.jpg#center)
+```bash
+ln -sf /usr/share/zoneinfo/Greenwich /etc/localtime
+```
 
-If successful you should be greeted with this screen. You can select "Arch Linux" to boot into the system.
+Greenwich can be substituted for any region within that zoneinfo directory. 
+
+### 15. Rebooting
+We are ready to reboot the system. First we need to exit the root environment and to unmount all the partitions. Then we can reboot.
+
+```bash
+exit
+umount -R /mnt
+reboot
+```
+
+If successful you should be greeted with this screen. You can select **Arch Linux** to boot into the system.
 ![](/img/arch/install_process/42.jpg#center)
 And you should see a tty appear on your screen.
-![](/img/arch/install_process/43.jpg#center)
-Since we do not have any users set up on the system, we can only login as root for the time being. So you can just enter the root credentials.
-![](/img/arch/install_process/44.jpg#center)
-That's about it, you now have a base install of Arch Linux.
+
+We do not have any users set up on the system (yet).
+
+Simply login as the **root** user. The root password is what you set earlier in the setup process.
+
 ![](/img/arch/install_process/45.jpg#center)
+That's about it, you now have a base install of Arch Linux.
+
 From this point you are free to customise your desktop to your liking.
