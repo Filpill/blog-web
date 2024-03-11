@@ -1,17 +1,16 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
+description: "--- Insert Description Here ---"
 date: {{ .Date }}
-useDescription: true
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
-draft: false
 ShowToC: true
+draft: false
 
 cover:
-  image:
+  image: ./img/folder_name
   alt:
 
-categories: []
-
+categories: [Computing, Data, Engineering]
 ---
