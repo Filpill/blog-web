@@ -29,47 +29,6 @@ I will prescribe the software choices in this article, however, once you feel co
 
 I setting up a window manger as the foundation for this guide. My system is running Arch Linux running under Hyper-V.
 
-# Grub Config - Change Startup Screen Resolution
-
-Something worth checking before you carrying on is changing your start up resolution. You don't want to manually modify the resolution every time you login.
-
-### *Optional Hyper-V/Powershell Step*
- In powershell its worth running this command to set the maximum resolution for our VM:
-```powershell
-Set-VMVideo -VMName 'ArchVM' -HorizontalResolution 1920 -VerticalResolution 1080 -ResolutionType Single
-```
-
-### Modifying Grub Config
-
-Go to the **/etc/default** directory which has the **grub** file:
-
-You will want to edit the following grub variables:
-- GRUB_CMD_LINUX_DEFAULT
-- GRUB_GFXMODE
-
-**GRUB_CMD_LINUX_DEFAULT** - You will need to append **video=hyperv_fb:1920x1080** to the end as shown below:
-
-***Note: The video parameter may be different if you are doing this bare metal or are using another VM software.***
-
-```bash
-GRUB_CMD_LINUX_DEFAULT="quiet splash video=hyperv_fb:1920x1080"
-```
-
-**GRUB_GFXMODE** - You will need to specify the resolution here as shown below:
-
-```bash
-GRUB_GFXMODE=1920x1080
-```
-
-Save and exit from the grub file.
-
-Now you will need to enact those changes onto the grub.cfg file which is read at boot time. So you will need to run the following command:
-
-```bash
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-After rebooting your Linux machine, your terminal should automatically scale to the 1080p resolution without having to make changes using commands like **xrandr -s 1920x1080** inside the display server.
-
 # Creating a User - Getting Sudo Permissions
 
 At this stage, you probably only have a root user on a fresh install, so it would be a good idea to create a user for yourself:

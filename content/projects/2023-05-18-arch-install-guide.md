@@ -71,7 +71,17 @@ Next we need to **bump the Hard Drive to the first priority of boot loading**. I
 ![](/img/arch/install_process/9.jpg#center)
 After applying the changes:
 
-### 10. Start the VM
+### 10. Fixing Hyper-V Resolution (Powershell)
+
+Oddly enough we do not have GUI setting for adjusting the resolution of the VM which is bizzare for a windows tool. Therefore we will need to use Powershell (with Admin permissions) to fix this.
+
+In powershell you can run the following command to set the maximum resolution of the VM **(Please replace the respective VMName in quotations with the VM you just created.)**:
+
+```powershell
+Set-VMVideo -VMName 'ArchVM' -HorizontalResolution 1920 -VerticalResolution 1080 -ResolutionType Single
+```
+
+### 11. Start the VM
 Connect to the VM:
 ![](/img/arch/install_process/10.jpg#center)
 Start the VM:
@@ -210,7 +220,7 @@ We can use systemctl to enable network manager as a service which starts automat
 systemctl enable NetworkManager
 ```
 
-### 11. Install Grub
+### 11. Install and Configure Grub
 Next we run the grub-install command on /dev/sda; it should run with no errors:
 
 ```bash
@@ -230,6 +240,28 @@ vim /etc/default/grub
 Uncomment the line "GRUB_DISABLE_OS_PROBER=false" and then save the file.
 
 ![](/img/arch/install_process/31.jpg#center)
+
+You may also want to edit the following grub variables if you wish to change the resolution of grub:
+- GRUB_CMD_LINUX_DEFAULT
+- GRUB_GFXMODE
+
+```bash
+GRUB_CMD_LINUX_DEFAULT="quiet splash video=hyperv_fb:1920x1080"
+GRUB_GFXMODE=1920x1080
+```
+
+***Note: The video parameter may be different if you are doing this bare metal or are using another VM software.***
+
+Save and exit from the grub file.
+
+Now you will need to enact those changes onto the grub.cfg file which is read at boot time. So you will need to run the following command:
+
+```bash
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+After rebooting your Linux machine, your terminal should automatically scale to the 1080p resolution without having to make changes using commands like **xrandr -s 1920x1080** inside the display server.
+
+
 
 ### 12. Set Root Password
 Run the passwd command to set a root password for the machine
