@@ -11,8 +11,8 @@ Terminal_2=$(eval "$searchLatestID")
 
 # First Terminal - Start Hugo Server and Place in Tag 9
 sleep 0.05
-xdotool windowactivate  $Terminal_1 type hugo\ server\ -D && xdotool windowactivate $Terminal_1 key "KP_Enter"
-xdotool windowactivate  $Terminal_1 key --clearmodifiers  "Super+shift+9" 
+xdotool windowactivate $Terminal_1 type hugo\ server\ -D && xdotool windowactivate $Terminal_1 key "KP_Enter"
+xdotool windowactivate $Terminal_1 key "Super+shift+9" 
 
 # Second Terminal - Change Directory to Root Blog Project
 sleep 0.05
@@ -20,8 +20,11 @@ xdotool windowactivate $Terminal_2 type cd\ $blogFolder && xdotool windowactivat
 xdotool windowactivate $Terminal_2 type clear && xdotool windowactivate $Terminal_2 key "KP_Enter"
 xdotool windowactivate $Terminal_2 type ls && xdotool windowactivate $Terminal_2 key "KP_Enter"
 
-# Spawn a browser with localhost URL
+# Spawn a browser with localhost URL and arranging spacing
 sleep 0.05
 st &
 broswerID=$(eval "$searchLatestID")
+xdotool windowactivate $Terminal_2 key "Super+space" 
+xdotool windowactivate $Terminal_2 key "Super+Left" 
+xdotool windowactivate $Terminal_2 key "Super+Left" 
 xdotool windowactivate $browserID type $(firefox -new-tab "localhost:1313") && xdotool windowactivate $browserID key "KP_Enter"
