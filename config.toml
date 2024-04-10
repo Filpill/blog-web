@@ -7,7 +7,7 @@ enableInlineShortcodes = true
 [params.homeInfoParams]
 enabled = true
 title = "Filip's Project Website" # optional default will be site title
-Content = "**Welcome:** This website is dedicated to sharing knowledge in mech eng. and data analytics projects. \n\n&nbsp;\n\n**About Me:** Refer to the profile tab which summarises my experience; also links to my CV.\n\n&nbsp;\n\n**Projects:** Sorted by chronological order; can also be searched via Categories tab."
+Content = "**Welcome:** This website is dedicated to sharing knowledge in mech eng. and data analytics projects. \n\n&nbsp;\n\n**About Me:** Refer to the profile tab which summarises my experience; also links to my CV.\n\n&nbsp;\n\n**Projects:** Sorted by chronological order; can also be searched via the *Archives* and *Categories tab*."
 subtitle = "Contact"
 imageTitle = "<Filip Livancic>" # optional
 jmageWidth = 180 # custom size
@@ -29,9 +29,9 @@ url = "/profile/"
 weight = 10
 
 [[menu.main]]
-identifier = "projects"
-name = "Projects"
-url = "/projects/"
+identifier = "archives"
+name = "Archive"
+url = "/archives/"
 weight = 15
 
 [[menu.main]]
