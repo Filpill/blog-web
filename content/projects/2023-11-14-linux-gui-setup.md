@@ -1,5 +1,5 @@
 ---
-title: "Ricing Minimalist Linux Desktop Environment"
+title: "Setting Up Linux Desktop Environment"
 description: "Instructional guide for setting up a Window Manager in Linux | dwm + st"
 date: 2023-11-14
 hideSummary: true
