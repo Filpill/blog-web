@@ -5,7 +5,8 @@ cover:
   alt: 'Filip Livancic Profile'
 ---
 
-### About Me
+### :detective: &nbsp;  About Me
+
 
 - Aeronautical Engineering Degree
 - Aviation safety management system experience
@@ -14,7 +15,7 @@ cover:
 
 ---
 
-### Vision for the Website
+### :eyes: &nbsp; Vision for the Website
 
 The purpose of this website is to document my learning journey and aims to:
 
@@ -34,6 +35,6 @@ I place great value of **writing it down your learning process** as it helps **r
 > ***This website is dedicated to documenting and preserving learning's through time.***
 ---
 
-### Resume
+### :newspaper: &nbsp;  Resume
 {{< embed-pdf url="/files/filip_cv.pdf" renderPageNum="1" hideLoader="false" >}}
 

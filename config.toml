@@ -3,6 +3,7 @@ languageCode = 'en-us'
 title = 'Filip Livancic'
 theme = ['hugo-embed-pdf-shortcode','PaperMod']
 enableInlineShortcodes = true
+enableEmoji = true
 
 [params.homeInfoParams]
 enabled = true
