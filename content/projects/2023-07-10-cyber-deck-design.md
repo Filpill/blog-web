@@ -12,7 +12,7 @@ cover:
   image : img/cyberDeck/frontNeofetch.jpg
   alt: 'CyberDeck Assembly'
 
-categories: [Engineering]
+tags: [⚙️ Engineering]
 ---
 
 ## Summary

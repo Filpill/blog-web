@@ -12,5 +12,6 @@ cover:
   image: ./img/folder_name
   alt:
 
-categories: [Computing, Data, Engineering]
+tags: [💻 Systems, ⚙️ Engineering, 📊 Data]
+
 ---

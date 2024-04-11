@@ -12,7 +12,7 @@ cover:
   image: ./img/docker/docker_pipeline_cover.png
   alt: docker pipeline cover image
 
-categories: [Computing]
+tags: [💻 Systems]
 ---
 
 ## Summary

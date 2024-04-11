@@ -12,7 +12,7 @@ cover:
   image: img/github/github_terminal.png
   alt: 'Github Logo'
 
-categories: [Computing]
+tags: [💻 Systems]
 ---
 
 # Summary

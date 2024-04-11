@@ -12,7 +12,7 @@ cover:
   image : /img/piv/ffs-bl-diagram.png
   alt: 'PIV BL Diagram'
 
-categories: [Engineering]
+tags: [⚙️ Engineering]
 ---
 
 # Summary

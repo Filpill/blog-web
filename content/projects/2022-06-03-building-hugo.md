@@ -12,7 +12,7 @@ cover:
   image: img/hugo/hugologo.png
   alt: "Hugo Logo"
 
-categories: [Computing]
+tags: [💻 Systems]
 ---
 
 # Summary

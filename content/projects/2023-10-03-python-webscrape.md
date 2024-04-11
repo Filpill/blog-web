@@ -12,7 +12,7 @@ cover:
   image: /img/scrape/scrape_thumbnail.png
   alt: Scraping thumbnail
 
-categories: [Data]
+tags: [📊 Data]
 ---
 
 # Summary

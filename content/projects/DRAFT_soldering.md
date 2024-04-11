@@ -12,7 +12,7 @@ cover:
   image: 
   alt: Soldering
 
-categories: [Electronics]
+tags: [⚙️ Engineering]
 ---
 
 # Tasks

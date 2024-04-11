@@ -12,7 +12,7 @@ cover:
   image: /img/arch/fileshare/fileshare_cover.png
   alt: File Share Image Cover
 
-categories: [Computing]
+tags: [💻 Systems]
 ---
 
 ## Why Share Files Directly Between Windows and Linux?

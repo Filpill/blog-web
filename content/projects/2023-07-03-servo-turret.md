@@ -12,7 +12,7 @@ cover:
   image : img/servoTurret/mouse_setup.jpg
   alt: 'Solidworks Render of Tractor'
 
-categories: [Electronics]
+tags: [⚙️ Engineering]
 ---
 
 ## Summary 

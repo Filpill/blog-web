@@ -12,7 +12,7 @@ cover:
   image: /img/tableau/tableau_py.png
   alt: Tableau Client Server API with Python
 
-categories: [Data]
+tags: [📊 Data]
 ---
 
 # Summary

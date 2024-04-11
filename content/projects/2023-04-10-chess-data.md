@@ -12,7 +12,7 @@ cover:
   image: /img/chess/chess_gimp.png
   alt: Chess Data Analysis Image Cover
 
-categories: [Data]
+tags: [📊 Data]
 ---
 
 # Summary

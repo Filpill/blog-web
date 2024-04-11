@@ -12,7 +12,7 @@ cover:
   image: img/piSSH/pi_ssh_rdp.png
   alt: 'Github Logo'
 
-categories: [Computing]
+tags: [💻 Systems]
 ---
 
 # Summary

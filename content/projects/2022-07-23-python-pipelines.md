@@ -12,7 +12,7 @@ cover:
   image: /img/auto/python_all_auto.png
   alt: Python Automating Everything
 
-categories: [Data]
+tags: [📊 Data]
 ---
 
 # Summary
