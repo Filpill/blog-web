@@ -1,5 +1,5 @@
 ---
-title: "Profile - Filip Livancic"
+title: "👤 Profile - Filip Livancic"
 cover:
   image : img/profile/filip-profile.jpg
   alt: 'Filip Livancic Profile'

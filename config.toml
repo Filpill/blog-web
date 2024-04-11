@@ -25,19 +25,19 @@ enabled = true
 
 [[menu.main]]
 identifier = "profile"
-name = "Profile"
+name = "👤 Profile"
 url = "/profile/"
 weight = 10
 
 [[menu.main]]
 identifier = "archives"
-name = "Archive"
+name = "📁 Archive"
 url = "/archives/"
 weight = 15
 
 [[menu.main]]
 identifier = "tags"
-name = "Categories"
+name = "🏷️ Categories"
 url = "/tags/"
 weight = 30
 
