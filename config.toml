@@ -1,6 +1,6 @@
 baseURL = 'https://filpill.github.io/'
 languageCode = 'en-us'
-title = 'Filip Livancic'
+title =  'Filip Livancic'
 theme = ['hugo-embed-pdf-shortcode','PaperMod']
 enableInlineShortcodes = true
 enableEmoji = true

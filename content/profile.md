@@ -5,17 +5,16 @@ cover:
   alt: 'Filip Livancic Profile'
 ---
 
-### :detective: &nbsp;  About Me
-
+### :face_in_clouds: &nbsp;  About Me
 
 - Aeronautical Engineering Degree
 - Aviation safety management system experience
 - Self-taught maker, programmer and data analyst
-- Hobbies: CAD, 3D Printing, programming and travelling
+- Hobbies: CAD, 3D Printing, gliding, programming and travelling
 
 ---
 
-### :eyes: &nbsp; Vision for the Website
+### :telescope: &nbsp; Vision for the Website
 
 The purpose of this website is to document my learning journey and aims to:
 
@@ -35,6 +34,6 @@ I place great value of **writing it down your learning process** as it helps **r
 > ***This website is dedicated to documenting and preserving learning's through time.***
 ---
 
-### :newspaper: &nbsp;  Resume
+### :page_facing_up: &nbsp;  Resume
 {{< embed-pdf url="/files/filip_cv.pdf" renderPageNum="1" hideLoader="false" >}}
 
