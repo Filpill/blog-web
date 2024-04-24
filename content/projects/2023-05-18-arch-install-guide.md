@@ -23,6 +23,12 @@ The motivation behind this web page is to keep some guidance material for myself
 
 The virtual machine is made with Microsoft's Hyper-V program. The steps may differ slightly if you choose to use a another hypervisor such as VirtualBox.
 
+## Video Tutorial
+
+This video tutorial will closely follow the installation process described in this article:
+
+{{< youtube K5ubNttIhaw >}}
+
 ## Arch Linux ISO Download Link
 
 You can find the download link to the Arch Linux ISO here: https://archlinux.org/download/
