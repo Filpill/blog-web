@@ -49,3 +49,16 @@ From this point, the steps will be very specific to your model router and intern
 - Apply
 
 From this point it should all be set up. You can go to the client machine on the wireguard app and activate the VPN tunnel connection. Hopefully, everything will be able to connect and you will have encypted traffic routing through the raspberry Pi.
+
+## Other miscellneous useful notes - Bluetooth
+- Its important to set up a robust bluetooth keyboard system that can connect reliably each time you poweron the pi.
+
+You can access the bluethooth cli by typing "bluetoohctl"
+
+The most useful commands are:
+- power on - turns on bluetooth system
+- pairable on - sets controller to be in pairable mode
+- scan on - starts scanning for device mac addresses in the bluetooth range/vicinity
+- pair <device mac address> - attempts to pair the device
+- trust <device mac address> - will remember the paired device and will auto connect to device next time its powered on
+- exit - quits cli tool
