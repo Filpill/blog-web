@@ -23,6 +23,19 @@ The benefit of remote access is that you do not need to constantly plug in a wir
 
 The SSH access is ideal for cases with exclusive involvement of the terminal. The remote desktop access is required for situations using the graphical desktop environment.
 
+## Bluetooth Setup
+If you want to have reliable bluetooth when powering the raspberry pi, you will need to ensure that you "trust" the device after pairing with it. See the details listed below.
+
+You can access the bluethooth cli by typing "bluetoohctl"
+
+The most useful commands are:
+- power on - turns on bluetooth system
+- pairable on - sets controller to be in pairable mode
+- scan on - starts scanning for device mac addresses in the bluetooth range/vicinity
+- pair <device mac address> - attempts to pair the device e.g. keyboard
+- trust <device mac address> - will remember the paired device and will auto connect to device next time its powered on
+- exit - quits cli tool
+
 ## IP Address
 
 Something that's common to both processes is that they both require the IP Address of the device.
