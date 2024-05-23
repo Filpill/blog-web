@@ -18,30 +18,47 @@ tags: [📊 Data]
 ## Summary
 This article will quickly show you the process of how I obtained the world airspace data using the OpenSky REST API and how I was able to visualise the data. But I will focus on North American airspace since it seems to be the region that captures the most aircraft.
 
-The link to my ["flight_tracking" GitHub project is here](https://github.com/Filpill/flight_tracking) should you wish to peruse the scripts I've created.
+> [Flight Tracking GitHub Project link](https://github.com/Filpill/flight_tracking) is here should you wish to peruse the scripts I've created and get some context of my commentary in this article.
 
 The totality of the airspace depends much maintenance of the OpenSky network. The majority of the data is recorded via ADS-B receivers, which are distributed over the land mass. 
 
-I'm not too well acquainted with aircraft surveillance, but I presume we lose visibility of aircraft (in the data) as they fly out of range of ground stations over the sea or mountainous regions. Otherwise it would be interesting to monitor the full flight path across the globe.
+![ADS-B Infographic](https://global.discourse-cdn.com/infiniteflight/original/4X/c/e/8/ce82d1b284d206ad24e395beaf56a63209fbee15.jpeg)
 
-Aircraft also require a transponder to provide GPS data to the receivers. Any flying aircraft with no transponder are not being captured in this view.
+I'm not too well acquainted with aircraft surveillance, but I presume we lose visibility of aircraft (in the data) flying over the sea or mountainous regions outside the range of ground stations. Otherwise it would be interesting to monitor the full flight path across the globe.
+
+Aircraft also require a transponder to retrieve GPS data i.e. communicating between satellites and ground stations. Any flying aircraft with no transponder are not being captured in this view.
 
 I am sure there are more accurate flight data providers selling more accurate views and better coverage, but this is purely an illustrative exercise for curiosities sake.
 
-## Timelapse Video
-Here is a video illustrating a 16-hour time-lapse of a scatter plot of aircraft flying over North America.
-{{< youtube wC3WE-jOU0w >}}
 
 ## Processes and Procedures
 
 I'll go through details of my data collection, storing and processing.
 
-I've considered creating a database and dumping the results in there, but this is something I'll consider in a future iteration if we decide to have a more long-term permanent data collection solution.
-
-This going to be a fairly quick and dirty version, however, I still ensure there is a semblance of structure in the folders storing the data.
+This going to be a fairly quick and dirty version, however, I still ensure there is a semblance of structure in the folders storing the data. Long-term we can look at dumping this info into database like SQLite or Postgres.
 
 ### Overall View
 The workflow looks something like this:
+
+{{<mermaid>}}
+graph LR;
+    classDef blue fill:#2374f7,stroke:#8ec1f5,stroke-width:7px, color:#fff,stroke-dasharray: 4 1
+    classDef yellow fill:#e6d00b,stroke:#f5eb5b,stroke-width:7px, color:#000,stroke-dasharray: 4 1
+    classDef green fill:#10ad0a,stroke:#7feb4d,stroke-width:7px, color:#000,stroke-dasharray: 4 1
+    classDef red fill:#db3b1f,stroke:#eb654d,stroke-width:7px, color:#fff,stroke-dasharray: 4 1
+
+    1([1. Request aircraft positions]):::blue --o 2([2. Store raw csv]):::yellow--o3([3. Process images]):::green--o4([4. Create Video]):::red
+
+    linkStyle 0 stroke:#8ec1f5,stroke-width:11px
+    linkStyle 1 stroke:#f5eb5b,stroke-width:11px
+    linkStyle 2 stroke:#7feb4d,stroke-width:11px
+{{</mermaid>}}
+
+
+<p style="color:blue;">
+    some *blue* text
+</p>
+
 1. Store raw csv data - collection of csv partitioned by date
 2. Process image data - split collection by visualisations e.g.: contourf, quiver, scatter etc.
 3. Post-process data - image re-sizing and cropping data to final dimensions
@@ -65,17 +82,42 @@ Each request produces a 1.1MB csv file. So over 16 hours, we were able to hoover
 
 ### Data Visualisation
 
-Part of the inspiration of the visualisation is that I imagine the aircraft movements would have a strong resemblance to a "fluid displacement" in a aero/mechanical context. So I just wanted to explore the 2D visualisation options and see if this is true.
+I think the most interesting component to visualising this data is that we are able to clearly see the density of air traffic flying in various airspace. 
 
-*to be continued*
+We can see common commercial flight routes and we can also see the airport hubs where these air traffic networks are connecting. And there is a multitude of ways to visualise this information, all the way from a contourf plot to a quiver plot. Various 2D visualisations will reveal different information about air traffic behaviour, so it's good to compare and contrast.
 
+Available GPS Data sourced from OpenSky API:
+- Longitude
+- Latitude
+- Speed Bearing
+- Various other data points including callsigns.
+
+However, if we are considering a quiver plot, we need to split the speed into its horizontal and vertical components, so we can do some trig to figure that out.
+
+And when considering 2D visualisation like contourf for example, it is necessary to create a "meshgrid" over the plot. Since the aircraft could be between spaces on the grid, we would need to interpolate to retrieve aircraft speed. After this is done a contour plot is straightforward.
+
+The only outstanding component is the generating the map so we can see the geography of the continent. I've chosen to use the **Stadia Maps** API to retrieve the map data in my preferred styling. 
+
+Although I came across some issues since each API call for the mapping data costs credits to use. And since the map is completely static, it doesn't make sense to make multiple API calls for each set of data from a cost perspective.
+
+Even from a time perspective, it takes a very long time to render the map, about 13s for each snapshot which is way too long. Instead, the process I have created is to only clear the data "artists" on the matplotlib figure whilst retaining the map image on the plot. Plotting the datapoints takes a trivial amount of time in comparison (about 1s or so per iteration).
+
+The plotting process is iterated and entire folder of timestamped csv's to generate the aircraft movement visualisations incrementally over time.
 
 ### Data Animation
 
-This segment is fairly straightforward. Using **ffmpeg**, we can simply point to a folder with a collection of images and ask the program to splice them together into a mp4 file.
+And this is the key component where we can physically see how the aircraft are moving over time.
+
+This animation procedure is fairly straightforward when using **ffmpeg**. We can simply point to a folder with a collection of images and ask the program to splice them together into a mp4 file (or whatever file type).
 
 As long as all the images are timestamped, the files should be sorted in chronological order so you don't need to fiddle with passing additional sort arguments into your command.
 
 It only takes a few minutes on my machine to splice together 850 images together.
 
-*to be continued*
+Since my file structure is segmented into multiple folders partitioned by "date" and "visualisation type", I simply pass those parameters into my bash script to generate the spliced video.
+
+Other video processing I did audio-wise was done on Kdenlive to add in the musical audio transitions.
+
+## Timelapse Video
+Here is a video illustrating a 16-hour time-lapse of a scatter plot of aircraft flying over North America.
+{{< youtube wC3WE-jOU0w >}}

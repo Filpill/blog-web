@@ -15,3 +15,11 @@ cover:
 tags: [💻 Systems, ⚙️ Engineering, 📊 Data]
 
 ---
+
+{{<mermaid>}}
+graph TD;
+    subgraph Process Initiation
+    0([Process Start])-->A[Step 1]
+    end
+{{</mermaid>}}
+
