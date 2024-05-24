@@ -15,7 +15,7 @@ cover:
 tags: [📊 Data]
 ---
 
-## Summary
+## 🗺️ Summary
 This article will quickly show you the process of how I obtained the world airspace data using the OpenSky REST API and how I was able to visualise the data. But I will focus on North American airspace since it seems to be the region that captures the most aircraft.
 
 > [Flight Tracking GitHub Project link](https://github.com/Filpill/flight_tracking) is here should you wish to peruse the scripts I've created and get some context of my commentary in this article.
@@ -31,13 +31,15 @@ Aircraft also require a transponder to retrieve GPS data i.e. communicating betw
 I am sure there are more accurate flight data providers selling more accurate views and better coverage, but this is purely an illustrative exercise for curiosities sake.
 
 
-## Processes and Procedures
+## 💬 Data Processing Commentary
 
 I'll go through details of my data collection, storing and processing.
 
-This going to be a fairly quick and dirty version, however, I still ensure there is a semblance of structure in the folders storing the data. Long-term we can look at dumping this info into database like SQLite or Postgres.
+This was a fairly quick and dirty version, however, I still ensured a reasonable folder structure for storing the data. 
 
-### Overall View
+Long-term we can look at dumping this info into database like SQLite or Postgres.
+
+### 🖼️ Overall View
 The workflow looks something like this:
 
 {{<mermaid>}}
@@ -47,40 +49,44 @@ graph LR;
     classDef green fill:#10ad0a,stroke:#7feb4d,stroke-width:7px, color:#000,stroke-dasharray: 4 1
     classDef red fill:#db3b1f,stroke:#eb654d,stroke-width:7px, color:#fff,stroke-dasharray: 4 1
 
-    1([1. Request aircraft positions]):::blue --o 2([2. Store raw csv]):::yellow--o3([3. Process images]):::green--o4([4. Create Video]):::red
+    1([Request aircraft positions]):::blue --o 2([Store raw csv]):::yellow--o3([Process images]):::green--o4([Create Video]):::red
 
     linkStyle 0 stroke:#8ec1f5,stroke-width:11px
     linkStyle 1 stroke:#f5eb5b,stroke-width:11px
     linkStyle 2 stroke:#7feb4d,stroke-width:11px
 {{</mermaid>}}
 
+1. {{< color background-color="#8ec1f5" color="#000" >}}API Request{{< /color >}} Every 60s for worldwide airspace snapshot.
+2. {{< color background-color="#f5eb5b" color="#000" >}}Data Storage{{< /color >}} Dumping series of snapshots into timestamped csv's.
+3. {{< color background-color="#7feb4d" color="#000" >}}Image Processing{{< /color >}} Read/prepare/filter data and draw visualisation onto map.
+4. {{< color background-color="#eb654d" color="#000" >}}Animating{{< /color >}} Splice image collection with ffmpeg shell script
 
-<p style="color:blue;">
-    some *blue* text
-</p>
+### ⏱️ Procedural Timings 
+To put some perspective in time required to process this data:
+- It took about **16 hours to make 850 requests** (@60s intervals).
+- It takes about **5-10 mins to create all 850 image visualisations**.
+- Another **4-7 mins to crops all the white space** from the images.
+- **Splicing images takes about 3-5 ish mins** into a neat .mp4.
+- And lastly the **video edit takes around 30 mins** to overlay music.
 
-1. Store raw csv data - collection of csv partitioned by date
-2. Process image data - split collection by visualisations e.g.: contourf, quiver, scatter etc.
-3. Post-process data - image re-sizing and cropping data to final dimensions
-4. Animate collection of processed images - using ffmpeg shell script
+So all in all it takes a full day with the PC running essentially non-stop. And I was manually driving the scripts since I didn't build any monitoring tools in the process.
 
-### Data Collection
-This is the overall process of how the data is collected:
-1. Create Python script to request airspace state every 60s
-2. Recursively store the aircraft positions in a list individual timestamped csv's
-3. Actually it's as simple as that.
+### 🚜 Data Collection
+The goal here is simple: recursively request and store the aircraft positions in a list individual timestamped csv's. This is how we will build our data repository.
 
 The time delta between each snapshot not too large to lose detail in the movements and not too small to overload the API with requests. The latter is probably more important to consider, because you don't want to bombard the API and risk taking it completely out of commission due to high frequency request intervals.
 
 Something that is important to note is that anonymous users are limited to 80 requests to the OpenSky API per day. This is no good for us since we are trying to make a time lapse over an extended period of time. 
 
-We can circumvent this issue by using rotating IP addresses, since each API call will be distributed over a pool of IP addresses and thus prevent our request timing out (since they can't pin down our real IP identity).
+We can circumvent this issue by using rotating IP addresses, since each API call will be distributed over a pool of IP addresses and thus prevent our request timing out (since they can't pin down our real identity).
 
 Though this methodology is typically requires the use of a paid service to provide high quality proxies. In my scenario, I chose to use **OxyLabs** which have a web scrapping proxy tool. You can pipe you Python request via their proxy it will automagically handle the proxies for you. I was able to run my script overnight with not a single failure and retrieved over 850 requests.
 
 Each request produces a 1.1MB csv file. So over 16 hours, we were able to hoover about 1GB of data all together. Unfortunately, my script crashed in the late stages of the execution (probably because I was running it out of a jupyter notebook). I'll convert it into a Python script another time, it just so happens its easier to read the data in Jupyter when doing data exploration.
 
-### Data Visualisation
+You may notice also that the git history doesn't have an extensive list of csv data which because there is no real reason to have such a large volume of csv saved on the git history. So it's simply added to the .gitignore and we are storing the files (mostly) locally.
+
+### 📊 Data Visualisation
 
 I think the most interesting component to visualising this data is that we are able to clearly see the density of air traffic flying in various airspace. 
 
@@ -94,17 +100,23 @@ Available GPS Data sourced from OpenSky API:
 
 However, if we are considering a quiver plot, we need to split the speed into its horizontal and vertical components, so we can do some trig to figure that out.
 
-And when considering 2D visualisation like contourf for example, it is necessary to create a "meshgrid" over the plot. Since the aircraft could be between spaces on the grid, we would need to interpolate to retrieve aircraft speed. After this is done a contour plot is straightforward.
+In the quiver example below, we see the direction and speed (relative to arrow size) of each individual aircraft. When this data is animated, so can see the arrow get smaller as aircraft slow down on the approach, and grow as they are taking off from the airport. It has a very interesting appearance.
+![Quiver Plot NA Airspace](/img/flight/quiver_airspace_NA.png)
+
+And when considering 2D visualisation like contourf for example, it is necessary to create a "meshgrid" over the plot. Since the aircraft could be between spaces on the grid, we would need to interpolate to retrieve aircraft speed.
+
 
 The only outstanding component is the generating the map so we can see the geography of the continent. I've chosen to use the **Stadia Maps** API to retrieve the map data in my preferred styling. 
 
+Something that left me completely stumped for a while is that I was not able to directly use the Stadia Maps API within in Cartopy 0.22.0. It really was a head scratcher for me. After reading the site-packages I realised that the API class I was using was completely defunct within a matter of months. However, the revised class I needed was sitting in 0.23.0 and it was not available as a wheel/conda package. So, this was the first time I had to go grab a package from source in the git repo just for this specific use case. But when they evntually package the final version of 0.23.0 in conda, this issue will no longer be the case...
+
 Although I came across some issues since each API call for the mapping data costs credits to use. And since the map is completely static, it doesn't make sense to make multiple API calls for each set of data from a cost perspective.
 
-Even from a time perspective, it takes a very long time to render the map, about 13s for each snapshot which is way too long. Instead, the process I have created is to only clear the data "artists" on the matplotlib figure whilst retaining the map image on the plot. Plotting the datapoints takes a trivial amount of time in comparison (about 1s or so per iteration).
+Even from a time perspective, it takes a very long time to render the map, about 13s for each snapshot which is way too long. Instead, the process I have created is to only clear the relevant "artists" on the matplotlib figure whilst retaining the map image on the plot. Plotting the datapoints takes a trivial amount of time in comparison (about 1s or so per iteration).
 
 The plotting process is iterated and entire folder of timestamped csv's to generate the aircraft movement visualisations incrementally over time.
 
-### Data Animation
+### ✈️ Data Animation
 
 And this is the key component where we can physically see how the aircraft are moving over time.
 
@@ -116,8 +128,23 @@ It only takes a few minutes on my machine to splice together 850 images together
 
 Since my file structure is segmented into multiple folders partitioned by "date" and "visualisation type", I simply pass those parameters into my bash script to generate the spliced video.
 
+The script is only a few lines and looks like this:
+
+```bash
+#!/bin/sh
+# $1 Specifies the Date of the folder to be accessed - E.g. '2024-08-24'
+# $2 Specifies the Image Folder To Be Accessed - E.g. 'scatter' or 'quiver' or 'contourf'
+# Example of how to run bash script: $(./mkvideo '2024-08-24' 'scatter')
+
+base_folder="$(dirname $(pwd))"
+output="$base_folder/animate/videos"
+image_data="$base_folder/data/get_states/$1/$2/crop"
+
+ffmpeg -framerate 24 -pattern_type glob -i "${image_data}/*.png" $output/$1_$2_movements.mp4
+```
+
 Other video processing I did audio-wise was done on Kdenlive to add in the musical audio transitions.
 
-## Timelapse Video
-Here is a video illustrating a 16-hour time-lapse of a scatter plot of aircraft flying over North America.
+### 📽️ Data Time-lapse
+Video illustrating the 16-hour scatter plot time-lapse of aircraft flying over North America.
 {{< youtube wC3WE-jOU0w >}}

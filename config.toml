@@ -5,9 +5,12 @@ theme = ['hugo-embed-pdf-shortcode','PaperMod']
 enableInlineShortcodes = true
 enableEmoji = true
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [params.homeInfoParams]
 enabled = true
-title = "Filip's Project Website" # optional default will be site title
+title = "Filip's Blog" # optional default will be site title
 Content = "🍉 **Welcome:** This website is dedicated to sharing knowledge engineering and data projects. \n\n&nbsp;\n\n🙋‍♂️ **About Me:** Refer to the profile tab which summarises my experience; also links to my CV.\n\n&nbsp;\n\n✏️ **Projects:** Sorted by chronological order; can also be searched via the *Archive* and *Tags* tab."
 subtitle = "Contact"
 imageTitle = "<Filip Livancic>" # optional
@@ -22,6 +25,12 @@ enabled = true
 
 [params.ShowPostNavLinks]
 enabled = true
+
+[[menu.main]]
+identifier = "home"
+name = "🏠 Home"
+url = "./"
+weight = 5
 
 [[menu.main]]
 identifier = "profile"
