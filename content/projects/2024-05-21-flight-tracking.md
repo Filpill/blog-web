@@ -98,23 +98,39 @@ Available GPS Data sourced from OpenSky API:
 - Speed Bearing
 - Various other data points including callsigns.
 
-However, if we are considering a quiver plot, we need to split the speed into its horizontal and vertical components, so we can do some trig to figure that out.
+However, if we are considering a quiver plot, we need to split the speed into its horizontal and vertical components, so we can do some basic trigonometry to figure that out.
 
 In the quiver example below, we see the direction and speed (relative to arrow size) of each individual aircraft. When this data is animated, so can see the arrow get smaller as aircraft slow down on the approach, and grow as they are taking off from the airport. It has a very interesting appearance.
-![Quiver Plot NA Airspace](/img/flight/quiver_airspace_NA.png)
+![Quiver Plot Airspace](/img/flight/quiver_airspace.png)
 
-And when considering 2D visualisation like contourf for example, it is necessary to create a "meshgrid" over the plot. Since the aircraft could be between spaces on the grid, we would need to interpolate to retrieve aircraft speed.
+And when considering 2D visualisation like contourf or gaussian KDE for example, it is necessary to create a "meshgrid" over the plot. Since the aircraft are between points drawn on the grid, we would need to interpolate to retrieve aircraft speed or at least 2-dimensional array containing the average aircraft positions.
 
+We can combine the 2D KDE mapping with the quiver plot to reveal a bit more information on aircraft density distribution, like so:
 
-The only outstanding component is the generating the map so we can see the geography of the continent. I've chosen to use the **Stadia Maps** API to retrieve the map data in my preferred styling. 
+![Gaussian Quiver Plot Airspace](/img/flight/gaussian_quiver.png)
 
-Something that left me completely stumped for a while is that I was not able to directly use the Stadia Maps API within in Cartopy 0.22.0. It really was a head scratcher for me. After reading the site-packages I realised that the API class I was using was completely defunct within a matter of months. However, the revised class I needed was sitting in 0.23.0 and it was not available as a wheel/conda package. So, this was the first time I had to go grab a package from source in the git repo just for this specific use case. But when they evntually package the final version of 0.23.0 in conda, this issue will no longer be the case...
+Another way we can map this out is by creating a scatter distribution and embed the gaussian KDE mapping onto the individual points themselves so we can get a feel for the distribution without muddying the map too much:
+
+![Gaussian Quiver Plot Airspace](/img/flight/gaussian_scatter.png)
+
+The plotting process is iterated over the entire folder of timestamped csv's to generate the aircraft movement visualisations incrementally over time.
+
+#### Map Data Struggles
+Something that left me completely stumped for a while is that I was not able to directly use the Stadia Maps API within in **Cartopy 0.22.0** which was confusing and frustrating.
+
+I chose to use the **Stadia Maps** API via the Cartopy as it had already build the classes to plug into the API and it had a high contrast map tile that thought was suitable. **But it doesn't work on Cartopy 0.22.0...** It really was a head scratcher for me. After reading the site-packages I realised that the API class I was using was completely defunct within a matter of months.
+
+Although, I discovered a **revised class object sitting (which works) in Cartopy 0.23.0** which was unavailable as a wheel/conda package. So, this was the first time I had to go **build the package from source in the git repo** just for this specific use case. But when they eventually package the final version of 0.23.0 in conda, this issue will no longer be the case...
 
 Although I came across some issues since each API call for the mapping data costs credits to use. And since the map is completely static, it doesn't make sense to make multiple API calls for each set of data from a cost perspective.
 
-Even from a time perspective, it takes a very long time to render the map, about 13s for each snapshot which is way too long. Instead, the process I have created is to only clear the relevant "artists" on the matplotlib figure whilst retaining the map image on the plot. Plotting the datapoints takes a trivial amount of time in comparison (about 1s or so per iteration).
+Even from a time perspective, it takes a very long time to render the map, about 13s for each snapshot which is way too long. Instead, the process I have created is to only clear the relevant "artists" on the matplotlib figure whilst retaining the map image on the plot. So we can save a lot of time.
 
-The plotting process is iterated and entire folder of timestamped csv's to generate the aircraft movement visualisations incrementally over time.
+Plotting the scatterpoints takes a trivial amount of time in comparison, about 1-2s or so per iteration.
+
+However, plotting the 2D gaussian KDE plot is much more intensive as we are drawing a high resolution color mapping across the entire grid. Each iteration was about 20-25s to render. The filled color grid mapping took about 5 hours to create all 850 images.
+
+Bearing in mind we are purely talking about **single core processing**. If we split the load across the rest of the CPU cores,and spawn the data visualisation processes in parallel, it should cut the time significantly. I'll investigate this setup in the near future to optimise the compute power since Python is pretty slow in general.
 
 ### ✈️ Data Animation
 

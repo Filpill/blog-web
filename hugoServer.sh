@@ -24,7 +24,7 @@ xdotool windowactivate $Terminal_2 type ls && xdotool windowactivate $Terminal_2
 sleep 0.05
 st &
 broswerID=$(eval "$searchLatestID")
-xdotool windowactivate $Terminal_2 key "Super+space" 
 xdotool windowactivate $Terminal_2 key "Super+Left" 
 xdotool windowactivate $Terminal_2 key "Super+Left" 
 xdotool windowactivate $browserID type $(firefox -new-tab "localhost:1313") && xdotool windowactivate $browserID key "KP_Enter"
+xdotool windowactivate $browserID key "Super+KP_Space" 
