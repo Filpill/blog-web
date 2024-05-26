@@ -128,7 +128,7 @@ Even from a time perspective, it takes a very long time to render the map, about
 
 Plotting the scatterpoints takes a trivial amount of time in comparison, about 1-2s or so per iteration.
 
-However, plotting the 2D gaussian KDE plot is much more intensive as we are drawing a high resolution color mapping across the entire grid. Each iteration was about 20-25s to render. The filled color grid mapping took about 5 hours to create all 850 images.
+However, plotting the 2D gaussian KDE plot is much more intensive as we are drawing a high resolution color mapping across the entire grid. Each iteration was about 20-25s to render (but im pretty sure it got much slower over time). The filled color grid mapping took about 20 hours to create all 850 images. Probably because I was not removing the artist itself per iteration, but this is just a working assumption.
 
 Bearing in mind we are purely talking about **single core processing**. If we split the load across the rest of the CPU cores,and spawn the data visualisation processes in parallel, it should cut the time significantly. I'll investigate this setup in the near future to optimise the compute power since Python is pretty slow in general.
 
