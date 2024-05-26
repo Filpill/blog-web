@@ -64,7 +64,9 @@ graph LR;
 ### ⏱️ Procedural Timings 
 To put some perspective in time required to process this data:
 - It took about **16 hours to make 850 requests** (@60s intervals).
-- It takes about **5-10 mins to create all 850 image visualisations**.
+- It takes about **5-10 mins to create all 850 image visualisations with quiver plot**.
+- It takes about **20 hours to create all 850 image visualisations with the KDE plot**. 
+    - *Not sure why it took so long, i'm pretty sure the script slowed down over time. I was only removing the quiver artist but not the KDE artist (simply by omission). Probably too many chart element variables were being stored in the memory over time.*
 - Another **4-7 mins to crops all the white space** from the images.
 - **Splicing images takes about 3-5 ish mins** into a neat .mp4.
 - And lastly the **video edit takes around 30 mins** to overlay music.
@@ -103,15 +105,13 @@ However, if we are considering a quiver plot, we need to split the speed into it
 In the quiver example below, we see the direction and speed (relative to arrow size) of each individual aircraft. When this data is animated, so can see the arrow get smaller as aircraft slow down on the approach, and grow as they are taking off from the airport. It has a very interesting appearance.
 ![Quiver Plot Airspace](/img/flight/quiver_airspace.png)
 
-And when considering 2D visualisation like contourf or gaussian KDE for example, it is necessary to create a "meshgrid" over the plot. Since the aircraft are between points drawn on the grid, we would need to interpolate to retrieve aircraft speed or at least 2-dimensional array containing the average aircraft positions.
+We also can map this out is by creating a scatter distribution and embed the gaussian KDE (Kernel Density Estimation) mapping onto the individual points themselves so we can get a feel for the distribution:
+
+![Gaussian Quiver Plot Airspace](/img/flight/gaussian_scatter.png)                                                                                                                  And we can map the KDE over the entire map itself, however, we must create a "meshgrid" over the plot. The aircraft are between the grids native resolution, therefore we would need to re-shape the data into a 2-dimensional array containing the aircraft density distribution.
 
 We can combine the 2D KDE mapping with the quiver plot to reveal a bit more information on aircraft density distribution, like so:
 
 ![Gaussian Quiver Plot Airspace](/img/flight/gaussian_quiver.png)
-
-Another way we can map this out is by creating a scatter distribution and embed the gaussian KDE mapping onto the individual points themselves so we can get a feel for the distribution without muddying the map too much:
-
-![Gaussian Quiver Plot Airspace](/img/flight/gaussian_scatter.png)
 
 The plotting process is iterated over the entire folder of timestamped csv's to generate the aircraft movement visualisations incrementally over time.
 
@@ -164,3 +164,4 @@ Other video processing I did audio-wise was done on Kdenlive to add in the music
 ### 📽️ Data Time-lapse
 Video illustrating the 16-hour scatter plot time-lapse of aircraft flying over North America.
 {{< youtube wC3WE-jOU0w >}}
+{{< youtube RLNOIJgDLgw >}}
