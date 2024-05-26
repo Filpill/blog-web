@@ -1,7 +1,7 @@
 ---
-title: "Airspace Tracking Visualisations"
+title: "Flight Tracking Animations"
 description: "Retrieving airspace states via OpenSky REST API and animating data using Python + FFMPEG"
-date: 2024-05-05
+date: 2024-05-26
 hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
