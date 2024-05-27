@@ -16,28 +16,28 @@ tags: [📊 Data]
 ---
 
 ## 🗺️ Summary
-This article will quickly show you the process of how I obtained the world airspace data using the OpenSky REST API and how I was able to visualise the data. But I will focus on North American airspace since it seems to be the region that captures the most aircraft.
+This article will quickly show you the process of obtaining airspace data using the OpenSky REST API and how I was able to visualise on a map. I will focus on North American airspace as it seems this region captures the highest volume of aircraft.
 
-> [Flight Tracking GitHub Project link](https://github.com/Filpill/flight_tracking) is here should you wish to peruse the scripts I've created and get some context of my commentary in this article.
+> The [Flight Tracking GitHub Project link](https://github.com/Filpill/flight_tracking) is here should you wish to examine my scripts and get some context for the commentary in this article.
 
-The totality of the airspace depends much maintenance of the OpenSky network. The majority of the data is recorded via ADS-B receivers, which are distributed over the land mass. 
+The totality of the airspace depends on the maintenance of the OpenSky network. The majority of the data is recorded via ADS-B receivers, which are distributed over the land mass. 
 
 ![ADS-B Infographic](https://global.discourse-cdn.com/infiniteflight/original/4X/c/e/8/ce82d1b284d206ad24e395beaf56a63209fbee15.jpeg)
 
-I'm not too well acquainted with aircraft surveillance, but I presume we lose visibility of aircraft (in the data) flying over the sea or mountainous regions outside the range of ground stations. Otherwise it would be interesting to monitor the full flight path across the globe.
+Regarding aircraft surveillance, I presume we lose visibility of aircraft (in the data) outside the range of ground stations such as the sea or mountainous terrain. Otherwise it would've been interesting to monitor the full extent of flight paths across the globe.
 
-Aircraft also require a transponder to retrieve GPS data i.e. communicating between satellites and ground stations. Any flying aircraft with no transponder are not being captured in this view.
+Aircraft require a transponder to retrieve the GPS data i.e. communicating between satellites and ground stations. Any aircraft flying with no transponder are not captured in this view.
 
-I am sure there are more accurate flight data providers selling more accurate views and better coverage, but this is purely an illustrative exercise for curiosities sake.
+I am sure there are other flight data providers selling more accurate views and more reliable aircraft coverage, but this is purely an illustrative exercise for curiosities sake.
 
 
 ## 💬 Data Processing Commentary
 
-I'll go through details of my data collection, storing and processing.
+I'll go through details of my data collection, storage and processing.
 
-This was a fairly quick and dirty version, however, I still ensured a reasonable folder structure for storing the data. 
+This was a fairly quick and dirty version, however, I still ensured a reasonable folder structure to manipulate the data in my workflow.
 
-Long-term we can look at dumping this info into database like SQLite or Postgres.
+Long-term we can look at dumping this info into a SQLite or Postgres database.
 
 ### 🖼️ Overall View
 The workflow looks something like this:
@@ -56,43 +56,43 @@ graph LR;
     linkStyle 2 stroke:#7feb4d,stroke-width:11px
 {{</mermaid>}}
 
-1. {{< color background-color="#8ec1f5" color="#000" >}}API Request{{< /color >}} Every 60s for worldwide airspace snapshot.
+1. {{< color background-color="#8ec1f5" color="#000" >}}API Request{{< /color >}} Every 60s for worldwide airspace snapshots.
 2. {{< color background-color="#f5eb5b" color="#000" >}}Data Storage{{< /color >}} Dumping series of snapshots into timestamped csv's.
 3. {{< color background-color="#7feb4d" color="#000" >}}Image Processing{{< /color >}} Read/prepare/filter data and draw visualisation onto map.
 4. {{< color background-color="#eb654d" color="#000" >}}Animating{{< /color >}} Splice image collection with ffmpeg shell script
 
 ### ⏱️ Procedural Timings 
 To put some perspective in time required to process this data:
-- It took about **16 hours to make 850 requests** (@60s intervals).
+- It takes about **16 hours to make 850 requests** (@60s intervals).
 - It takes about **5-10 mins to create all 850 image visualisations with quiver plot**.
 - It takes about **20 hours to create all 850 image visualisations with the KDE plot**. 
-    - *Not sure why it took so long, i'm pretty sure the script slowed down over time. I was only removing the quiver artist but not the KDE artist (simply by omission). Probably too many chart element variables were being stored in the memory over time.*
+    - *I'm pretty sure the script slowed down over time. I was only removing the quiver artist but not the KDE artist (by omission). Probably too many chart element variables were being stored in the memory over time.*
 - Another **4-7 mins to crops all the white space** from the images.
 - **Splicing images takes about 3-5 ish mins** into a neat .mp4.
 - And lastly the **video edit takes around 30 mins** to overlay music.
 
-So all in all it takes a full day with the PC running essentially non-stop. And I was manually driving the scripts since I didn't build any monitoring tools in the process.
+All in all it roughly takes a full day with the PC running essentially non-stop. And I was manually driving the scripts since I didn't build any monitoring tools in this workflow.
 
 ### 🚜 Data Collection
-The goal here is simple: recursively request and store the aircraft positions in a list individual timestamped csv's. This is how we will build our data repository.
+The goal here is simple: recursively request and store the aircraft positions in a list of timestamped csv's. This is how we will build our data repository.
 
-The time delta between each snapshot not too large to lose detail in the movements and not too small to overload the API with requests. The latter is probably more important to consider, because you don't want to bombard the API and risk taking it completely out of commission due to high frequency request intervals.
+We have to balance the time delta between each snapshot (API call); not too large to lose movement details and not too small to overload the API with requests. The latter is probably more important to consider, because we don't want to bombard the API and risk taking it completely out of commission with high frequency requests.
 
-Something that is important to note is that anonymous users are limited to 80 requests to the OpenSky API per day. This is no good for us since we are trying to make a time lapse over an extended period of time. 
+It's worth noting that that anonymous OpenSky API users are limited to 80 requests per day. This is no good for us since we are trying to make an extended time lapse over a period of time. 
 
-We can circumvent this issue by using rotating IP addresses, since each API call will be distributed over a pool of IP addresses and thus prevent our request timing out (since they can't pin down our real identity).
+We can circumvent this issue through IP address rotation. Each API call will be distributed over a pool of IP addresses and thus prevent our request timing out (since they can't pin down our real identity).
 
-Though this methodology is typically requires the use of a paid service to provide high quality proxies. In my scenario, I chose to use **OxyLabs** which have a web scrapping proxy tool. You can pipe you Python request via their proxy it will automagically handle the proxies for you. I was able to run my script overnight with not a single failure and retrieved over 850 requests.
+This typically requires the use of a paid service to provide a set of high quality proxies. In my scenario, I chose to use **OxyLabs** which have a dedicated web scrapping proxy tool. You can route your Python request via the OxyLabs web-scrapping tool and it will automagically handle the proxies for you. I was able to run my script overnight with zero failures and retrieved over 850 requests.
 
-Each request produces a 1.1MB csv file. So over 16 hours, we were able to hoover about 1GB of data all together. Unfortunately, my script crashed in the late stages of the execution (probably because I was running it out of a jupyter notebook). I'll convert it into a Python script another time, it just so happens its easier to read the data in Jupyter when doing data exploration.
+Each request produces a 1.1MB csv file. Over the course of 16 hours, we were able to hoover about 1GB of data all together. Unfortunately, my script crashed in the late stages of the execution probably because I was running it out of a jupyter notebook and recursively printing output messages. Otherwise we could've captured more. I'll convert it into a Python script eventually, it just so happens its easier to do data exploration in Jupyter.
 
-You may notice also that the git history doesn't have an extensive list of csv data which because there is no real reason to have such a large volume of csv saved on the git history. So it's simply added to the .gitignore and we are storing the files (mostly) locally.
+You may notice also that the git history doesn't have an extensive list of csv data which because there is no reason to have a volume of csv's saved on the git history. Therefore it's simply added to the .gitignore and we are storing the files locally for the most part.
 
 ### 📊 Data Visualisation
 
-I think the most interesting component to visualising this data is that we are able to clearly see the density of air traffic flying in various airspace. 
+I think the most interesting component to visualising this type of data is monitoring the density of air traffic at various times of day. Especially in North America where the time zone from east coast to west coast varies by a 6-hour difference. As the country approaches the early hours of the morning, the entire east coast essentially *"go to sleep"* with respect to the density of the traffic. Then it flips vice-versa as time progresses.
 
-We can see common commercial flight routes and we can also see the airport hubs where these air traffic networks are connecting. And there is a multitude of ways to visualise this information, all the way from a contourf plot to a quiver plot. Various 2D visualisations will reveal different information about air traffic behaviour, so it's good to compare and contrast.
+Additionally, we can see commercial flight routes and airport hubs where these flight networks are connecting each other. There is a multitude of ways to visualise this information, all the way from a contourf plot to a quiver plot to some kind of color mesh plot. Alternative 2D visualisations will reveal different information about air traffic behaviour, so it's good to compare and contrast.
 
 Available GPS Data sourced from OpenSky API:
 - Longitude
@@ -100,20 +100,22 @@ Available GPS Data sourced from OpenSky API:
 - Speed Bearing
 - Various other data points including callsigns.
 
-However, if we are considering a quiver plot, we need to split the speed into its horizontal and vertical components, so we can do some basic trigonometry to figure that out.
+For a quiver plot, we need to split the speed into its horizontal and vertical components. We can do some basic trigonometry to figure that out.
 
-In the quiver example below, we see the direction and speed (relative to arrow size) of each individual aircraft. When this data is animated, so can see the arrow get smaller as aircraft slow down on the approach, and grow as they are taking off from the airport. It has a very interesting appearance.
+In the quiver example below, we see the direction and speed (relative to it's arrow size) of each individual aircraft. When this data is animated, we can see the arrows get smaller for aircraft on the approach, and grow as they are taking off. It has a very interesting appearance.
 ![Quiver Plot Airspace](/img/flight/quiver_airspace.png)
 
-We also can map this out is by creating a scatter distribution and embed the gaussian KDE (Kernel Density Estimation) mapping onto the individual points themselves so we can get a feel for the distribution:
+We also can map this out is by creating a scatter distribution and embed the Gaussian KDE (Kernel Density Estimation) mapping onto the individual points themselves to get a feel for the distribution as there is a lot of overlap at this scale:
 
-![Gaussian Quiver Plot Airspace](/img/flight/gaussian_scatter.png)                                                                                                                  And we can map the KDE over the entire map itself, however, we must create a "meshgrid" over the plot. The aircraft are between the grids native resolution, therefore we would need to re-shape the data into a 2-dimensional array containing the aircraft density distribution.
+![Gaussian Quiver Plot Airspace](/img/flight/gaussian_scatter.png)
+
+And we can map the KDE over the entire map itself, however, we must create a "meshgrid" over the plot. The aircraft exist between the grids native resolution, therefore we would need to re-shape the data into a 2-dimensional array containing the aircraft density distribution.
 
 We can combine the 2D KDE mapping with the quiver plot to reveal a bit more information on aircraft density distribution, like so:
 
 ![Gaussian Quiver Plot Airspace](/img/flight/gaussian_quiver.png)
 
-The plotting process is iterated over the entire folder of timestamped csv's to generate the aircraft movement visualisations incrementally over time.
+The plotting process is iterated over the folder of timestamped csv's to generate the incremental aircraft movements over time.
 
 #### Map Data Struggles
 Something that left me completely stumped for a while is that I was not able to directly use the Stadia Maps API within in **Cartopy 0.22.0** which was confusing and frustrating.
@@ -128,21 +130,23 @@ Even from a time perspective, it takes a very long time to render the map, about
 
 Plotting the scatterpoints takes a trivial amount of time in comparison, about 1-2s or so per iteration.
 
-However, plotting the 2D gaussian KDE plot is much more intensive as we are drawing a high resolution color mapping across the entire grid. Each iteration was about 20-25s to render (but im pretty sure it got much slower over time). The filled color grid mapping took about 20 hours to create all 850 images. Probably because I was not removing the artist itself per iteration, but this is just a working assumption.
 
-Bearing in mind we are purely talking about **single core processing**. If we split the load across the rest of the CPU cores,and spawn the data visualisation processes in parallel, it should cut the time significantly. I'll investigate this setup in the near future to optimise the compute power since Python is pretty slow in general.
+#### Slow Color Mesh Plotting
+Plotting the 2D Gaussian KDE plot was much more intensive as we are drawing a high resolution color mapping across the entire grid. Each iteration was about 20-25s to render but it tended to slow down to over 1m per iteration. The filled color grid mapping took about 20 hours to create all 850 images. Probably because I was not removing the artist itself per iteration, but this is just a working assumption. I'll have a look at optimising in the future.
+
+Bearing in mind we are purely talking about **single core processing**. Splitting the load across the rest of the CPU cores, and spawning the data processes in parallel would've cut the time significantly. I'll investigate this setup in the near future to optimise the compute power since Python is pretty slow in general.
 
 ### ✈️ Data Animation
 
-And this is the key component where we can physically see how the aircraft are moving over time.
+This is the key component where we can physically see how the aircraft are moving over time.
 
-This animation procedure is fairly straightforward when using **ffmpeg**. We can simply point to a folder with a collection of images and ask the program to splice them together into a mp4 file (or whatever file type).
+This animation procedure is fairly straightforward when using **ffmpeg** in a bash script. We can point to a folder with a collection of images and ask the program to splice them together into a mp4 file (or whatever file type).
 
-As long as all the images are timestamped, the files should be sorted in chronological order so you don't need to fiddle with passing additional sort arguments into your command.
+Assuming the images are timestamped, the files should be sorted in chronological order so you don't need to fiddle with passing additional sort arguments into your command.
 
 It only takes a few minutes on my machine to splice together 850 images together.
 
-Since my file structure is segmented into multiple folders partitioned by "date" and "visualisation type", I simply pass those parameters into my bash script to generate the spliced video.
+My file structure is segmented into multiple folders partitioned by "date" and "visualisation type", I simply pass those parameters into my bash script to generate the spliced video.
 
 The script is only a few lines and looks like this:
 
@@ -159,9 +163,9 @@ image_data="$base_folder/data/get_states/$1/$2/crop"
 ffmpeg -framerate 24 -pattern_type glob -i "${image_data}/*.png" $output/$1_$2_movements.mp4
 ```
 
-Other video processing I did audio-wise was done on Kdenlive to add in the musical audio transitions.
+Other video processing was down on Kdenlive to add in the musical audio transitions.
 
 ### 📽️ Data Time-lapse
-Video illustrating the 16-hour scatter plot time-lapse of aircraft flying over North America.
+Videos illustrating the 16-hour scatter plot time-lapse of aircraft flying over North America.
 {{< youtube wC3WE-jOU0w >}}
 {{< youtube RLNOIJgDLgw >}}
