@@ -62,6 +62,7 @@ For the SSH Remote Access, I will be connecting to my Raspberry Pi via my Arch L
 - Set up wireless networking capability onto the boot disc.
 - Obtain Raspberry Pi's IP Address
 - Create hostname for IP in the /etc/hosts file
+- Ensure Raspberry Pi "Server" has OpenSSH Daemon running as Service
 
 ### Setting Up Networking
 Assuming you are running a minimal distribution such as Raspberry Pi Lite OS, you will need a way to get access to the internet.
@@ -97,6 +98,14 @@ network={
 You can safely remove the SD card from your PC. 
 
 Put the SD Card back into the Pi and power it on.
+
+### Ensuring OpenSSH Daemon is running (For Linux server)
+For Raspberry Pi I'm assuming this is running by default, however, for other Linux systems, you will have to ensure that it is installed AND enabled as a service. Otherwise you will encounter a lot of confusion when your SSH requests are not being accepted:
+
+- If openssh is not installed on your server, then install using your relevant package manager e.g.: **sudo pacman -S openssh**
+- To check the status of the daemon: **systemctl status sshd**
+- If it *disabled* then start the service **systemctl start sshd**
+- By default it will be listening for TCP connections on port 22
 
 ### SSH Into Raspberry Pi Via Terminal
 
