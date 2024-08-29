@@ -10,7 +10,7 @@ draft: false
 
 cover:
   image : img/tractor/rc_car_full.png
-  alt: 'Solidworks Render of Tractor'
+  alt: 'Solidworks Render of Car'
 
 tags: [⚙️ Engineering]
 ---

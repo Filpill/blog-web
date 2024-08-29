@@ -10,7 +10,7 @@ draft: false
 
 cover:
   image: /img/arch/gui/linux_gui.png
-  alt: File Share Image Cover
+  alt: Linux GUI Image Cover
 
 tags: [💻 Systems]
 ---

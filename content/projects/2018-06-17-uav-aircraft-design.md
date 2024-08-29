@@ -41,6 +41,7 @@ tags: [⚙️ Engineering]
 
 - Areas of the aircraft which experience high loading (e.g. landing gear, wing root etc.) have been reinforced with plywood and less stressed areas are built with the less dense materials such as balsa to maintain a low overall empty weight.
 
+<div align="center">
 
  Conceptual Design Phase                |  &nbsp;  &nbsp;  |  Detailed Design Phase
 | :--------                             | :--------------:   | -----------------:               |
@@ -55,6 +56,7 @@ tags: [⚙️ Engineering]
 | Material Selection                    |   | Wind Tunnel Testing              |
 | Preliminary Structural Analysis       |   | Flight Test                      |
 
+</div>
 
 ## Solidworks Design
 

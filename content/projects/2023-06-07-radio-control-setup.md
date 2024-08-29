@@ -43,6 +43,8 @@ Component      | Part No.
 
 These are the electrical connectors used in these components. 
 
+<div align="center">
+
 Component | Connector(s)
 | :---        |    :----
 ESC | Traxxas, Deans, Motor Pin, Futaba
@@ -51,6 +53,8 @@ Motor | Motor Pin
 Servo | Futaba
 Voltage Alarm | JST XH
 Balance Charger | JST XH
+
+</div>
 
 Typically the battery connectors can come in a number of varieties which can make the matter confusing. However, you always have the option of hooking up and adapter. 
 
