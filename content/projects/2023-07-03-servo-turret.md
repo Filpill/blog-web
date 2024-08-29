@@ -10,7 +10,7 @@ draft: false
 
 cover:
   image : img/servoTurret/mouse_setup.jpg
-  alt: 'Solidworks Render of Tractor'
+  alt: 'Arduino Server Turret Setup'
 
 tags: [⚙️ Engineering]
 ---
