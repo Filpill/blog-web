@@ -28,6 +28,8 @@ Developing with dbt will encourage you to break complex SQL procedures into smal
 - Easier to maintain
 - Easier to test
 
+I recommend taking this ***[dbt fundamentals course](https://learn.getdbt.com/courses/dbt-fundamentals)*** in conjunction with the dbt documentation which is the foundation for the article.
+
 You can connect dbt to any database or data warehouse instance, but I will walk through my experience with using the tool and how it integrates with the BigQuery data warehouse.
 
 ## 🛠️ Installing dbt Cloud CLI tool
@@ -60,13 +62,15 @@ Provided you have a service account and GCP project created, you can fill out th
 
 Simply attaching the private JSON key from your service account will auto populate all the fields leaving you only needing to fill the project ID field.
 
-It's worth understanding that each connection can only execute against the project ID you are connecting to. Therefore the environment segmentation exists in the dataset level.
+It's worth understanding that each connection can only execute against the project ID you are connecting to. Therefore the default environment segmentation exists in the dataset level. It's a little annoying to deal with given that this would intermingle development and production datasets.
 
 ## 💾 Connecting to Git Repository
 
 Connecting to Git is a straightforward affair, as long as you have repository pre-created, you can simply hook up dbt cloud to it can give it authorisation to modify the repo.
 
 The git integration allows you to visually inspect which files are being added/changed/removed. Overall, it should help you make a more conscious effort in grouping git commits appropriately.
+
+Continuously developing dbt models alongside production code is core to leveraging to the system to its fullest.
 
 ## 🧱 Development File Structure
 
@@ -101,9 +105,9 @@ Dbt macros are much akin to the aforementioned UDF, though you can expect more f
 Lets imagine an extreme example of writing a gigantic case statement with hundreds of scenarios. Imagine how tedious it is copy pasting all those conditions by hand. Imagine trying to debug that case statement weeks later. Terrible...
 
 With the use of Jinja you can put all these conditions into a list and iterate through with a loop to compile your SQL. There are a few of advantages:
-- Looks very compact from a dbt model perspective; typically less lines, easier to read.
-- You are using variables which can be shared with other SQL models.
-- Reducing the surface area where you can introduce human error into SQL models.
+- **Looks compact** from a dbt model perspective; typically less lines, easier to read.
+- **Project variables** can be shared with other dbt models.
+- **Reduces human error** when building out dbt models.
 
 Macros will still benefit you across the board in smaller implementations. It really comes down to a degree of creativity in reducing repeatability.
 
@@ -127,7 +131,7 @@ Documentation occurs inside the configuration files to record information about 
 
 Additionally, within the **models** directory, you are able to create a ***_docs.md*** file which can store multi-line text blocks or tables in markdown. You can use the **{{ doc('') }}** reference to insert those text blocks. This is ideal for improving the readability of a configuration file.
 
-After writing out your dbt documentation, you can run the following dbt command to compile everything together: ***dbt generate docs***
+After writing out your dbt documentation, you can run the following dbt command to compile everything together: ***dbt generate docs***.
 
 You can then proceed to review the compiled documents on the dbt cloud interface on the web.
 
@@ -137,4 +141,27 @@ Dbt documentation is a more natural and procedural approach to documenting your 
 
 ***Running documentation directly in dbt keeps it alive and significantly less likely to get orphaned in your development cycles.***
 
-## 🛣 Deployment Environments and Jobs
+## 🌥 Environments
+
+There are a plethora of ways to manage environments in your data warehouse and it's completely up to you to decide how to create environmental segmentation.
+
+Dbt will **always mandate a dedicated development environment** within a project which is where you will be developing your dbt models. Typically, when you run development models, they will land in a user schema/dataset. This will isolate your outputs and avoid collisions with other developers building in parallel.
+
+However, when we start to deploy our datasets into production environments, we want to avoid inter-mingling development and production datasets where possible...
+
+The way I have personally set environments up is through the use of multiple separate data warehouse connections. For example I can specify a:
+- **Develop** project connection - for developing data models
+- **UAT** project connection - for data quality testing
+- **Production** project connection - for analytical consumption
+
+In each environment, we can house different levels of data volumes or different model refresh frequencies.
+
+## 🛣 Deployments and Jobs
+
+When it comes to deploying to different environments, we can leverage these different connections to push to different target environments, which in our case would be different GCP project_id's.
+
+You can have at least two categories of jobs:
+- An **ad-hoc** job which manually runs a deployement, can be suitable for landing data in a test environment.
+- A **daily-scheduled** job which would deploy to a production environment on a daily basis.
+
+This can be a useful option for orchestrating jobs in your data warehouse as you can interpret error logs and fix pipelines much more easily as developer tools are more accessible. Additionally, you have built data pipeline/job health checks so you can monitor the reliability of your pipelines.
