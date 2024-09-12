@@ -2,11 +2,11 @@
 title: "Understanding dbt Cloud Fundamentals"
 description: "Covering all the basic aspects of maintaining dbt infrastructure"
 date: 2024-09-09T17:44:58Z
-hideSummary: false
+hideSummary: true
 ShowWordCount: true
 ShowReadingTime: true
 ShowToC: true
-draft: true
+draft: false
 
 cover:
   image: ./img/dbt/dbt_office.png
