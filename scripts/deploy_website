@@ -3,10 +3,10 @@
 echo "Deploying Website Updates to Github Pages"
 
 # Build project
-hugo -t PaperMod
+hugo -t hugo-PaperMod
 
 # Commit and Push Changes
-cd public
+cd $HOME/projects/blog-web/public
 git add .
 msg="rebuilding site `date`"
 git commit -m "$msg"

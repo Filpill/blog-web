@@ -1,6 +1,6 @@
 #!/bin/sh
 # Folder which contains Blogging Scripts
-blogFolder=~/work/blog-web
+blogFolder=$HOME/projects/blog-web
 Terminal_1=$(xdotool getactivewindow)
 cd $blogFolder
 searchLatestID="xdotool search -pid $(pidof st | cut --delimiter " " --fields 1)"

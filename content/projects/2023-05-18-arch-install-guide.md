@@ -319,6 +319,26 @@ umount -R /mnt
 reboot
 ```
 
+### Bonus - 16. Booting From Grub Shell
+In case you forgot to set up your genfstab to automatically mount your drive in the boot process. You still can boot into Arch using the Grub shell and fix any steps that were missed:
+
+```bash
+# List out drives and partitions
+ls -l 
+
+# Set root var to root partition
+set root=(hd0,msdos2)
+
+# Load linux kernal
+linux /boot/vmlinuz-linux root=/dev/sda2 rw  
+
+# Load the initramfs
+initrd /boot/initramfs-linux.img 
+
+# Boot into system
+boot
+```
+
 If successful you should be greeted with this screen. You can select **Arch Linux** to boot into the system.
 ![](/img/arch/install_process/42.jpg#center)
 And you should see a tty appear on your screen.
