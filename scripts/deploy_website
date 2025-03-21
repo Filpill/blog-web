@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "Deploying Website Updates to Github Pages"
+cd ..
 
 # Build project
 hugo -t hugo-PaperMod
