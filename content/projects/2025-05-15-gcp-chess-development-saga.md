@@ -25,16 +25,18 @@ You can find the YouTube Playlist here: [Full GCP Chess Data Engineering Playlis
 
 # Videos
 
-{{< youtube lwSkZTkpnEY >}} 
+{{< youtube lG3C0Dg_0uI >}} 
 
-{{< youtube DVg2w9E1QF0 >}} 
-
-{{< youtube YQlfOcI1kwo >}} 
-
-{{< youtube 3IErtfFDKrY >}} 
-
-{{< youtube d5H1ZXQZvdY >}} 
+{{< youtube VIMxBKlSn40 >}} 
 
 {{< youtube tICUPXow9Q8 >}} 
 
-{{< youtube VIMxBKlSn40 >}} 
+{{< youtube d5H1ZXQZvdY >}} 
+
+{{< youtube 3IErtfFDKrY >}} 
+
+{{< youtube YQlfOcI1kwo >}} 
+
+{{< youtube DVg2w9E1QF0 >}} 
+
+{{< youtube lwSkZTkpnEY >}} 
