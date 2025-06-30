@@ -35,5 +35,4 @@ I place great value of **writing it down your learning process** as it helps **r
 ---
 
 ### :page_facing_up: Resume
-{{< embed-pdf url="/files/filip_cv.pdf" renderPageNum="1" hideLoader="false" >}}
-
+{{< embed-pdf url="/files/filip-livancic-cv.pdf" renderPageNum="1" hideLoader="false" >}}
