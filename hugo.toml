@@ -1,6 +1,6 @@
 #baseURL = 'https://filpill.github.io/'
 baseURL = 'https://filiplivancic.com/'
-languageCode = 'en-us'
+locale = 'en-us'
 title =  'Filip Livancic'
 theme = ['hugo-embed-pdf-shortcode','hugo-PaperMod']
 enableInlineShortcodes = true
@@ -8,6 +8,9 @@ enableEmoji = true
 
 [markup.goldmark.renderer]
 unsafe = true
+
+[params]
+author = "Filip Livancic"
 
 [params.homeInfoParams]
 enabled = true

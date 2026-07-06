@@ -1,15 +1,22 @@
 #!/bin/bash
+set -euo pipefail
 
 echo "Deploying Website Updates to Github Pages"
-cd ..
+cd "$HOME/projects/blog-web"
 
-# Build project
-hugo -t hugo-PaperMod
+# Build project — abort the deploy if the build fails
+if ! hugo -t hugo-PaperMod; then
+	echo "ERROR: hugo build failed — aborting deploy, nothing pushed." >&2
+	exit 1
+fi
 
 # Commit and Push Changes
-cd $HOME/projects/blog-web/public
+cd "$HOME/projects/blog-web/public"
 git add .
-msg="rebuilding site `date`"
+if git diff --cached --quiet; then
+	echo "No changes to deploy."
+	exit 0
+fi
+msg="rebuilding site $(date)"
 git commit -m "$msg"
 git push origin main
-cd ..
